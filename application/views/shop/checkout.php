@@ -175,7 +175,7 @@ $('body').on('click','.courier-item .link',function(){
     var courier = $(this).attr("courier-id");
     $('#courier-form').val(courier);
     $('.courier-item .link').attr("style","border:none");
-    $(this).attr("style","border:1px solid #3085d6");
+    $(this).attr("style","border: 2px solid #80bdff;outline: 0;box-shadow: 2px 0 6px 0.2rem rgba(0,123,255,.25);");
     var total = $(this).attr("data-total");
     var shipping = $(this).attr("data-shipping");
     $('.shipping').html(shipping);
