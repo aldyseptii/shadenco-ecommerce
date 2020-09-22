@@ -111,7 +111,7 @@ if(!isset($max)) {
             <div class="caption product-detail">
               <div class="rating"> <?=$this->toolset->rating($product->total_rating);?> </div>
               <h4 class="product-name"><a href="#" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h4>
-              <p class="price product-price"><?=$this->toolset->rupiah_short($product->price_product);?></p>
+              <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
               <p class="product-desc"><?=strip_tags(substr($product->description_product,0,400));?></p>
               <ul class="button-group list-btn">
               <li>
