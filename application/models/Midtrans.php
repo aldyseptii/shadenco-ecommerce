@@ -13,7 +13,7 @@ class Midtrans extends CI_Model {
         $overridenotif = base_url("home/notif_midtrans");
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://app.midtrans.com/snap/v1/transactions",
+            CURLOPT_URL => "https://app.sandbox.midtrans.com/snap/v1/transactions",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -31,8 +31,8 @@ class Midtrans extends CI_Model {
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
-        
-        
+
+
         if(curl_errno($curl)) {
             return $err;
         } else {
@@ -44,7 +44,7 @@ class Midtrans extends CI_Model {
     function get_status($orderid,$serverKey) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.midtrans.com/v2/$orderid/status",
+            CURLOPT_URL => "https://api.sandbox.midtrans.com/v2/$orderid/status",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

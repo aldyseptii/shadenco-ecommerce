@@ -4,7 +4,7 @@
     <!-- Default to the left -->
     &copy; 2020 <b>Shade & Co</b>
     <div class="float-right d-none d-sm-inline">
-      Template by <a href="#">AdminLTE.io</a>
+      Made with <a href="#" class="fa fa-heart"></a>
     </div>
   </footer>
 </div>
