@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-header">KELOLA</li>
           <li class="nav-item">
-              <a href="<?=base_url('admin/product');?>" class="nav-link">
+              <a href="<?=base_url('admin/product')?>" class="nav-link">
                 <i class="nav-icon fas fa-th-list"></i>
                 <p>
                     Produk
