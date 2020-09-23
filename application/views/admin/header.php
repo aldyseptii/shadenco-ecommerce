@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?=base_url("admin");?>" class="brand-link">
+    <a href="<?=base_url("admin");?>" class="brand-link text-center">
 <!--      <img src="--><?//=base_url("minilogo.png");?><!--" class="brand-image">-->
         <i class="fas fa-weight-hanging nav-icon"></i>
       <div class="brand-text">Shade & Co <span class="font-weight-light">eCommerce</span></div>
