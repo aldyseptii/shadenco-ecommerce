@@ -168,7 +168,7 @@ class Transaction extends CI_Controller {
                     $row = array();
                     $row['price'] = $crt['price'];
                     $row['quantity'] = $crt['qty'];
-                    $row['name'] = $crt['name'];
+                    $row['name'] = substr($crt['name'],0,50);
                     $pushitem1[] = $row;
                 }
                 $pushitem1[] = [
