@@ -43,6 +43,10 @@ class Admin_auth extends CI_Controller {
                 $this->session->set_userdata($datasession);
                 $callback['status'] = 1;
                 $callback['msg'] = "Login berhasil";
+                if($this->session->login_status = 1) {
+                    redirect(base_url('admin/dashboard'));
+                }
+
             }
         }
 

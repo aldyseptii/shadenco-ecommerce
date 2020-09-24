@@ -21,18 +21,16 @@
   <link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.css">
 
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background: url(https://source.unsplash.com/1600x900/?building);">
 <!-- jQuery -->
 <script src="<?=base_url();?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
 <div class="login-box">
-  <div class="login-logo">
-    <b>Shade & Co </b>eCommerce
+  <div class="login-logo bg-light p-4">
+    <img src="<?=base_url("assets");?>/logo.png">
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Login ke akun anda untuk mengakses admin panel</p>
-
       <form action="<?=base_url('admin/auth/login');?>" method="post" class="login-form">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Username" name="usn">
@@ -55,7 +53,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="button" class="btn btn-primary btn-block btn-auth">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-auth">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
