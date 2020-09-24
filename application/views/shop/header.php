@@ -79,7 +79,7 @@ $this->visitor->hit();
   <div class="container">
     <div class="header-inner">
       <div class="col-sm-3 col-xs-3 header-left">
-        <div id="logo"> <a href="<?=base_url();?>"><img src="<?= base_url("assets"); ?>/logo.png" style="max-height:68px" title="<?=$this->shop_setting->sitename();?>" alt="<?=$this->shop_setting->sitename();?>" class="img-responsive" /></a> </div>
+        <div id="logo"> <a href="<?=base_url();?>"><img src="<?= base_url("assets"); ?>/logo.png" style="max-height:130px" title="<?=$this->shop_setting->sitename();?>" alt="<?=$this->shop_setting->sitename();?>" class="img-responsive" /></a> </div>
       </div>
       <div class="col-sm-9 col-xs-9 header-right">
         <div id="search" class="input-group">

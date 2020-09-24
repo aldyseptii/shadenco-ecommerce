@@ -243,7 +243,7 @@ header {
 .header-inner .header-left {
 	width: auto;
 	padding: 0;
-	margin: 22px 0;
+	/*margin: 22px 0;*/
 }
 .header-inner .header-right {
 	padding: 0;
