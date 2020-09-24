@@ -251,6 +251,18 @@ header {
 	width: auto;
 	margin: 35px 0;
 }
+.header-social {
+	display: inline-flex;
+	list-style-type: none;
+}
+.header-social li {
+	display: inline-block;
+	margin-right: 12px;
+}
+.header-social li a:hover {
+	text-decoration: none;
+	color: #707a7e;
+}
 /* logo */
 #logo {
 	margin: 0;

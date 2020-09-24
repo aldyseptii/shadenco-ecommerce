@@ -50,8 +50,9 @@
                     <div class="rating">
                         <?=$this->toolset->rating($product->total_rating);?>
                     </div>
-                    <h4 class="product-name"><a href="#" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h4>
-                    <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
+                    <h3 class="product-name"><a href="<?=base_url("product/$product->id_product-$tourl");?>" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h3>
+                      <span class="badge" title="Stok Tersedia - <?=$product->stock_product;?>"><?=$product->stock_product;?> Stok</span>
+                      <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
                   </div>
                 </div>
               </div>
@@ -99,8 +100,9 @@
                     <div class="rating">
                         <?=$this->toolset->rating($product->total_rating);?>
                     </div>
-                    <h4 class="product-name"><a href="#" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h4>
-                    <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
+                    <h4 class="product-name"><a href="<?=base_url("product/$product->id_product-$tourl");?>" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h4>
+                      <span class="badge" title="Stok Tersedia - <?=$product->stock_product;?>"><?=$product->stock_product;?> Stok</span>
+                      <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
                   </div>
                 </div>
               </div>

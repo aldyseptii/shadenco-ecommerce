@@ -80,7 +80,7 @@ class Cart extends CI_Controller {
                     }
                     if($stok['stock_product'] < $qty) {
                         $callback['status'] = 0;
-                        $callback['msg'] = "Stok tidak tersedia";   
+                        $callback['msg'] = "Maaf stok tidak tersedia";
                     } else {
                         $rowbefore[$id] = [$id,$qty];
                         $this->session->set_userdata(["cart" => $rowbefore]);

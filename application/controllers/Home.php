@@ -27,18 +27,18 @@ class Home extends CI_Controller {
         $this->load->view('shop/footer',$push);
     }
 
-    function get_token() {
-        $this->load->model("midtrans");
-        $push['order_id'] = "2020012286";
-        $push['status_code'] = 200;
-        $grossAmount = 200000+41000;
-        $push['gross_amount'] = $grossAmount.".00";
-        $serverKey = $this->midtrans->get_access("serverkey");
-        $input = $push['order_id'].$push['status_code'].$push['gross_amount'].$serverKey;
-        $signature = openssl_digest($input, 'sha512');
-        $push['signature_key'] = $signature;
-        echo json_encode($push);
-    }
+//    function get_token() {
+//        $this->load->model("midtrans");
+//        $push['order_id'] = "2020012286";
+//        $push['status_code'] = 200;
+//        $grossAmount = 200000+41000;
+//        $push['gross_amount'] = $grossAmount.".00";
+//        $serverKey = $this->midtrans->get_access("serverkey");
+//        $input = $push['order_id'].$push['status_code'].$push['gross_amount'].$serverKey;
+//        $signature = openssl_digest($input, 'sha512');
+//        $push['signature_key'] = $signature;
+//        echo json_encode($push);
+//    }
     
     function notif_midtrans() {
         

@@ -48,33 +48,43 @@ $this->visitor->hit();
 </head>
 <body class="index">
 <header>
-<div class="header-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="top-left pull-left">
-            <div style="padding:9px;color:#444444"> Selamat datang di Shade&Co Ecommerce! </div>
-          </div>
-          <div class="top-right pull-right">
-            <div id="top-links" class="nav pull-right">
-              <ul class="list-inline">
-                <li><a href="<?=base_url('tracking');?>" title="Status Pesanan" style="color:#444444">Status Pesanan</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--<div class="header-top">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-12">-->
+<!--          <div class="top-right pull-right">-->
+<!--              <ul class="header-social mt-2">-->
+<!--                  <li>-->
+<!--                      <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                      <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                      <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                      <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                      <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>-->
+<!--                  </li>-->
+<!---->
+<!--              </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="container">
     <div class="header-inner">
       <div class="col-sm-3 col-xs-3 header-left">
-        <div id="logo"> <a href="<?=base_url();?>"><img src="<?=base_url("assets");?>/logo.png" style="max-height:68px" title="<?=$this->shop_setting->sitename();?>" alt="<?=$this->shop_setting->sitename();?>" class="img-responsive" /></a> </div>
+        <div id="logo"> <a href="<?=base_url();?>"><img src="<?= base_url("assets"); ?>/logo.png" style="max-height:68px" title="<?=$this->shop_setting->sitename();?>" alt="<?=$this->shop_setting->sitename();?>" class="img-responsive" /></a> </div>
       </div>
       <div class="col-sm-9 col-xs-9 header-right">
         <div id="search" class="input-group">
           <form action="<?=base_url('search');?>" method="get">
-          <input type="text" name="q" value="<?php if(isset($q)) echo $q;?>" placeholder="Tulis sesuatu...." class="form-control input-lg" />
+          <input type="text" name="q" value="<?php if(isset($q)) echo $q;?>" placeholder="Cari Roller Blinds.." class="form-control input-lg" />
           <span class="input-group-btn">
           <button type="submit" class="btn btn-default btn-lg"><span>Cari</span></button>
           </span>
@@ -84,9 +94,9 @@ $this->visitor->hit();
           <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span>Keranjang</span><br>
           <span class="crtitem"><?=count($cart['data']);?></span> item(s) - <span class="crttotal"><?=$this->toolset->rupiah($cart['total']);?></span></span></button>
           <ul class="dropdown-menu pull-right cart-dropdown-menu cartul">
-              
+
             <?php foreach($cart['data'] as $crt) { ?>
-                
+
                 <li>
                     <table class="table table-striped" style="width:100%">
                         <tbody>
@@ -103,7 +113,7 @@ $this->visitor->hit();
 
         <?php
           }
-          if(count($cart['data']) < 1) { 
+          if(count($cart['data']) < 1) {
         ?>
 
             <li style="text-align: center;margin-bottom: 12px" class="nullcart">Keranjang masih kosong</li>
@@ -146,7 +156,7 @@ $this->visitor->hit();
 
             <?php
             foreach($categories as $category) {
-            ?>  
+            ?>
 
             <li><a href="<?=base_url("category/$category->id_category-".$this->toolset->tourl($category->name_category));?>"><?=$category->name_category;?></a></li>
 
@@ -163,6 +173,7 @@ $this->visitor->hit();
         <li><a href="<?=base_url("page/$page->url_page");?>" class="parent"><?=$page->title_page;?></a> </li>
 
         <?php } ?>
+          <li><a href="<?=base_url('tracking');?>" title="Status Pesanan">Status Pesanan</a></li>
 
       </ul>
     </div>

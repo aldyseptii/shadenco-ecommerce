@@ -30,7 +30,7 @@ class Toolset {
     function rating($angka) {
         $span = "";
         for($i=0;$i<5;$i++) {
-            $span .= '<span class="fa fa-stack">';
+            $span .= '<span class="fa fa-stack mr-2">';
             $span .= '<i class="fa fa-star-o fa-stack-2x"></i>';
             if($i < $angka) {
                 $span .= '<i class="fa fa-star fa-stack-2x"></i>';
