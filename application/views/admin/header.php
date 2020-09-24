@@ -1,6 +1,6 @@
 <?php
     if(!isset($pagetitle)) {
-        $pagetitle = "Admin Panel SBN-Commerce";
+        $pagetitle = "Admin Panel Shade&Co";
     }
 ?>
 <!DOCTYPE html>

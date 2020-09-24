@@ -1,11 +1,11 @@
 {
-    "name": "sabenat/sbncommerce",
-    "description": "Simple CMS for Online Shop/eCommerce",
+    "name": "shadenco/ecommerce",
+    "description": "Shade&Co eCommerce",
     "type": "project",
     "authors": [
         {
-            "name": "Sabenat Digital Grup",
-            "email": "sabenatdigitalgrup@gmail.com"
+            "name": "Shade&Co",
+            "email": "info@shadenco.co.id"
         }
     ],
     "require": {
