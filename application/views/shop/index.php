@@ -63,7 +63,7 @@
             ?>
 
             <div class="viewmore">
-              <a href="<?=base_url('catalog/?sort=id_product-DESC');?>" class="btn">Lihat Semua</a>
+              <a href="<?=base_url('catalog/?sort=id_product-DESC');?>" class="btn">Tampilkan Semua <i class="fa fa-angle-double-right"></i></a>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
             ?>
 
             <div class="viewmore">
-              <a href="<?=base_url('catalog/?sort=total_rating-DESC');?>" class="btn">Lihat Semua</a>
+              <a href="<?=base_url('catalog/?sort=total_rating-DESC');?>" class="btn">Lihat Semua <i class="fa fa-angle-double-right"></i></a>
             </div>
           </div>
         </div>
