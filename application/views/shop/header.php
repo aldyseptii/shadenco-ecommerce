@@ -20,12 +20,14 @@ $this->visitor->hit();
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/stylesheet.css" rel="stylesheet">
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/responsive.css" rel="stylesheet">
-<!--<link href="--><?//=base_url("assets/moonstore/ms01");?><!--/css/jquery-ui.min.css" rel="stylesheet">-->
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+    <?php if ($this->uri->segment(1) == 'product' && !empty($this->uri->segment(1))) { ?>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <?php } ?>
 <link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.css">
 <link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/pace-progress/themes/black/pace-theme-flash.css">
-
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/jquery-2.1.1.min.js" ></script>
 <!--<script type="text/javascript" src="--><?//=base_url("assets/moonstore/ms01");?><!--/javascript/jquery-ui.min.js" ></script>-->
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/bootstrap/js/bootstrap.min.js" ></script>
