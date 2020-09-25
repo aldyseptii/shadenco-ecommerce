@@ -22,7 +22,7 @@ unset($rowthumb[0]);
             <div class="row">
                 <div class="col-sm-5">
                     <div class="thumbnails">
-                        <div><a class="thumbnail fancybox" data-toggle="modal" data-target="#myModal" title="<?=$detail->name_product;?>"><img src="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
+                        <div><a class="thumbnail fancybox" href="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>"><img src="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
                         <div id="product-thumbnail" class="owl-carousel">
 
                             <?php
@@ -31,40 +31,10 @@ unset($rowthumb[0]);
                                 ?>
 
                                 <div class="item">
-                                    <div class="image-additional"><a class="thumbnail" data-toggle="modal" data-target="#myModalThumb"> <img src="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
+                                    <div class="image-additional"><a class="thumbnail fancybox" href="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>"> <img src="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
                                 </div>
 
                             <?php } ?>
-
-                        </div>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog" style="z-index: 9999;">
-                            <!-- Modal content-->
-                            <div class="modal-content text-center">
-                                <div class="modal-body">
-                                    <img src="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Modal Mini Thumbnail -->
-                    <div class="modal fade" id="myModalThumb" role="dialog">
-                        <div class="modal-dialog" style="z-index: 9999;">
-                            <!-- Modal content-->
-                            <div class="modal-content text-center">
-                                <div class="modal-body">
-                                    <img src="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
