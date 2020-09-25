@@ -20,12 +20,14 @@ $this->visitor->hit();
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/stylesheet.css" rel="stylesheet">
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/responsive.css" rel="stylesheet">
+<!--<link href="--><?//=base_url("assets/moonstore/ms01");?><!--/css/jquery-ui.min.css" rel="stylesheet">-->
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
 <link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.css">
 <link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/pace-progress/themes/black/pace-theme-flash.css">
 
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/jquery-2.1.1.min.js" ></script>
+<!--<script type="text/javascript" src="--><?//=base_url("assets/moonstore/ms01");?><!--/javascript/jquery-ui.min.js" ></script>-->
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/bootstrap/js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/template_js/jstree.min.js"></script>
 <script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/template_js/template.js" ></script>
