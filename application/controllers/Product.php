@@ -11,6 +11,7 @@ class Product extends CI_Controller {
         $this->load->model("page_model");
         $this->load->model("comment_model");
         $this->load->library("cart_session");
+        $this->load->library("toolset");
 
     }
 

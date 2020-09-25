@@ -170,8 +170,7 @@ unset($rowthumb[0]);
                     <?=$this->toolset->rating($product->total_rating);?>
                 </div>
                 <h4 class="product-name"><a href="#" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
-                  <span class="badge" title="Stok Tersedia - <?=$product->stock_product;?>"><?=$product->stock_product;?> Stok</span>
-                  <p class="price product-price"><?=$this->toolset->rupiah($rlt->price_product);?></p>
+                <p class="price product-price"><?=$this->toolset->rupiah_short($rlt->price_product);?></p>
               </div>
             </div>
           </div>
