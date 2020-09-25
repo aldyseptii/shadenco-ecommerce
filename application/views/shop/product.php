@@ -167,7 +167,7 @@ unset($rowthumb[0]);
               </div>
               <div class="caption product-detail">
                 <div class="rating">
-                    <?=$this->toolset->rating($product->total_rating);?>
+                    <?=$this->toolset->rating($rlt->total_rating);?>
                 </div>
                 <h4 class="product-name"><a href="#" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
                 <p class="price product-price"><?=$this->toolset->rupiah_short($rlt->price_product);?></p>
