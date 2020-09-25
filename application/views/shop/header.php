@@ -14,7 +14,7 @@ $this->visitor->hit();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="<?=$this->shop_setting->description();?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="<?=base_url("assets/moonstore/ms01");?>image/favicon.png" rel="icon" type="image/png" >
+<link href="<?=base_url("assets/moonstore/ms01");?>/image/favicon.png" rel="icon" type="image/png" >
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/>
