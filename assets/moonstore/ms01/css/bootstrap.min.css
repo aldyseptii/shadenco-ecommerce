@@ -3712,6 +3712,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
+	cursor: crosshair;
 }
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 	border-color: #ddd;
