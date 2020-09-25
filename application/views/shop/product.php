@@ -199,8 +199,9 @@ unset($rowthumb[0]);
                                     <div class="rating">
                                         <?=$this->toolset->rating($rlt->total_rating);?>
                                     </div>
-                                    <h4 class="product-name"><a href="#" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
-                                    <p class="price product-price"><?=$this->toolset->rupiah_short($rlt->price_product);?></p>
+                                    <h4 class="product-name"><a href="<?=base_url("product/$rlt->id_product-$tourl");?>" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
+                                    <span class="badge" title="Stok Tersedia - <?=$rlt->stock_product;?>"><?=$rlt->stock_product;?> Stok</span>
+                                    <p class="price product-price"><?=$this->toolset->rupiah($rlt->price_product);?></p>
                                 </div>
                             </div>
                         </div>
