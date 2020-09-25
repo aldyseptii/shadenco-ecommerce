@@ -1836,6 +1836,16 @@ p.list-group-item {
 	text-transform: uppercase;
 	text-align: center;
 }
+.productblock-title:after{
+	content: "";
+	background: #9ba8ae;
+	height: 3px;
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+}
 .title-subline {
 	font-size: 16px;
 	clear: both;
