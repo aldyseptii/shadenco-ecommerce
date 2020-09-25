@@ -139,7 +139,7 @@ unset($rowthumb[0]);
         </div>
       </div>
       <h3 class="productblock-title">Produk Serupa</h3>
-      <h4 class="title-subline">Mungkin anda juga suka</h4>
+      <h4 class="title-subline">Produk yang mungkin Anda tertarik</h4>
       <div class="box">
         <div id="related-slidertab" class="row owl-carousel product-slider">
 
@@ -166,9 +166,12 @@ unset($rowthumb[0]);
                 </ul>
               </div>
               <div class="caption product-detail">
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
+                <div class="rating">
+                    <?=$this->toolset->rating($product->total_rating);?>
+                </div>
                 <h4 class="product-name"><a href="#" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
-                <p class="price product-price"><?=$this->toolset->rupiah_short($rlt->price_product);?></p>
+                  <span class="badge" title="Stok Tersedia - <?=$product->stock_product;?>"><?=$product->stock_product;?> Stok</span>
+                  <p class="price product-price"><?=$this->toolset->rupiah($rlt->price_product);?></p>
               </div>
             </div>
           </div>
