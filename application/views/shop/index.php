@@ -1,5 +1,5 @@
 
-<div class="mainbanner">
+<div class="mainbanner shadow">
   <div id="main-banner" class="owl-carousel home-slider">
     
     <?php
