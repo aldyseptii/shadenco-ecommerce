@@ -15,6 +15,7 @@ if(isset($product_value)) {
     $product_value->description_product = "";
     $product_value->price_product = "";
     $product_value->weight_product = "";
+    $product_value->size_product = "";
     $product_value->stock_product = "";
     $product_value->id_category = "";
     $product_value->id_product = 0;
@@ -120,6 +121,16 @@ if(isset($product_value)) {
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label>Ukuran Produk</label> :
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-swatchbook"></i></span>
+                                    </div>
+                                    <input type="text" name="size_product" class="form-control validate" value="<?=$product_value->size_product;?>">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label>Kategori Produk</label> :
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -136,7 +147,7 @@ if(isset($product_value)) {
                             </div>
                             <div class="form-group">
                                 <label>Stok Produk</label> :
-                                <input type="text" name="stock_product" value="<?=$product_value->stock_product;?>" class="form-control validate"> 
+                                <input type="number" name="stock_product" value="<?=$product_value->stock_product;?>" class="form-control validate">
                                 <div class="invalid-feedback"></div>
                             </div>                             
                     </div>
@@ -215,7 +226,9 @@ $('.save').on('click',function(){
                     'Berhasil',
                     '',
                     'success'
-                );
+                ).then(function() {
+                    window.location = '<?php echo base_url(); ?>admin/product/';
+                });
             } else {
                 var count = result['error'].length;
                 var i;

@@ -48,7 +48,31 @@ unset($rowthumb[0]);
                         </li>
                     </ul>
                     <hr>
-                    <p class="product-desc" style="color:#555"><?=nl2br($detail->description_product);?></p>
+                    <div class="ukuran">
+                    <h5>Ukuran</h5>
+                        <h1><?=$detail->size_product;?></h1>
+                    </div>
+                    <hr>
+                    <div class="motif">
+                    <h5>Motif</h5>
+                    <label>
+                        <input type="radio" name="test" value="small">
+                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1A
+                    </label>
+
+                    <label>
+                        <input type="radio" name="test" value="big">
+                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1B
+                    </label>
+                    <label>
+                        <input type="radio" name="test" value="big">
+                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1C
+                    </label>
+                    </div>
+                    <hr>
+                    <p class="product-desc" style="color:#555"><?=nl2br($detail->description_product);?> <br/><br/>
+                        Tersedia : <?=$detail->stock_product;?> Stok Barang</span>
+                    </p>
                     <div id="product">
                         <div class="form-group">
                             <div class="qty">
@@ -269,3 +293,58 @@ unset($rowthumb[0]);
         });
     });
 </script>
+<style>
+    div .motif label input[type=radio] + img {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        background-size: 38px;
+        border-radius: 12px;
+        margin: 0 4px 0 0;
+    }
+    div .motif label {
+        font-weight: 400;
+        margin: 3px 0;
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: rgb(155 168 174 / 0%);
+        border-radius: 16px;
+        border: 1px solid rgb(155 168 174 / 53%);
+        color: rgb(155 168 174);
+        display: inline-flex;
+        vertical-align: top;
+        flex: 1 1 0%;
+        flex-wrap: nowrap;
+        margin-bottom: 8px;
+        margin-right: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.28s ease-in-out 0s;
+        cursor: pointer;
+        min-width: 106px;
+        height: 48px;
+        padding: 3px 5px;
+        line-height: 18px;
+        font-size: 12px;
+        white-space: normal;
+    }
+    /* HIDE RADIO */
+    div .motif label [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* IMAGE STYLES */
+    [type=radio] + img {
+        cursor: pointer;
+    }
+
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+        background: #bccad0;
+        padding: 4px;
+        transition: all 0.28s ease-in-out 0s;
+    }
+</style>

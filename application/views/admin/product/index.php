@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-4">
-                        <a href="<?=base_url("admin/product/add");?>" class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Tambah Produk</a>
+                        <a href="<?=base_url("admin/product/add");?>" class="btn btn-success btn-xs"><i class="fas fa-plus"></i> Tambah Produk</a>
                       </div>
                       <hr/>
                       <div class="table-responsive">
@@ -42,6 +42,7 @@
                                     <th scope="col" style="text-align:center">Harga Produk</th>
                                     <th scope="col" style="text-align:center">Stok Produk</th>
                                     <th scope="col" style="text-align:center">Berat Product</th>
+                                    <th scope="col" style="text-align:center">Ukuran Product</th>
                                     <th scope="col" style="text-align:center">Kategori</th>
                                     <th scope="col" style="text-align:center">Diupdate</th>
                                     <th scope="col" style="text-align:center">Action</th>
@@ -92,6 +93,10 @@
             },
             {
                 "targets": [ 7 ],
+                "className": "dt-center"
+            },
+            {
+                "targets": [ 8 ],
                 "className": "dt-center",
                 "orderable": false
             }

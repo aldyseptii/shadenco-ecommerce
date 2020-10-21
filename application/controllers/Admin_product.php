@@ -97,6 +97,11 @@ class Admin_product extends CI_Controller {
                 "rules" => "required|numeric"
             ],
             [
+                "field" => "size_product",
+                "label" => "size_product",
+                "rules" => "required|min_length[5]|max_length[100]"
+            ],
+            [
                 "field" => "id_category",
                 "label" => "id_category",
                 "rules" => "required"
@@ -158,7 +163,7 @@ class Admin_product extends CI_Controller {
                 $name = preg_replace('/[^\w-]/', '', $name);
 
                 $config['upload_path']          = '././upload/product';
-                $config['allowed_types']        = 'jpg|png';
+                $config['allowed_types']        = 'jpg|png|jpeg|JPG';
                 $config['max_size']             = 1000;
                 $config['max_width']            = 1920;
                 $config['max_height']           = 1920;
@@ -250,7 +255,7 @@ class Admin_product extends CI_Controller {
         $this->datatables->join("photo_product","photo_product.id_product=product.id_product","left");
         $this->datatables->join("category","category.id_category=product.id_category","left");
         $this->datatables->group_by("id_product");
-        $this->datatables->set_column(['id_product','name_product','price_product','weight_product','name_category','updated_product']);
+        $this->datatables->set_column(['id_product','name_product','price_product','weight_product','size_product','name_category','updated_product']);
         $list = $this->datatables->get_datatables()->result();
         $data = array();
         $no = $this->input->get('start');
@@ -262,9 +267,10 @@ class Admin_product extends CI_Controller {
             $row[] = $this->toolset->rupiah($field->price_product);
             $row[] = $field->stock_product;
             $row[] = $field->weight_product;
+            $row[] = $field->size_product;
             $row[] = $field->name_category;
             $row[] = $field->updated_product;
-            $row[] = '<a class="btn btn-sm btn-dark" href="'.base_url().'admin/product/edit/'.$field->id_product.'"><i class="fas fa-pen"></i></a> <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="'.$field->name_product.'" data-id="'.$field->id_product.'"><i class="fas fa-trash"></i></button>';
+            $row[] = '<a class="btn btn-xs btn-dark" title="Edit Produk" href="'.base_url().'admin/product/edit/'.$field->id_product.'"><i class="fas fa-pen"></i></a> <button type="button" title="Delete Produk" class="btn btn-xs btn-danger btn-delete" data-name="'.$field->name_product.'" data-id="'.$field->id_product.'"><i class="fas fa-trash"></i></button>';
  
             $data[] = $row;
         }

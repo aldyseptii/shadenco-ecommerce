@@ -66,7 +66,7 @@ class Cart extends CI_Controller {
             $stok = $query->row_array();
             if($stok['stock_product'] < $qty) {
                 $callback['status'] = 0;
-                $callback['msg'] = "Stok tidak tersedia";   
+                $callback['msg'] = "Stok tidak tersedia sebanyak $qty";
             } else {
                 if(empty($this->session->cart)) {
                     $row = [$id => [$id,$qty]];
