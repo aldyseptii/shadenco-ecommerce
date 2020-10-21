@@ -13,6 +13,7 @@
 
 #codeigniter 3
 application/config/database.php
+/upload/
 # application/logs/*
 # !application/logs/index.html
 # !application/logs/.htaccess
