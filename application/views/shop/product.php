@@ -12,8 +12,10 @@ unset($rowthumb[0]);
     <h1 class="text-shadow-shadenco"><?=$detail->name_product;?></h1>
     <ul>
         <li><a href="<?=base_url();?>">Home</a></li>
-        <li><a href="<?=base_url("category/$detail->id_category-".$this->toolset->tourl($detail->name_category));?>"><?=$detail->name_category;?></a></li>
-        <li><?=$detail->name_product;?></li>
+        <li>
+            <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
+        </li>
+        <li><?= $detail->name_product; ?></li>
     </ul>
 </div>
 <div class="container">
@@ -22,16 +24,34 @@ unset($rowthumb[0]);
             <div class="row">
                 <div class="col-sm-5">
                     <div class="thumbnails">
-                        <div><a class="thumbnail fancybox" href="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>"><img src="<?=base_url("img/622x800/$bigthumb");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
+                        <div class="left-column">
+                            <a class="thumbnail fancybox" href="#">
+                                <img class="active" src="<?= base_url("img/622x800/$bigthumb"); ?>"/>
+                            </a>
+                            <?php foreach ($variant as $motif) {
+                                ?>
+                                <img class="thumbnail fancybox" src="<?= $motif->image_url; ?>"
+                                     data-image="<?= $motif->variant_product; ?>"/>
+                            <?php }
+                            if (count($variant) == 0) {
+                                echo 'No image';
+                            } ?>
+                        </div>
+
                         <div id="product-thumbnail" class="owl-carousel">
 
                             <?php
-                            foreach($rowthumb as $img) {
+                            foreach ($rowthumb as $img) {
                                 $img = trim($img);
                                 ?>
 
                                 <div class="item">
-                                    <div class="image-additional"><a class="thumbnail fancybox" href="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>"> <img src="<?=base_url("img/622x800/$img");?>" title="<?=$detail->name_product;?>" alt="<?=$detail->name_product;?>" /></a></div>
+                                    <div class="image-additional"><a class="thumbnail fancybox"
+                                                                     href="<?= base_url("img/622x800/$img"); ?>"
+                                                                     title="<?= $detail->name_product; ?>"> <img
+                                                    src="<?= base_url("img/622x800/$img"); ?>"
+                                                    title="<?= $detail->name_product; ?>"
+                                                    alt="<?= $detail->name_product; ?>"/></a></div>
                                 </div>
 
                             <?php } ?>
@@ -65,7 +85,9 @@ unset($rowthumb[0]);
                         <?php foreach ($variant as $motif) {
                             ?>
                             <label>
-                                <input type="radio" name="test" value="big">
+                                <input type="radio" name="test" value="big"
+                                       data-image="<?= $motif->variant_product; ?>">
+                                <img src="<?= $motif->image_url; ?>">
                                 <?= $motif->variant_product; ?>
                             </label>
                         <?php }
@@ -352,4 +374,30 @@ unset($rowthumb[0]);
         padding: 4px;
         transition: all 0.28s ease-in-out 0s;
     }
+
+    /* Left Column */
+    .left-column img {
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: none;
+    }
+
+    .left-column img.active {
+        display: block;
+        opacity: 1;
+    }
 </style>
+<script>
+    $(document).ready(function () {
+
+        $('.motif input').on('click', function () {
+            var motifVariant = $(this).attr('data-image');
+
+            $('.active').removeClass('active');
+            $('.left-column img[data-image = ' + motifVariant + ']').addClass('active');
+            $(this).addClass('active');
+        });
+
+    });
+</script>
