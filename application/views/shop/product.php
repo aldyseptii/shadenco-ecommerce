@@ -329,6 +329,15 @@ unset($rowthumb[0]);
         border-radius: 12px;
         margin: 0 4px 0 0;
     }
+
+    div .motif label:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+    div .motif label:active {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
     div .motif label {
         font-weight: 400;
         margin: 3px 0;
