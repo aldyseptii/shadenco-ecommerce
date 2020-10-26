@@ -256,7 +256,7 @@ class Admin_product extends CI_Controller {
         $this->datatables->join("photo_product","photo_product.id_product=product.id_product","left");
         $this->datatables->join("category","category.id_category=product.id_category","left");
         $this->datatables->group_by("id_product");
-        $this->datatables->set_column(['id_product','name_product','price_product','weight_product','size_product','name_category','updated_product']);
+        $this->datatables->set_column(['url_photo', 'id_product', 'name_product', 'price_product', 'weight_product', 'size_product', 'name_category', 'updated_product']);
         $list = $this->datatables->get_datatables()->result();
         $data = array();
         $no = $this->input->get('start');
@@ -278,7 +278,9 @@ class Admin_product extends CI_Controller {
 
 <button type="button" title="Delete Produk" class="btn btn-xs btn-danger btn-delete" data-name="' . $field->name_product . '" data-id="' . $field->id_product . '"><i class="fas fa-trash"></i></button>
 
-<a type="button" title="Delete Produk" class="btn btn-xs btn-success" href="' . base_url() . 'product/' . $field->id_product . $dash . $tourl . '" target="_blank"> <i class="fas fa-eye"></i></a>';
+<a type="button" title="View Live Produk" class="btn btn-xs btn-success" href="' . base_url() . 'product/' . $field->id_product . $dash . $tourl . '" target="_blank"> <i class="fas fa-eye"></i></a>
+
+<a type="button" title="View Photo Produk" class="btn btn-xs btn-primary" target="_blank" href="' . base_url() . $field->url_photo . '"> <i class="fas fa-image text-white"></i></a>';
 
             $data[] = $row;
         }
