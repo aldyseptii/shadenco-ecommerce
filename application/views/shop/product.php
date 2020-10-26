@@ -40,38 +40,43 @@ unset($rowthumb[0]);
                     </div>
                 </div>
                 <div class="col-sm-7 prodetail">
-                    <h1 class="productpage-title"><?=$detail->name_product;?></h1>
-                    <div class="rating"><?=$this->toolset->rating($detail->total_rating);?></div>
+                    <h1 class="productpage-title"><?= $detail->name_product; ?></h1>
+                    <div class="rating"><?= $this->toolset->rating($detail->total_rating); ?></div>
                     <ul class="list-unstyled productinfo-details-top">
                         <li>
-                            <h2 class="productpage-price"><?=$this->toolset->rupiah($detail->price_product);?></h2>
+                            <h2 class="productpage-price"><?= $this->toolset->rupiah($detail->price_product); ?></h2>
                         </li>
                     </ul>
                     <hr>
+                    <div class="kategori">
+                        <h5>Kategori</h5>
+                        <h1>
+                            <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
+                        </h1>
+                    </div>
+                    <hr>
                     <div class="ukuran">
-                    <h5>Ukuran</h5>
-                        <h1><?=$detail->size_product;?></h1>
+                        <h5>Ukuran</h5>
+                        <h1><?= $detail->size_product; ?></h1>
                     </div>
                     <hr>
                     <div class="motif">
-                    <h5>Motif</h5>
-                    <label>
-                        <input type="radio" name="test" value="small">
-                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1A
-                    </label>
+                        <h5>Motif</h5>
+                        <?php foreach ($variant as $motif) {
+                            ?>
+                            <label>
+                                <input type="radio" name="test" value="big">
+                                <?= $motif->variant_product; ?>
+                            </label>
+                        <?php }
+                        if (count($variant) == 0) {
+                            echo 'Tidak ada motif';
+                        } ?>
 
-                    <label>
-                        <input type="radio" name="test" value="big">
-                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1B
-                    </label>
-                    <label>
-                        <input type="radio" name="test" value="big">
-                        <img src="<?=base_url("img/622x800/$bigthumb");?>">R-3-S-1C
-                    </label>
                     </div>
                     <hr>
-                    <p class="product-desc" style="color:#555"><?=nl2br($detail->description_product);?> <br/><br/>
-                        Tersedia : <?=$detail->stock_product;?> Stok Barang</span>
+                    <p class="product-desc" style="color:#555"><?= nl2br($detail->description_product); ?> <br/><br/>
+                        Tersedia : <?= $detail->stock_product; ?> Stok Barang</span>
                     </p>
                     <div id="product">
                         <div class="form-group">

@@ -10,6 +10,7 @@ class Product extends CI_Controller {
         $this->load->model("category_model");
         $this->load->model("page_model");
         $this->load->model("comment_model");
+        $this->load->model("variant_model");
         $this->load->library("cart_session");
 
     }
@@ -34,6 +35,7 @@ class Product extends CI_Controller {
         $push['pagetitle'] = $data->name_product;
         $push['cart'] = $this->cart_session->get_cart($this->session->cart);
         $push['comments'] = $this->comment_model->get_allcomment($id)->result();
+        $push['variant'] = $this->variant_model->get_allvariant($id)->result();
 
         $this->load->view('shop/header',$push);
         $this->load->view('shop/product',$push);

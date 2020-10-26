@@ -37,4 +37,4 @@ application/config/database.php
 #!application/logs/index.html
 #!application/logs/.htaccess
 #/vendor/
->>>>>>> d3dde673bed9601ec3cd222b56b23fa9b8510459
+#>>>>>>> d3dde673bed9601ec3cd222b56b23fa9b8510459

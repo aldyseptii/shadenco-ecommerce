@@ -30,14 +30,16 @@
                     </div>
                     <div class="card-body">
                       <div class="mb-4">
-                        <a href="<?=base_url("admin/product/add");?>" class="btn btn-success btn-xs"><i class="fas fa-plus"></i> Tambah Produk</a>
+                        <a href="<?=base_url("admin/product/add");?>" class="btn btn-success btn-xs"><i
+                                class="fas fa-plus"></i> Tambah Produk</a>
                       </div>
-                      <hr/>
-                      <div class="table-responsive">
-                        <table class="table table-bordered" id="tableProduct">
-                            <thead class="bg-gradient-secondary">
+                        <hr/>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tableProduct">
+                                <thead class="bg-gradient-secondary">
                                 <tr>
-                                    <th scope="col" style="text-align:center">#</th>
+                                    <th scope="col" style="text-align:center">No.</th>
+                                    <th scope="col" style="text-align:center">ID</th>
                                     <th scope="col" style="text-align:center">Nama Produk</th>
                                     <th scope="col" style="text-align:center">Harga Produk</th>
                                     <th scope="col" style="text-align:center">Stok Produk</th>
@@ -47,7 +49,7 @@
                                     <th scope="col" style="text-align:center">Diupdate</th>
                                     <th scope="col" style="text-align:center">Action</th>
                                 </tr>
-                            </thead>
+                                </thead>
                             
                         </table>
                       </div>

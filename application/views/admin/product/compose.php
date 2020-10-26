@@ -58,7 +58,7 @@ if(isset($product_value)) {
                         <div class="row append d-flex justify-content-center"> 
                             <?php
                             for($i=0;$i<$count_photo;$i++) {
-                            ?>
+                                ?>
 
                             <div class="col-5 img">
                                 <div class="img-inserted m-1" style="background:url(<?=base_url("img/original/$photo_product[$i]");?>)center no-repeat;background-size:100% auto;height:130px">
@@ -147,9 +147,17 @@ if(isset($product_value)) {
                             </div>
                             <div class="form-group">
                                 <label>Stok Produk</label> :
-                                <input type="number" name="stock_product" value="<?=$product_value->stock_product;?>" class="form-control validate">
+                                <input type="number" name="stock_product" value="<?=$product_value->stock_product;?>"
+                                       class="form-control validate">
                                 <div class="invalid-feedback"></div>
-                            </div>                             
+                            </div>
+                        <!--                            <div class="form-group">-->
+                        <!--                                <label>Tambah Motif</label> :-->
+                        <!--                                <div class="wrapper">-->
+                        <!--                                    <div><input type="text"  name="input_array_name[]" placeholder="Motif" /></div>-->
+                        <!--                                </div>-->
+                        <!--                                <p><button id="Array_name" class="add_fields">Tambah Motif</button></p>-->
+                        <!--                            </div>-->
                     </div>
                     <div class="card-footer">
                         <button type="button" class="btn btn-primary save"><i class="fas fa-save"></i> Simpan</button>
@@ -158,7 +166,7 @@ if(isset($product_value)) {
             </div>
         </div>
         </form>
-        <!-- /.row -->
+          <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
@@ -251,4 +259,37 @@ $('.save').on('click',function(){
         }
     });
 });
+</script>
+<script>
+
+
+    //Add Input Fields
+    $(document).ready(function () {
+        var max_fields = 10; //Maximum allowed input fields
+        var wrapper = $(".wrapper"); //Input fields wrapper
+        var add_button = $(".add_fields"); //Add button class or ID
+        var x = 1; //Initial input field is set to 1
+
+//- Using an anonymous function:
+        document.getElementById("Array_name").onclick = function () {
+        };
+
+        //When user click on add input button
+        $(add_button).click(function (e) {
+            e.preventDefault();
+            //Check maximum allowed input fields
+            if (x < max_fields) {
+                x++; //input field increment
+                //add input field
+                $(wrapper).append('<div><input type="text" name="input_array_name[]" placeholder="Tambahkan motif" /> <a href="javascript:void(0);" class="remove_field">Remove</a></div>');
+            }
+        });
+
+        //when user click on remove button
+        $(wrapper).on("click", ".remove_field", function (e) {
+            e.preventDefault();
+            $(this).parent('div').remove(); //remove inout field
+            x--; //inout field decrement
+        })
+    });
 </script>

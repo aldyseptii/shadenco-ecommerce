@@ -162,9 +162,9 @@ class Admin_product extends CI_Controller {
                 $this->load->helper("file");
                 $name = preg_replace('/[^\w-]/', '', $name);
 
-                $config['upload_path']          = '././upload/product';
-                $config['allowed_types']        = 'jpg|png|jpeg|JPG';
-                $config['max_size']             = 1000;
+                $config['upload_path'] = '././upload/product';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_size'] = 1000;
                 $config['max_width']            = 1920;
                 $config['max_height']           = 1920;
                 $config['file_name']            = $name;
@@ -250,6 +250,7 @@ class Admin_product extends CI_Controller {
 
     function index_json() {
         $this->load->library("datatables");
+        $this->load->library("toolset");
         $this->datatables->select("product.*,photo_product.id_photo,photo_product.url_photo,category.name_category");
         $this->datatables->from("product");
         $this->datatables->join("photo_product","photo_product.id_product=product.id_product","left");
@@ -263,6 +264,7 @@ class Admin_product extends CI_Controller {
             $no++;
             $row = array();
             $row[] = $no;
+            $row[] = $field->id_product;
             $row[] = $field->name_product;
             $row[] = $this->toolset->rupiah($field->price_product);
             $row[] = $field->stock_product;
@@ -270,11 +272,17 @@ class Admin_product extends CI_Controller {
             $row[] = $field->size_product;
             $row[] = $field->name_category;
             $row[] = $field->updated_product;
-            $row[] = '<a class="btn btn-xs btn-dark" title="Edit Produk" href="'.base_url().'admin/product/edit/'.$field->id_product.'"><i class="fas fa-pen"></i></a> <button type="button" title="Delete Produk" class="btn btn-xs btn-danger btn-delete" data-name="'.$field->name_product.'" data-id="'.$field->id_product.'"><i class="fas fa-trash"></i></button>';
- 
+            $tourl = $this->toolset->tourl($field->name_product);
+            $dash = ("-");
+            $row[] = '<a class="btn btn-xs btn-dark" title="Edit Produk" href="' . base_url() . 'admin/product/edit/' . $field->id_product . '"><i class="fas fa-pen"></i></a> 
+
+<button type="button" title="Delete Produk" class="btn btn-xs btn-danger btn-delete" data-name="' . $field->name_product . '" data-id="' . $field->id_product . '"><i class="fas fa-trash"></i></button>
+
+<a type="button" title="Delete Produk" class="btn btn-xs btn-success" href="' . base_url() . 'product/' . $field->id_product . $dash . $tourl . '" target="_blank"> <i class="fas fa-eye"></i></a>';
+
             $data[] = $row;
         }
- 
+
         $output = array(
             "draw" => $this->input->get('draw'),
             "recordsTotal" => $this->datatables->count_all(),
@@ -285,3 +293,12 @@ class Admin_product extends CI_Controller {
         echo json_encode($output);
     }
 }
+
+//foreach ($productlist as $product) {
+//    $tourl = $this->toolset->tourl($product->name_product);
+//    if (empty($product->url_photo)) {
+//        $url_photo = base_url("assets/moonstore/ms01") . "/image/product/product8-8.jpg";
+//    } else {
+//        $url_photo = base_url("img/622x800/$product->url_photo");
+//    }
+//
