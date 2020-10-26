@@ -280,7 +280,7 @@ class Admin_product extends CI_Controller {
 
 <a type="button" title="View Live Produk" class="btn btn-xs btn-success" href="' . base_url() . 'product/' . $field->id_product . $dash . $tourl . '" target="_blank"> <i class="fas fa-eye"></i></a>
 
-<a type="button" title="View Photo Produk" class="btn btn-xs btn-primary" target="_blank" href="' . base_url() . $field->url_photo . '"> <i class="fas fa-image text-white"></i></a>';
+<a type="button" title="View Photo Produk" class="btn btn-xs btn-primary" target="_blank" href="' . base_url() . 'img/622x800/' . $field->url_photo . '"> <i class="fas fa-image text-white"></i></a>';
 
             $data[] = $row;
         }
