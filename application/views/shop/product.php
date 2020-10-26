@@ -34,7 +34,7 @@ unset($rowthumb[0]);
                                      data-image="<?= $motif->variant_product; ?>"/>
                             <?php }
                             if (count($variant) == 0) {
-                                echo 'No image';
+                                echo '';
                             } ?>
                         </div>
 
