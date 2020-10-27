@@ -25,12 +25,12 @@ unset($rowthumb[0]);
                 <div class="col-sm-5">
                     <div class="thumbnails">
                         <div class="left-column">
-                            <a class="thumbnail fancybox" href="#">
-                                <img class="active" src="<?= base_url("img/622x800/$bigthumb"); ?>"/>
+                            <a class="fancybox" href="#">
+                                <img class="tampil" src="<?= base_url("img/622x800/$bigthumb"); ?>"/>
                             </a>
                             <?php foreach ($variant as $motif) {
                                 ?>
-                                <img class="thumbnail fancybox" src="<?= $motif->image_url; ?>"
+                                <img class="fancybox mb-4" src="<?= $motif->image_url; ?>"
                                      data-image="<?= $motif->variant_product; ?>"/>
                             <?php }
                             if (count($variant) == 0) {
@@ -85,7 +85,7 @@ unset($rowthumb[0]);
                         <?php foreach ($variant as $motif) {
                             ?>
                             <label>
-                                <input type="radio" name="test" value="big"
+                                <input type="radio" name="test" value="<?= $motif->variant_product; ?>"
                                        data-image="<?= $motif->variant_product; ?>">
                                 <img src="<?= $motif->image_url; ?>">
                                 <?= $motif->variant_product; ?>
@@ -334,10 +334,6 @@ unset($rowthumb[0]);
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     }
 
-    div .motif label:active {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-    }
-
     div .motif label {
         font-weight: 400;
         margin: 3px 0;
@@ -392,7 +388,7 @@ unset($rowthumb[0]);
         display: none;
     }
 
-    .left-column img.active {
+    .left-column img.tampil {
         display: block;
         opacity: 1;
     }
@@ -403,9 +399,9 @@ unset($rowthumb[0]);
         $('.motif input').on('click', function () {
             var motifVariant = $(this).attr('data-image');
 
-            $('.active').removeClass('active');
-            $('.left-column img[data-image = ' + motifVariant + ']').addClass('active');
-            $(this).addClass('active');
+            $('.tampil').removeClass('tampil');
+            $('.left-column img[data-image = ' + motifVariant + ']').addClass('tampil');
+            $(this).addClass('tampil');
         });
 
     });
