@@ -1,19 +1,3 @@
-<div class="mainbanner shadow">
-  <div id="main-banner" class="owl-carousel home-slider">
-    
-    <?php
-    foreach($sliders as $slider) {
-        $slider->img_slider = base_url("slider/1903x600/$slider->img_slider");
-    ?>
-
-    <div class="item"> <a href="<?=$slider->link_slider;?>"><img style="width:1903px" src="<?=$slider->img_slider;?>" alt="<?=$slider->title_slider;?>" class="img-responsive" /></a> </div>
-
-    <?php
-    }
-    ?>
-
-  </div>
-</div>
 <div id="center">
   <div class="container">
     <div class="row">
