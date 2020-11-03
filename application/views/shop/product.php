@@ -87,13 +87,20 @@ unset($rowthumb[0]);
                             <label>
                                 <input type="radio" name="test" value="<?= $motif->variant_product; ?>"
                                        data-image="<?= $motif->variant_product; ?>">
-                                <img src="<?= $motif->image_url; ?>">
+                                <?php
+                                $image_link = $motif->image_url;
+                                if (empty($motif->image_url)) {
+                                    echo '';
+                                } else {
+                                    echo "<img class='hidden' src='$image_link'>";
+                                } ?>
                                 <?= $motif->variant_product; ?>
                             </label>
                         <?php }
                         if (count($variant) == 0) {
-                            echo 'Tidak ada motif';
+                            echo 'Tidak ada variant pada produk ini';
                         } ?>
+
 
                     </div>
                     <hr>
@@ -392,6 +399,10 @@ unset($rowthumb[0]);
         display: block;
         opacity: 1;
     }
+
+    .shadow-variant {
+        box-shadow: -3px 0.3rem 0rem 0px rgb(0 0 0 / 15%);
+    }
 </style>
 <script>
     $(document).ready(function () {
@@ -404,5 +415,15 @@ unset($rowthumb[0]);
             $(this).addClass('tampil');
         });
 
+    });
+
+    var inputs = document.querySelectorAll("input");
+    inputs.forEach(function (i) {
+        i.addEventListener('click', function (el) {
+            var clicked = el.currentTarget;
+            var active = clicked.parentElement.parentElement.querySelector('.shadow-variant');
+            active && active.classList.remove('shadow-variant');
+            clicked.parentElement.classList.add('shadow-variant');
+        });
     });
 </script>
