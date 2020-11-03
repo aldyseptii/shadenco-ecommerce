@@ -104,7 +104,6 @@ unset($rowthumb[0]);
 
                     </div>
                     <hr>
-                    <p class="product-desc" style="color:#555"><?= nl2br($detail->description_product); ?> <br/><br/>
                         Tersedia : <?= $detail->stock_product; ?> Stok Barang</span>
                     </p>
                     <div id="product">
@@ -114,7 +113,11 @@ unset($rowthumb[0]);
                                 <input id="qty" value="1" type="number">
                                 <ul class="button-group list-btn">
                                     <li>
-                                        <button type="button" class="addtocart-btn csrf" data-csrf="<?=$this->security->get_csrf_hash();?>" data-id="<?=$detail->id_product;?>" data-toggle="tooltip" data-placement="top" title="Tambah ke Keranjang"  ><i class="fa fa-shopping-bag"></i></button>
+                                        <button type="button" class="addtocart-btn csrf"
+                                                data-csrf="<?= $this->security->get_csrf_hash(); ?>"
+                                                data-id="<?= $detail->id_product; ?>" data-toggle="tooltip"
+                                                data-placement="top" title="Tambah ke Keranjang"><i
+                                                    class="fa fa-shopping-bag"></i></button>
                                     </li>
                                 </ul>
                             </div>
@@ -124,52 +127,68 @@ unset($rowthumb[0]);
             </div>
             <div class="productinfo-tab">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-review">Ulasan (<?=count($comments);?>)</a></li>
+                    <li class="active"><a href="#detail-product">Detail Product</a></li>
+                    <li class=""><a href="#tab-review">Ulasan (<?= count($comments); ?>)</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="tab-review">
+                    <div class="tab-pane active" id="detail-product">
+                        <div>
+                            <h2>Detail Produk</h2>
+                            <?= nl2br($detail->description_product); ?>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-review">
                         <div id="review-list">
                             <h2>Ulasan Teratas</h2>
                             <?php
-                            foreach($comments as $comment) {
+                            foreach ($comments as $comment) {
                                 ?>
 
                                 <div class="review-wrapper">
                                     <div class="review-head">
                                         <div class="info">
-                                            <span class="name"><b><?=$comment->name_comment;?></b></span>
-                                            <?=$comment->date_comment;?>
+                                            <span class="name"><b><?= $comment->name_comment; ?></b></span>
+                                            <?= $comment->date_comment; ?>
                                         </div>
-                                        <div class="star"><?=$this->toolset->rating($comment->rating_comment);?></div>
+                                        <div class="star"><?= $this->toolset->rating($comment->rating_comment); ?></div>
                                     </div>
                                     <div class="review-body">
-                                        <?=$comment->body_comment;?>
+                                        <?= $comment->body_comment; ?>
                                     </div>
                                 </div>
-                            <?php } if(count($comments) == 0) { echo 'Belum ada ulasan'; } ?>
+                            <?php }
+                            if (count($comments) == 0) {
+                                echo 'Belum ada ulasan';
+                            } ?>
 
                         </div>
                         <form id="formComment">
-                            <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="" data-csrf="<?=$this->security->get_csrf_hash();?>" id="csrf-form" class="csrf">
+                            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value=""
+                                   data-csrf="<?= $this->security->get_csrf_hash(); ?>" id="csrf-form" class="csrf">
                             <div id="review"></div>
                             <h2>Tulis Ulasan</h2>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-name">Nama</label>
-                                    <input type="text" name="name_comment" value="" id="input-name" class="form-control" />
+                                    <input type="text" name="name_comment" value="" id="input-name"
+                                           class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-name">Email</label>
-                                    <input type="email" name="email_comment" value="" id="input-name" class="form-control" />
+                                    <input type="email" name="email_comment" value="" id="input-name"
+                                           class="form-control"/>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-review">Ulasan</label>
-                                    <textarea name="body_comment" rows="5" id="input-review" class="form-control"></textarea>
-                                    <div class="help-block"><span class="text-danger">Note:</span> HTML tidak ditampilkan!</div>
+                                    <textarea name="body_comment" rows="5" id="input-review"
+                                              class="form-control"></textarea>
+                                    <div class="help-block"><span class="text-danger">Note:</span> HTML tidak
+                                        ditampilkan!
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group required">
@@ -177,19 +196,21 @@ unset($rowthumb[0]);
                                     <label class="control-label">Rating</label><br>Bad&nbsp;
                                     <input type="radio" name="rating_comment" value="1"/>
                                     &nbsp;
-                                    <input type="radio" name="rating_comment" value="2" />
+                                    <input type="radio" name="rating_comment" value="2"/>
                                     &nbsp;
-                                    <input type="radio" name="rating_comment" value="3" />
+                                    <input type="radio" name="rating_comment" value="3"/>
                                     &nbsp;
-                                    <input type="radio" name="rating_comment" value="4" />
+                                    <input type="radio" name="rating_comment" value="4"/>
                                     &nbsp;
-                                    <input type="radio" name="rating_comment" value="5" />
+                                    <input type="radio" name="rating_comment" value="5"/>
                                     &nbsp;Good
                                 </div>
                             </div>
                             <div class="buttons clearfix">
                                 <div class="pull-right">
-                                    <button type="button" id="send-comment" data-loading-text="Loading..." class="btn btn-primary">Lanjutkan</button>
+                                    <button type="button" id="send-comment" data-loading-text="Loading..."
+                                            class="btn btn-primary">Lanjutkan
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -202,7 +223,7 @@ unset($rowthumb[0]);
                 <div id="related-slidertab" class="row owl-carousel product-slider">
 
                     <?php
-                    foreach($related as $rlt) {
+                    foreach ($related as $rlt) {
                         $tourl = $this->toolset->tourl($rlt->name_product);
                         if(empty($rlt->url_photo)) {
                             $url_photo = base_url("assets/moonstore/ms01")."/image/product/product8-8.jpg";
