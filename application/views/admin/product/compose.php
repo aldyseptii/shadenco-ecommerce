@@ -60,15 +60,18 @@ if(isset($product_value)) {
                             for($i=0;$i<$count_photo;$i++) {
                                 ?>
 
-                            <div class="col-5 img">
-                                <div class="img-inserted m-1" style="background:url(<?=base_url("img/original/$photo_product[$i]");?>)center no-repeat;background-size:100% auto;height:130px">
-                                    <div class="delete">
-                                    <button type="button" class="btn btn-sm btn-danger btn-del" data-id="<?=$id_photo[$i];?>"><i class="fas fa-times"></i></button>
+                                <div class="col-5 img">
+                                    <div class="img-inserted m-1"
+                                         style="background:url(<?= base_url("img/original/$photo_product[$i]"); ?>)center no-repeat;background-size:100% auto;height:200px">
+                                        <div class="delete">
+                                            <button type="button" class="btn btn-sm btn-danger btn-del"
+                                                    data-id="<?= $id_photo[$i]; ?>"><i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <?php
+                                <?php
                             }
                             ?> 
                             <div class="col-5 img">
@@ -170,25 +173,25 @@ if(isset($product_value)) {
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+</div>
+<!-- /.content-wrapper -->
 <script>
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    
-    reader.onload = function(e) {
-      $('.img:last-child .img-inserted').attr('style', "background:url('"+e.target.result+"')center no-repeat;background-size:100% auto;height:130px");
-      $('.img:last-child .img-inserted').append('<div class="delete"><button type="button" class="btn btn-sm btn-danger btn-del"><i class="fas fa-times"></i></button></div>');
-      $(".append").append('<div class="col-5 img"><div class="img-inserted m-1" style="height: 180px;display:none"></div><input type="file" class="add-img" name="foto[]" style="display:none"></div>');
-    }
-    
-    reader.readAsDataURL(input.files[0]);
-  }
-}
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-$(".img-inserted").on("click",".btn-del",function(){
-    var removing = $(this).parent(".delete").parent(".img-inserted").parent(".img");
+            reader.onload = function (e) {
+                $('.img:last-child .img-inserted').attr('style', "background:url('" + e.target.result + "')center no-repeat;background-size:100% auto;height:200px");
+                $('.img:last-child .img-inserted').append('<div class="delete"><button type="button" class="btn btn-sm btn-danger btn-del"><i class="fas fa-times"></i></button></div>');
+                $(".append").append('<div class="col-5 img"><div class="img-inserted m-1" style="height: 180px;display:none"></div><input type="file" class="add-img" name="foto[]" style="display:none"></div>');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".img-inserted").on("click", ".btn-del", function () {
+        var removing = $(this).parent(".delete").parent(".img-inserted").parent(".img");
     $(this).parent(".delete").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>').attr("style","display: flex;color:white");
     var dataid = $(this).attr("data-id");
     if(dataid > 0) {
