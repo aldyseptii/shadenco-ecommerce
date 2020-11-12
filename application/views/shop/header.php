@@ -228,7 +228,7 @@ $this->visitor->hit();
         }
 
         #wrapper .menubar.navbar-fixed-top {
-            top: 30px;
+            /*top: 30px;*/
             background: white;
         }
 
@@ -745,7 +745,7 @@ $this->visitor->hit();
 <div id="wrapper" style="margin-bottom: 12%;">
 
     <header class="header navbar-fixed-top" style="background-color: #525659;">
-        <div class="container pt-5">
+        <div class="container pt-5" style="display: none;">
             <ul class="nav navbar-nav navbar-right topnav hidden">
                 <li class="followUs">
                     <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
@@ -780,8 +780,8 @@ $this->visitor->hit();
                                                                alt="<?= $this->shop_setting->sitename(); ?>"
                                                                class="img-responsive"/></a>
                 </ul>
-                <ul class="nav navbar-nav navbar-right rightmenu">
-                    <li><a href="<?= base_url("transaction/checkout"); ?>"><span><i
+                <ul class="nav navbar-nav navbar-right rightmenu mt-4">
+                    <li><a href="<?= base_url("cart"); ?>"><span><i
                                     class="fa fa-shopping-cart"></i></span><span class="cart-count"
                                                                                  id="cart_count"><?= count($cart['data']); ?></span></a>
                     </li>
@@ -790,15 +790,15 @@ $this->visitor->hit();
                         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><span><i
                                     class="fa fa-user"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                            <!--                            <li><a href="#">Login</a></li>-->
+                            <!--                            <li><a href="#">Register</a></li>-->
                         </ul>
                     </li>
                     <li><a href="#" onclick="openNav2()"><span><i class="fa fa-search"></i></span></a></li>
                 </ul>
 
                 <div id="navbarCollapse" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right mt-4">
                         <li class="active"><a href="https://www.shadenco.co.id/">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategori</a>
@@ -829,7 +829,7 @@ $this->visitor->hit();
                 </div>
             </div><!-- end of container -->
         </nav>
-        <div class="header-top navbar-fixed-top" style="top: 114px;background: #252525;border-bottom: 0;z-index: 0;">
+        <div class="header-top navbar-fixed-top" style="top: 80px;background: #252525;border-bottom: 0;z-index: 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 my-5">
@@ -846,12 +846,15 @@ $this->visitor->hit();
                 </div><!-- end of hdwel -->
 
                 <div class="input-group inputserch">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-addon">
+                    <form action="<?= base_url('search'); ?>" method="get">
+                        <input name="q" value="<?php if (isset($q)) echo $q; ?>" type="text" class="form-control"
+                               placeholder="Search">
+                        <span class="input-group-addon">
                           <button type="submit" class="btn btn-default">
                               <span class="fa fa-search text-dark"></span>
                           </button>
                       </span>
+                    </form>
                 </div>
                 <br/>
 

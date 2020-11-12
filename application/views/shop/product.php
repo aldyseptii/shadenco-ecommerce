@@ -1,5 +1,5 @@
 <?php
-$explodeimg = explode(",",$detail->photo_product);
+$explodeimg = explode(",", $detail->photo_product);
 $bigthumb = $explodeimg[0];
 
 $rowthumb = $explodeimg;
@@ -7,22 +7,21 @@ unset($rowthumb[0]);
 
 ?>
 
-<div class="breadcrumb parallax-container">
-    <div class="parallax"><img src="<?=base_url("assets/moonstore/ms01/image/prlx.jpg");?>" alt="#"></div>
-    <h1 class="text-shadow-shadenco"><?=$detail->name_product;?></h1>
-    <ul>
-        <li><a href="<?=base_url();?>">Home</a></li>
-        <li>
-            <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
-        </li>
-        <li><?= $detail->name_product; ?></li>
-    </ul>
-</div>
+
 <div class="container">
     <div class="row">
+        <div class="col-md-12 mb-2 px-5">
+            <span class="breadcrumb-mod">
+                    <a href="<?= base_url(); ?>">Home</a>
+                        <i class="fa fa-angle-double-right"></i>
+                    <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
+                        <i class="fa fa-angle-double-right"></i>
+                    <?= $detail->name_product; ?>
+            </span>
+        </div>
         <div class="content col-sm-12">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-6 p-5">
                     <div class="thumbnails">
                         <div class="left-column">
                             <a class="fancybox" href="#">
@@ -49,9 +48,9 @@ unset($rowthumb[0]);
                                     <div class="image-additional"><a class="thumbnail fancybox"
                                                                      href="<?= base_url("img/622x800/$img"); ?>"
                                                                      title="<?= $detail->name_product; ?>"> <img
-                                                    src="<?= base_url("img/622x800/$img"); ?>"
-                                                    title="<?= $detail->name_product; ?>"
-                                                    alt="<?= $detail->name_product; ?>"/></a></div>
+                                                src="<?= base_url("img/622x800/$img"); ?>"
+                                                title="<?= $detail->name_product; ?>"
+                                                alt="<?= $detail->name_product; ?>"/></a></div>
                                 </div>
 
                             <?php } ?>
@@ -59,85 +58,113 @@ unset($rowthumb[0]);
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-7 prodetail">
+                <div class="col-sm-6 p-5 prodetail">
                     <h1 class="productpage-title"><?= $detail->name_product; ?></h1>
-                    <div class="rating"><?= $this->toolset->rating($detail->total_rating); ?></div>
+                    <div class="rating hidden"><?= $this->toolset->rating($detail->total_rating); ?></div>
                     <ul class="list-unstyled productinfo-details-top">
                         <li>
                             <h2 class="productpage-price"><?= $this->toolset->rupiah($detail->price_product); ?></h2>
                         </li>
                     </ul>
                     <hr>
-                    <div class="kategori">
-                        <h5>Kategori</h5>
-                        <h1>
-                            <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
-                        </h1>
-                    </div>
-                    <hr>
-                    <div class="ukuran">
-                        <h5>Ukuran</h5>
-                        <h1><?= $detail->size_product; ?></h1>
-                    </div>
-                    <hr>
-                    <div class="motif">
-                        <h5>Motif</h5>
-                        <?php foreach ($variant as $motif) {
-                            ?>
-                            <label>
-                                <input type="radio" name="test" value="<?= $motif->variant_product; ?>"
-                                       data-image="<?= $motif->variant_product; ?>">
-                                <?php
-                                $image_link = $motif->image_url;
-                                if (empty($motif->image_url)) {
-                                    echo '';
-                                } else {
-                                    echo "<img class='hidden' src='$image_link'>";
-                                } ?>
-                                <?= $motif->variant_product; ?>
-                            </label>
-                        <?php }
-                        if (count($variant) == 0) {
-                            echo 'Tidak ada variant pada produk ini';
-                        } ?>
-
-
-                    </div>
-                    <hr>
-                        Tersedia : <?= $detail->stock_product; ?> Stok Barang</span>
-                    </p>
-                    <div id="product">
-                        <div class="form-group">
-                            <div class="qty">
-                                <label>Qty</label>
-                                <input id="qty" value="1" type="number">
-                                <ul class="button-group list-btn">
-                                    <li>
-                                        <button type="button" class="addtocart-btn csrf"
-                                                data-csrf="<?= $this->security->get_csrf_hash(); ?>"
-                                                data-id="<?= $detail->id_product; ?>" data-toggle="tooltip"
-                                                data-placement="top" title="Tambah ke Keranjang"><i
-                                                    class="fa fa-shopping-bag"></i></button>
-                                    </li>
-                                </ul>
+                    <div class="col-md-12">
+                        <div class="row mb-4">
+                            <div class="col-md-3">UKURAN</div>
+                            <div class="col-md-8">
+                                <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
+                                    <option value="" selected disabled>-- Pilih Ukuran --</option>
+                                    <option value="" required>A</option>
+                                    <option value="" required>B</option>
+                                    <option value="" required>C</option>
+                                </select>
+                                <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->
                             </div>
                         </div>
+                        <!--                        <div class="ukuran">
+                            <h5>Ukuran</h5>
+                            <h1><? /*= $detail->size_product; */ ?></h1>
+                        </div>-->
+                        <div class="row motif mb-4">
+                            <div class="col-md-3">MOTIF</div>
+                            <div class="col-md-8">
+                                <?php foreach ($variant as $motif) {
+                                    ?>
+                                    <label>
+                                        <input type="radio" name="test" value="<?= $motif->variant_product; ?>"
+                                               data-image="<?= $motif->variant_product; ?>">
+                                        <?php
+                                        $image_link = $motif->image_url;
+                                        if (empty($motif->image_url)) {
+                                            echo '';
+                                        } else {
+                                            echo "<img class='hidden' src='$image_link'>";
+                                        } ?>
+                                        <?= $motif->variant_product; ?>
+                                    </label>
+                                <?php }
+                                if (count($variant) == 0) {
+                                    echo 'Tidak ada variant pada produk ini';
+                                } ?>
+
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div>
+                                <div class="form-group">
+                                    <div class="col-md-3">KUANTITAS</div>
+                                    <div class="col-md-8 pl-2">
+                                        <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"
+                                                data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                            <input type="text" id="qty"
+                                                   class="form-control input-number" value="1" min="1"
+                                                   max="<?= $detail->stock_product; ?>"
+                                                   style="text-align: center;width: 60px;height: 43px;border-top: 1px solid #a5a5a5;border-bottom: 1px solid #a5a5a5;">
+                                            <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-success btn-number"
+                                                data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                        </div>
+                                        <!--                                        <input id="qty" value="1" type="number">
+                                        --> <span class="stock-right">Stok <?= $detail->stock_product; ?> pcs</span>
+                                    </div>
+                                    <div class=" col-md-3 mt-3 my-5">
+                                        <button type="button" class="addtocart-btn csrf text-white btn-tocart"
+                                                data-csrf="<?= $this->security->get_csrf_hash(); ?>"
+                                                data-id="<?= $detail->id_product; ?>" data-toggle="tooltip"
+                                                data-placement="top" title="Tambah ke Keranjang">Pesan
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
                     </div>
                 </div>
             </div>
             <div class="productinfo-tab">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#detail-product">Detail Product</a></li>
-                    <li class=""><a href="#tab-review">Ulasan (<?= count($comments); ?>)</a></li>
+                    <li class="active"><a data-toggle="tab" href="#detail-product">Detail Product</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-review">Ulasan (<?= count($comments); ?>)</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-pemasangan">Cara Pemasangan</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-kebijakan">Kebijakan Pengembalian</a></li>
+
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="detail-product">
+                    <div class="tab-pane fade in active" id="detail-product">
                         <div>
-                            <h2>Detail Produk</h2>
                             <?= nl2br($detail->description_product); ?>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab-review">
+                    <div class="tab-pane fade" id="tab-review">
                         <div id="review-list">
                             <h2>Ulasan Teratas</h2>
                             <?php
@@ -215,6 +242,43 @@ unset($rowthumb[0]);
                             </div>
                         </form>
                     </div>
+                    <div class="tab-pane fade" id="tab-pemasangan">
+                        <div>
+                            <iframe width="1100" height="450" src="https://www.youtube.com/embed/QeMPCMi4rLc"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" class="embed-yt">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-kebijakan">
+                        <div>
+                            <p>
+                            <h2>Kebijakan Garansi dan komplain Produk</h2>
+                            <br/>
+                            Produk yang dikirimkan sesuai dengan pemesanan sudah di lakukan pengecekan sebelum dilakukan
+                            pengiriman, jika ada ketidak sesuaian atau kecacatan produk (bukan karena salah pilih warna
+                            atau ukuran) dapat dilakukan retur/pengembalian maksimal 2hari setelah barang diterima oleh
+                            customer. Dan dengan hanya mengganti biaya kirim saja (Kita tukar barang baru).
+                            <br/><br/>
+                            Anda dapat mengajukan klaim pengembalian produk jika ada ketidaksesuaian dengan barang yang
+                            dipesan atau kecacatan produksi pada produk, dengan syarat-syarat pengembalian produk
+                            sebagai berikut:
+                            <br/><br/>
+                            <ul class="ml-4">
+                                <li>Tidak ada Bekas Pemasangan dan pembongkaran pada produk</li>
+                                <li>Seluruh kelengkapan terkirim dalam keadaan baik dan utuh, termasuk packing dan
+                                    aksesoris
+                                </li>
+                                <li>Maksimum klaim pengembalian dan garansi 2 x 24 jam semenjak barang diterima</li>
+                            </ul>
+                            <br/>
+                            Klaim garansi dan komplain product dilakukan via tokopedia, semua biaya pengiriman dalam
+                            proses pengembalian produk menjadi tanggung jawab pembeli
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <h3 class="productblock-title">Produk Serupa</h3>
@@ -225,8 +289,8 @@ unset($rowthumb[0]);
                     <?php
                     foreach ($related as $rlt) {
                         $tourl = $this->toolset->tourl($rlt->name_product);
-                        if(empty($rlt->url_photo)) {
-                            $url_photo = base_url("assets/moonstore/ms01")."/image/product/product8-8.jpg";
+                        if (empty($rlt->url_photo)) {
+                            $url_photo = base_url("assets/moonstore/ms01") . "/image/product/product8-8.jpg";
                         } else {
                             $url_photo = base_url("img/622x800/$rlt->url_photo");
                         }
@@ -234,23 +298,31 @@ unset($rowthumb[0]);
 
                         <div class="item">
                             <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="<?=base_url("product/$rlt->id_product-$tourl");?>">
-                                        <img src="<?=$url_photo;?>" alt="<?=$rlt->name_product;?>" title="<?=$rlt->name_product;?>" class="img-responsive" />
-                                        <img src="<?=$url_photo;?>" alt="<?=$rlt->name_product;?>" title="<?=$rlt->name_product;?>" class="img-responsive" />
+                                <div class="image product-imageblock"><a
+                                        href="<?= base_url("product/$rlt->id_product-$tourl"); ?>">
+                                        <img src="<?= $url_photo; ?>" alt="<?= $rlt->name_product; ?>"
+                                             title="<?= $rlt->name_product; ?>" class="img-responsive"/>
+                                        <img src="<?= $url_photo; ?>" alt="<?= $rlt->name_product; ?>"
+                                             title="<?= $rlt->name_product; ?>" class="img-responsive"/>
                                     </a>
                                     <ul class="button-group">
                                         <li>
-                                            <button title="Tambah ke Keranjang" class="addtocart-btn" type="button">Tambah ke Keranjang</button>
+                                            <button title="Tambah ke Keranjang" class="addtocart-btn" type="button">
+                                                Tambah ke Keranjang
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="caption product-detail">
-                                    <div class="rating">
-                                        <?=$this->toolset->rating($rlt->total_rating);?>
+                                    <div class="rating hidden">
+                                        <?= $this->toolset->rating($rlt->total_rating); ?>
                                     </div>
-                                    <h4 class="product-name"><a href="<?=base_url("product/$rlt->id_product-$tourl");?>" title="<?=$rlt->name_product;?>"><?=$rlt->name_product;?></a></h4>
-                                    <span class="badge" title="Stok Tersedia - <?=$rlt->stock_product;?>"><?=$rlt->stock_product;?> Stok</span>
-                                    <p class="price product-price"><?=$this->toolset->rupiah($rlt->price_product);?></p>
+                                    <h4 class="product-name"><a
+                                            href="<?= base_url("product/$rlt->id_product-$tourl"); ?>"
+                                            title="<?= $rlt->name_product; ?>"><?= $rlt->name_product; ?></a></h4>
+                                    <span class="badge"
+                                          title="Stok Tersedia - <?= $rlt->stock_product; ?>"><?= $rlt->stock_product; ?> Stok</span>
+                                    <p class="price product-price"><?= $this->toolset->rupiah($rlt->price_product); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +336,7 @@ unset($rowthumb[0]);
 </div>
 
 <script>
-    $('#send-comment').on('click',function(){
+    $('#send-comment').on('click', function () {
         var csrf = $("#csrf-form").attr('data-csrf');
         $("#csrf-form").val(csrf);
         $.ajax({
@@ -275,10 +347,10 @@ unset($rowthumb[0]);
             cache: false,
             processData: false,
             dataType: "json",
-            success:function(result){
-                $('.csrf').attr('data-csrf',result['csrf_regenerate']);
+            success: function (result) {
+                $('.csrf').attr('data-csrf', result['csrf_regenerate']);
                 $('#csrf-form').val(result['csrf_regenerate']);
-                if(result['status']) {
+                if (result['status']) {
                     $('#formComment')[0].reset();
                     Swal.fire(
                         'Berhasil',
@@ -294,7 +366,7 @@ unset($rowthumb[0]);
 
                     Swal.fire(
                         'Gagal',
-                        result['error'][0]['field']+" "+result['error'][0]['msg'],
+                        result['error'][0]['field'] + " " + result['error'][0]['msg'],
                         'error'
                     )
                 }
@@ -302,7 +374,7 @@ unset($rowthumb[0]);
         });
     });
 
-    $('.addtocart-btn').on("click",function(){
+    $('.addtocart-btn').on("click", function () {
         var id = $(this).attr("data-id");
         var qty = $('#qty').val();
         var csrf = $(this).attr("data-csrf");
@@ -315,10 +387,10 @@ unset($rowthumb[0]);
                 "<?=$this->security->get_csrf_token_name();?>": csrf
             },
             dataType: "json",
-            success:function(result){
-                $('.csrf').attr("data-csrf",result['csrf_regenerate']);
-                if(result['status']) {
-                    if($('.cartul .update').length < 1) {
+            success: function (result) {
+                $('.csrf').attr("data-csrf", result['csrf_regenerate']);
+                if (result['status']) {
+                    if ($('.cartul .update').length < 1) {
 
                         $('.cartul').append('<li style="text-align:center;margin-bottom: 12px" class="update">Telah terjadi perubahan. Silahkan refresh page untuk memperbaharui</li>');
 
@@ -354,7 +426,7 @@ unset($rowthumb[0]);
         width: 38px;
         height: 38px;
         background-size: 38px;
-        border-radius: 12px;
+        /*border-radius: 12px;*/
         margin: 0 4px 0 0;
     }
 
@@ -364,30 +436,29 @@ unset($rowthumb[0]);
 
     div .motif label {
         font-weight: 400;
-        margin: 3px 0;
+        margin-right: 2px;
         -webkit-box-align: center;
         align-items: center;
         background-color: rgb(155 168 174 / 0%);
-        border-radius: 16px;
-        border: 1px solid rgb(155 168 174 / 53%);
-        color: rgb(155 168 174);
+        /* border-radius: 16px; */
+        border: 1px solid #a5a5a5;
+        /* color: rgb(155 168 174); */
         display: inline-flex;
         vertical-align: top;
         flex: 1 1 0%;
         flex-wrap: nowrap;
-        margin-bottom: 8px;
-        margin-right: 8px;
         overflow: hidden;
         text-overflow: ellipsis;
         transition: all 0.28s ease-in-out 0s;
         cursor: pointer;
         min-width: 106px;
-        height: 48px;
+        height: 42px;
         padding: 3px 5px;
         line-height: 18px;
         font-size: 12px;
         white-space: normal;
     }
+
     /* HIDE RADIO */
     div .motif label [type=radio] {
         position: absolute;
@@ -438,7 +509,7 @@ unset($rowthumb[0]);
 
     });
 
-    var inputs = document.querySelectorAll("input");
+    var inputs = document.querySelectorAll("input[type=radio]");
     inputs.forEach(function (i) {
         i.addEventListener('click', function (el) {
             var clicked = el.currentTarget;
@@ -446,5 +517,40 @@ unset($rowthumb[0]);
             active && active.classList.remove('shadow-variant');
             clicked.parentElement.classList.add('shadow-variant');
         });
+    });
+
+    $(document).ready(function () {
+
+        var quantitiy = 1;
+        $('.quantity-right-plus').click(function (e) {
+
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#qty').val());
+
+            // If is not undefined
+
+            $('#qty').val(quantity + 1);
+
+
+            // Increment
+
+        });
+
+        $('.quantity-left-minus').click(function (e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#qty').val());
+
+            // If is not undefined
+
+            // Increment
+            if (quantity > 1) {
+                $('#qty').val(quantity - 1);
+            }
+        });
+
     });
 </script>

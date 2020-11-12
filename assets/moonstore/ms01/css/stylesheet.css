@@ -1,7 +1,7 @@
 body {
 	font-family: "Montserrat", Helvetica, Arial, sans-serif;
 	font-weight: 400;
-	color: #999;
+	color: #272727;
 	font-size: 13px;
 	line-height: 1.5;
 	position: relative;
@@ -937,7 +937,7 @@ footer ul li {
 .input-group .btn {
 	float: left;
 	margin-left: 10px;
-	padding: 11px 14px;
+	padding: 10px 14px;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
 	background: #000;
@@ -1327,7 +1327,7 @@ h2.price {
 .productpage-title {
 	font-weight: bold;
 	text-transform: none;
-	font-size: 30px;
+	/*font-size: 30px;*/
 }
 .product-slider.owl-carousel {
 	border: none;
@@ -1880,35 +1880,62 @@ span.review-count, span.review-edit {
 	padding: 10px 20px;
 	margin: 0;
 	border: 0;
-	color: #bccad0;
+	color: #949494;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 13px;
 }
 .nav-tabs>li>a:hover {
-	background: #495054!important;
-	padding: 10px 20px!important;
-	margin: 0!important;
-	color: #fff!important;
+	background: #495054 !important;
+	padding: 10px 20px !important;
+	margin: 0 !important;
+	color: #fff !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
 }
 .nav-tabs>li.active>a {
-	background: #9ba8ae;
+	background: #799bab00;
 	padding: 10px 20px;
 	margin: 0;
-	color: #fff;
+	color: #000 !important;
+	font-size: 13px !important;
+	font-weight: 600;
+	border-width: 2px;
+	border-bottom-color: #000000;
+	text-transform: uppercase;
+	border-bottom: solid 2px #000 !important;
 }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:hover {
+	background: #799bab00;
+	padding: 10px 20px;
+	padding-left: 0;
+	margin: 0;
+	font-size: 13px !important;
+	font-weight: 600;
+	border-width: 2px;
+	border-bottom-color: #000000;
+	text-transform: uppercase;
+	border-bottom: solid 2px #000 !important;
+}
+
 .productinfo-tab .tab-content {
 	border-style: solid;
 	border-width: 2px 0 0;
 	overflow: hidden;
 	padding: 25px;
-	border: 1px solid #CCC;
-	border-top: 2px solid #000000;
+	/*border: 1px solid #CCC;*/
+	border-top: 2px solid #ccc;
 }
 .label-title {
 	font-weight: bold;
 	margin: 0 5px 0 0;
 }
+
 .qty {
 	display: inline-block;
-	margin: 25px 0;
+	/*margin: 25px 0;*/
+	margin-bottom: 25px;
 	width: auto;
 }
 .qty > input {
@@ -1939,22 +1966,55 @@ span.review-count, span.review-edit {
 	float: left;
 	margin: 10px 0;
 }
+
 #product {
 	clear: both;
-	margin-top: 35px;
+	/*margin-top: 35px;*/
 }
+
 #product button {
-	background: #495054 none repeat scroll 0 0;
+	background: #000 none repeat scroll 0 0;
 	height: 40px;
-	width: 40px;
+	width: 180px;
 }
+
+.btn-tocart {
+	background: #000 none repeat scroll 0 0;
+	height: 40px;
+	width: 180px;
+}
+
+.quantity-left-minus {
+	border: 1px solid #a5a5a5;
+	background: transparent;
+	color: black;
+}
+
+.quantity-right-plus {
+	border: 1px solid #a5a5a5;
+	background: transparent;
+	color: black;
+}
+
+.stock-right {
+	position: relative;
+	bottom: 15px;
+	margin-left: 10px;
+}
+
+.input-group .btn {
+	margin-left: 0px !important;
+}
+
 #product .custom-qty {
 	margin: 20px 0;
 }
+
 .input-text.qty {
 	padding: 10px;
 	width: 80px;
 }
+
 #product button:hover {
 	background: #23282A none repeat scroll 0 0;
 }
@@ -1970,22 +2030,39 @@ span.review-count, span.review-edit {
 	font-weight: normal;
 	margin-left: 20px;
 }
+
 .productpage-price {
 	font-size: 18px;
 	color: #000;
 	font-weight: bold;
 	margin: 10px 0;
 }
+
 .brand-block {
 	margin: 0 0 20px;
 }
+
+.breadcrumb-mod {
+	color: #999 !important;
+}
+
+.breadcrumb-mod a {
+	color: #999 !important;
+}
+
+.breadcrumb-mod i {
+	font-size: 13px;
+}
+
 .brandproduct-title {
 	background: #f1f1f1;
 	padding: 8px;
 }
+
 .search-criteria, .search-desc {
 	margin: 10px 0;
 }
+
 button.btn.btn-default.btn-lg span {
 	font-size: 14px;
 	letter-spacing: 1px;

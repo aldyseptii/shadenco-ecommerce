@@ -3,28 +3,28 @@
   <div class="footer-bottom">
     <div id="bottom-footer">
       <ul class="footer-link">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Work</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
       </ul>
-      <div class="copyright"> Copyright - <a class="yourstore" href="/"> Shade & Co &copy; 2020 </a></div>
-      <div class="footer-bottom-cms">
-        <div class="footer-payment">
-          <ul>
-            <li class="mastero"><a href="#"><img alt="" src="image/payment/mastero.jpg"></a></li>
-            <li class="visa"><a href="#"><img alt="" src="image/payment/visa.jpg"></a></li>
-            <li class="currus"><a href="#"><img alt="" src="image/payment/currus.jpg"></a></li>
-            <li class="discover"><a href="#"><img alt="" src="image/payment/discover.jpg"></a></li>
-          </ul>
+        <div class="copyright"> Copyright - <a class="yourstore" href="/"> Shade & Co &copy; 2020 </a></div>
+        <div class="footer-bottom-cms">
+            <!--        <div class="footer-payment">-->
+            <!--          <ul>-->
+            <!--            <li class="mastero"><a href="#"><img alt="" src="image/payment/mastero.jpg"></a></li>-->
+            <!--            <li class="visa"><a href="#"><img alt="" src="image/payment/visa.jpg"></a></li>-->
+            <!--            <li class="currus"><a href="#"><img alt="" src="image/payment/currus.jpg"></a></li>-->
+            <!--            <li class="discover"><a href="#"><img alt="" src="image/payment/discover.jpg"></a></li>-->
+            <!--          </ul>-->
         </div>
-      </div>
     </div>
   </div>
-  <a id="scrollup">Scroll</a> </footer>
+    </div>
+    <a id="scrollup">Scroll</a></footer>
 <script src="<?=base_url("assets/moonstore/ms01/javascript/jquery.parallax.js");?>"></script> 
 <script src="<?=base_url();?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script>

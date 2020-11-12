@@ -19,7 +19,7 @@
                 }
             ?>
 
-                <div class="product-layout  product-grid  col-md-3">
+                <div class="product-layout  product-grid  col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="item">
                         <div class="product-thumb">
                             <div class="image product-imageblock"><a href="<?=base_url("product/$product->id_product-$tourl");?>"> <img style="width:622;height:800" src="<?=$url_photo;?>" alt="<?=$product->name_product;?>" title="<?=$product->name_product;?>" class="img-responsive" /> <img src="<?=$url_photo;?>" alt="<?=$product->name_product;?>" title="<?=$product->name_product;?>" class="img-responsive" /> </a>
