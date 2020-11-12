@@ -52,7 +52,7 @@ class Category extends CI_Controller {
         
         $config['base_url'] = base_url("category/$id-$slug");
         $config['total_rows'] = $this->product_list->category_list($sort,$id,$price)->num_rows();;
-        $config['per_page'] = 8;
+        $config['per_page'] = 9;
         $config['reuse_query_string'] = TRUE;
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';

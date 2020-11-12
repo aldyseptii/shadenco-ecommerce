@@ -22,29 +22,38 @@ $this->visitor->hit();
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/responsive.css" rel="stylesheet">
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
 <link href="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+<link rel="stylesheet" href="<?= base_url(); ?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet"
+          href="<?= base_url(); ?>assets/adminlte/plugins/pace-progress/themes/black/pace-theme-flash.css">
+    <script type="text/javascript"
+            src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/jquery-2.1.1.min.js"></script>
+    <!--<script type="text/javascript" src="-->
+    <? //=base_url("assets/moonstore/ms01");?><!--/javascript/jquery-ui.min.js" ></script>-->
+    <script type="text/javascript"
+            src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/template_js/jstree.min.js"></script>
+    <script type="text/javascript"
+            src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/template_js/template.js"></script>
+    <script type="text/javascript" src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/common.js"></script>
+    <script type="text/javascript" src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/global.js"></script>
+    <script type="text/javascript"
+            src="<?= base_url("assets/moonstore/ms01"); ?>/javascript/owl-carousel/owl.carousel.min.js"></script>
     <?php if ($this->uri->segment(1) == 'product' && !empty($this->uri->segment(1))) { ?>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet"
+              type="text/css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
     <?php } ?>
-<link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/sweetalert2/sweetalert2.min.css">
-<link rel="stylesheet" href="<?=base_url();?>assets/adminlte/plugins/pace-progress/themes/black/pace-theme-flash.css">
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/jquery-2.1.1.min.js" ></script>
-<!--<script type="text/javascript" src="--><?//=base_url("assets/moonstore/ms01");?><!--/javascript/jquery-ui.min.js" ></script>-->
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/bootstrap/js/bootstrap.min.js" ></script>
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/template_js/jstree.min.js"></script>
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/template_js/template.js" ></script>
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/common.js" ></script>
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/global.js" ></script>
-<script type="text/javascript" src="<?=base_url("assets/moonstore/ms01");?>/javascript/owl-carousel/owl.carousel.min.js" ></script>
-<script>
-    paceOptions = {
-    restartOnRequestAfter: 5,
-    ajax: {
-      trackMethods: ['GET', 'POST', 'PUT', 'DELETE', 'REMOVE']
-    }
-  }
-</script>
-<script src="<?=base_url();?>assets/adminlte/plugins/pace-progress/pace.min.js"></script>
+    <script>
+        paceOptions = {
+            restartOnRequestAfter: 5,
+            ajax: {
+                trackMethods: ['GET', 'POST', 'PUT', 'DELETE', 'REMOVE']
+            }
+        }
+    </script>
+    <script src="<?= base_url(); ?>assets/adminlte/plugins/pace-progress/pace.min.js"></script>
 
     <style>.table-bordered, .table-bordered th, .table-bordered td {
             border-color: #aaa !important

@@ -8,9 +8,8 @@ if(!isset($max)) {
 }
 ?>
 
-<div class="breadcrumb parallax-container">
-  <div class="parallax"><img src="<?=base_url("assets/moonstore/ms01/image/prlx.jpg");?>" alt="#"></div>
-  <h1 class="category-title"><?=$pagetitle;?></h1>
+<div class="breadcrumb parallax-container p-0">
+    <h1 class="category-title"><?=$pagetitle;?></h1>
     <ul>
         <?php foreach ($breadcrumb as $bc) {
             echo $bc;
@@ -23,7 +22,6 @@ if(!isset($max)) {
         <div id="column-left" class="col-sm-3 hidden-xs column-left">
             <div class="Categories left-sidebar-widget">
                 <div class="columnblock-title">Kategori</div>
-                <?php var_dump($categories); ?>
                 <div class="category_block">
                     <ul class="box-category treeview">
                         <?php

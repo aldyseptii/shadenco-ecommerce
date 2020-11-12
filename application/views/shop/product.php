@@ -23,9 +23,11 @@ unset($rowthumb[0]);
             <div class="row">
                 <div class="col-sm-6 p-5">
                     <div class="thumbnails">
-                        <div class="left-column">
-                            <a class="fancybox" href="#">
-                                <img class="tampil" src="<?= base_url("img/original/$bigthumb"); ?>"/>
+                        <div class="left-column" id="ProductPhoto">
+                            <a class="thumbnail fancybox" rel="lightbox"
+                               href="<?= base_url("img/original/$bigthumb"); ?>">
+                                <img id="ProductPhotoImg" class="product-zoom tampil"
+                                     src="<?= base_url("img/original/$bigthumb"); ?>"/>
                             </a>
                             <?php foreach ($variant as $motif) {
                                 ?>
@@ -46,9 +48,9 @@ unset($rowthumb[0]);
 
                                 <div class="item">
                                     <div class="image-additional"><a class="thumbnail fancybox"
-                                                                     href="<?= base_url("img/622x800/$img"); ?>"
+                                                                     href="<?= base_url("img/original/$img"); ?>"
                                                                      title="<?= $detail->name_product; ?>"> <img
-                                                src="<?= base_url("img/622x800/$img"); ?>"
+                                                src="<?= base_url("img/original/$img"); ?>"
                                                 title="<?= $detail->name_product; ?>"
                                                 alt="<?= $detail->name_product; ?>"/></a></div>
                                 </div>
@@ -552,5 +554,39 @@ unset($rowthumb[0]);
             }
         });
 
+    });
+</script>
+<script>$(document).ready(function () {
+        $('.fancybox').fancybox();
+    });</script>
+<script>function productZoom() {
+        $(".product-zoom").elevateZoom({
+            gallery: 'ProductThumbs',
+            galleryActiveClass: "active",
+            zoomType: "inner",
+            cursor: "crosshair"
+        });
+        $(".product-zoom").on("click", function (e) {
+            var ez = $('.product-zoom').data('elevateZoom');
+            $.fancybox(ez.getGalleryList());
+            return false;
+        });
+
+    };
+
+    function productZoomDisable() {
+        if ($(window).width() < 767) {
+            $('.zoomContainer').remove();
+            $(".product-zoom").removeData('elevateZoom');
+            $(".product-zoom").removeData('zoomImage');
+        } else {
+            productZoom();
+        }
+    };
+
+    productZoomDisable();
+
+    $(window).resize(function () {
+        productZoomDisable();
     });
 </script>
