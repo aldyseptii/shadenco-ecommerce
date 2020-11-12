@@ -1060,8 +1060,17 @@ footer ul li {
 }
 .product-thumb .product-name {
 	font-weight: 600;
-	margin: 5px 0 5px;
+	margin: 10px 0 0;
+	text-align: left;
 }
+
+.product-thumb .product-cat {
+	font-weight: 500;
+	margin: 0;
+	text-align: left;
+	font-size: 11px !important;
+}
+
 .product-list .product-thumb .product-name {
 	margin: 0 0 10px;
 }
@@ -1172,6 +1181,7 @@ h2.price {
 	font-weight: 600;
 	margin: 0;
 	font-size: 16px;
+	text-align: right;
 }
 .less {
 	color: #bccad0;
@@ -1590,7 +1600,7 @@ ul.main-navigation > li.menu-last ul ul {
 	margin-bottom: 45px;
 }
 .column-left .columnblock-title, .column-right .columnblock-title {
-	font-size: 20px;
+	font-size: 16px;
 	font-family: Montserrat;
 	color: #000;
 	margin-bottom: 15px;
@@ -1714,7 +1724,7 @@ p.list-group-item {
 }
 .product-thumb .product-name a {
 	font-size: 13px;
-	color: #666;
+	color: #121212;
 	font-weight: normal;
 }
 .product-list .product-thumb .product-name a {
@@ -1816,6 +1826,7 @@ p.list-group-item {
 }
 .grid-list-wrapper .product-grid {
 	padding-bottom: 60px;
+	min-height: 552px;
 }
 .grid-list-wrapper {
 	margin: 15px -10px;

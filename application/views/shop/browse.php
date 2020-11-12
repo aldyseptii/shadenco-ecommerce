@@ -11,26 +11,29 @@ if(!isset($max)) {
 <div class="breadcrumb parallax-container">
   <div class="parallax"><img src="<?=base_url("assets/moonstore/ms01/image/prlx.jpg");?>" alt="#"></div>
   <h1 class="category-title"><?=$pagetitle;?></h1>
-  <ul>
-    <?php foreach($breadcrumb as $bc) { echo $bc; } ?>
-    
-  </ul>
+    <ul>
+        <?php foreach ($breadcrumb as $bc) {
+            echo $bc;
+        } ?>
+
+    </ul>
 </div>
 <div class="container">
-  <div class="row">
-    <div id="column-left" class="col-sm-3 hidden-xs column-left">
-      <div class="Categories left-sidebar-widget">
-        <div class="columnblock-title">Kategori</div>
-        <div class="category_block">
-          <ul class="box-category treeview">
-            <?php
-            foreach($categories as $category) {
-                if(isset($caturl)) {
-                    $isurl = $caturl.$category->id_category;
-                } else {
-                    $isurl = base_url("category/$category->id_category-".$this->toolset->tourl($category->name_category));
-                }
-            ?>  
+    <div class="row">
+        <div id="column-left" class="col-sm-3 hidden-xs column-left">
+            <div class="Categories left-sidebar-widget">
+                <div class="columnblock-title">Kategori</div>
+                <?php var_dump($categories); ?>
+                <div class="category_block">
+                    <ul class="box-category treeview">
+                        <?php
+                        foreach ($categories as $category) {
+                            if (isset($caturl)) {
+                                $isurl = $caturl . $category->id_category;
+                            } else {
+                                $isurl = base_url("category/$category->id_category-" . $this->toolset->tourl($category->name_category));
+                            }
+                            ?>
 
             <li><a href="<?=$isurl;?>"><?=$category->name_category;?></a></li>
 
@@ -54,21 +57,59 @@ if(!isset($max)) {
               </div>
             </div>
           </div>
-          <div class="panel-footer">
-            <button type="button" id="button-filter" class="btn btn-primary">Terapkan</button>
-          </div>
+            <div class="panel-footer">
+                <button type="button" id="button-filter" class="btn btn-primary">Terapkan</button>
+            </div>
         </div>
       </div>
-    </div>
-    <div class=" content col-sm-9">
-      <div class="category-page-wrapper">
-        <div class="col-md-2 text-right sort-wrapper">
-          <label class="control-label" for="input-sort">Urutkan :</label>
-          <div class="sort-inner">
-            <select id="input-sort" class="form-control">
-              <option value="id_product-DESC">Default</option>
-              <option value="name_product-ASC">Nama (A - Z)</option>
-              <option value="name_product-DESC">Nama (Z - A)</option>
+            <div class="Categories left-sidebar-widget">
+                <div class="columnblock-title">Ukuran</div>
+                <div class="category_block">
+                    <ul class="box-category treeview collapsable">
+
+
+                        <li>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <span>45cm x 185cm</span>
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <span>60cm x 185cm</span>
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <span>90cm x 185cm</span>
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <span>90cm x 250cm</span>
+                                </label>
+                                <br/>
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <span>120cm x 185cm</span>
+                                </label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class=" content col-sm-9">
+            <div class="category-page-wrapper">
+                <div class="col-md-2 text-right sort-wrapper">
+                    <label class="control-label" for="input-sort">Urutkan :</label>
+                    <div class="sort-inner">
+                        <select id="input-sort" class="form-control">
+                            <option value="id_product-DESC">Default</option>
+                            <option value="name_product-ASC">Nama (A - Z)</option>
+                            <option value="name_product-DESC">Nama (Z - A)</option>
               <option value="price_product-ASC">Harga (Termurah &gt; Termahal)</option>
               <option value="price_product-DESC">Harga (Termahal &gt; Termurah)</option>
               <option value="total_rating-DESC">Rating (Tertinggi)</option>
@@ -89,39 +130,54 @@ if(!isset($max)) {
         foreach($productlist as $product) {
             $tourl = $this->toolset->tourl($product->name_product);
             if(empty($product->url_photo)) {
-                $url_photo = base_url("assets/moonstore/ms01")."/image/product/product8-8.jpg";
+                $url_photo = base_url("assets/moonstore/ms01") . "/image/product/product8-8.jpg";
             } else {
                 $url_photo = base_url("img/622x800/$product->url_photo");
             }
-        ?>
+            ?>
 
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image product-imageblock">
-            <a href="<?=base_url("product/$product->id_product-$tourl");?>">
-            <img style="max-width:276px" src="<?=$url_photo;?>" alt="<?=$product->name_product;?>" title="<?=$product->name_product;?>"/>
-            <img style="max-width:276px" src="<?=$url_photo;?>" alt="<?=$product->name_product;?>" title="<?=$product->name_product;?>"/>
-            </a>
-              <ul class="button-group grid-btn">
-              <li>
-                    <button type="button" data-id="<?=$product->id_product;?>" class="addtocart-btn addtocart csrf" title="Tambah ke Keranjang" data-csrf="<?=$this->security->get_csrf_hash();?>"> Tambah ke Keranjang </button>
-                 </li>
-              </ul>
+            <div class="product-layout product-list col-xs-12">
+                <div class="product-thumb">
+                    <div class="image product-imageblock">
+                        <a href="<?= base_url("product/$product->id_product-$tourl"); ?>">
+                            <img src="<?= $url_photo; ?>" alt="<?= $product->name_product; ?>"
+                                 title="<?= $product->name_product; ?>"/>
+                            <img src="<?= $url_photo; ?>" alt="<?= $product->name_product; ?>"
+                                 title="<?= $product->name_product; ?>"/>
+                        </a>
+                        <ul class="button-group grid-btn">
+                            <li>
+                                <button type="button" data-id="<?= $product->id_product; ?>"
+                                        class="addtocart-btn addtocart csrf" title="Tambah ke Keranjang"
+                                        data-csrf="<?= $this->security->get_csrf_hash(); ?>"> Tambah ke Keranjang
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="caption product-detail">
+                        <div class="rating hidden"> <?= $this->toolset->rating($product->total_rating); ?> </div>
+                        <h4 class="product-name"><a href="#"
+                                                    title="<?= $product->name_product; ?>"><?= $product->name_product; ?></a>
+                        </h4>
+                        <span class="badge hidden"
+                              title="Stok Tersedia - <?= $product->stock_product; ?>"><?= $product->stock_product; ?> Stok</span>
+                        <hr style="margin-top: 12px;margin-bottom: 12px;border: 0;border-top: 2px solid #121212;"/>
+                        <h5 class="product-cat">
+                            <p><?php echo "$product->name_category"; ?></p>
+                        </h5>
+                        <p class="price product-price"><?= $this->toolset->rupiah($product->price_product); ?></p>
+                        <p class="product-desc"><?= strip_tags(substr($product->description_product, 0, 400)); ?></p>
+                        <ul class="button-group list-btn">
+                            <li>
+                                <button type="button" data-id="<?= $product->id_product; ?>"
+                                        class="addtocart-btn addtocart csrf" title="Tambah ke Keranjang"
+                                        data-csrf="<?= $this->security->get_csrf_hash(); ?>"> Tambah ke Keranjang
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="caption product-detail">
-              <div class="rating"> <?=$this->toolset->rating($product->total_rating);?> </div>
-              <h4 class="product-name"><a href="#" title="<?=$product->name_product;?>"><?=$product->name_product;?></a></h4>
-                <span class="badge" title="Stok Tersedia - <?=$product->stock_product;?>"><?=$product->stock_product;?> Stok</span>
-                <p class="price product-price"><?=$this->toolset->rupiah($product->price_product);?></p>
-              <p class="product-desc"><?=strip_tags(substr($product->description_product,0,400));?></p>
-              <ul class="button-group list-btn">
-              <li>
-                    <button type="button" data-id="<?=$product->id_product;?>" class="addtocart-btn addtocart csrf" title="Tambah ke Keranjang" data-csrf="<?=$this->security->get_csrf_hash();?>"> Tambah ke Keranjang </button>
-                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <?php } if(count($productlist) < 1) { ?>
 
             <div class="text-center">Belum ada produk</div>

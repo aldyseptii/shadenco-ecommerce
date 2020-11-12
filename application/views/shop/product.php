@@ -25,7 +25,7 @@ unset($rowthumb[0]);
                     <div class="thumbnails">
                         <div class="left-column">
                             <a class="fancybox" href="#">
-                                <img class="tampil" src="<?= base_url("img/622x800/$bigthumb"); ?>"/>
+                                <img class="tampil" src="<?= base_url("img/original/$bigthumb"); ?>"/>
                             </a>
                             <?php foreach ($variant as $motif) {
                                 ?>
