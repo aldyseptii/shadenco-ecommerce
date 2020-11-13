@@ -74,13 +74,13 @@ unset($rowthumb[0]);
                             <div class="col-md-3">UKURAN</div>
                             <div class="col-md-8">
                                 <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
-                                    <option value="" selected disabled>-- Pilih Ukuran --</option>
+                                    <option value="" selected disabled>-- Pilih Ukuran Untuk Produk Ini --</option>
                                     <option value="" required>45cm x 185cm</option>
                                     <option value="" required>60cm x 185cm</option>
                                     <option value="" required>90cm x 185cm</option>
                                     <option value="" required>90cm x 250cm</option>
                                     <option value="" required>120cm x 185cm</option>
-                                    
+
                                 </select>
                                 <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->
                             </div>
@@ -128,7 +128,7 @@ unset($rowthumb[0]);
                                             <input type="text" id="qty"
                                                    class="form-control input-number" value="1" min="1"
                                                    max="<?= $detail->stock_product; ?>"
-                                                   style="text-align: center;width: 60px;height: 43px;border-top: 1px solid #a5a5a5;border-bottom: 1px solid #a5a5a5;">
+                                                   style="text-align: center;width: 60px;height: 42px;border-top: 1px solid #a5a5a5;border-bottom: 1px solid #a5a5a5;">
                                             <span class="input-group-btn">
                                         <button type="button" class="quantity-right-plus btn btn-success btn-number"
                                                 data-type="plus" data-field="">
