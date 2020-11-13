@@ -22,6 +22,8 @@ if(!isset($max)) {
         <div id="column-left" class="col-sm-3 hidden-xs column-left">
             <div class="Categories left-sidebar-widget">
                 <div class="columnblock-title">Kategori</div>
+                <?php var_dump($categories); ?>
+
                 <div class="category_block">
                     <ul class="box-category treeview">
                         <?php

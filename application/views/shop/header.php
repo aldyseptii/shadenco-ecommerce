@@ -810,7 +810,11 @@ $this->visitor->hit();
                     <ul class="nav navbar-nav navbar-right mt-4">
                         <li class="active"><a href="https://www.shadenco.co.id/">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategori</a>
+                            <a href="<?= base_url('catalog') ?>">
+                                <div class="dropdown-toggle" data-toggle="dropdown"
+                                     onclick="window.location=('<?= base_url('catalog') ?>')">Kategori
+                                </div>
+                            </a>
                             <ul class="dropdown-menu">
 
                                 <?php
