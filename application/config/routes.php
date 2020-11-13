@@ -60,6 +60,6 @@ $route['category/(:num)-(:any)'] = 'category/index/$1/$2';
 $route['category/(:num)-(:any)/(:num)'] = 'category/index/$1/$2/$3';
 $route['catalog/(:num)'] = 'catalog/index/$1';
 
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'catalog';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
