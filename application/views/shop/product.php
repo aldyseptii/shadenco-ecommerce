@@ -31,31 +31,51 @@ unset($rowthumb[0]);
                             </a>
                             <?php foreach ($variant as $motif) {
                                 ?>
-                                <img class="fancybox mb-4" src="<?= $motif->image_url; ?>"
-                                     data-image="<?= $motif->variant_product; ?>"/>
+                                <a class="mb-4 fancybox" rel="lightbox"
+                                   href="<?= $motif->image_url; ?>">
+                                    <img id="ProductPhotoImg"
+                                         src="<?= $motif->image_url; ?>" data-image="<?= $motif->variant_product; ?>"/>
+                                </a>
                             <?php }
                             if (count($variant) == 0) {
                                 echo '';
                             } ?>
                         </div>
-
                         <div id="product-thumbnail" class="owl-carousel">
 
-                            <?php
-                            foreach ($rowthumb as $img) {
-                                $img = trim($img);
+                            <!--                            --><?php
+                            /*                            foreach ($rowthumb as $img) {
+                                                            $img = trim($img);
+                                                            */ ?>
+
+                            <!-- Motif kecil kecil -->
+                            <?php foreach ($variant as $motif) {
                                 ?>
+                                <label>
+                                    <div class="item">
+                                        <div class="image-additional"><a class="thumbnail fancybox"
+                                                                         href="<?= base_url('assets/motif' . $motif->motif_link); ?>"
+                                                                         title="<?= $detail->name_product; ?>"> <img
+                                                        src="<?= base_url('assets/motif/' . $motif->motif_link); ?>"
+                                                        title="<?= $detail->name_product; ?>"
+                                                        alt="<?= $detail->name_product; ?>"/></a></div>
+                                    </div>
+                                    <?php
+                                    $image_link = $motif->motif_link;
+                                    if (empty($motif->motif_link)) {
+                                        echo '';
+                                    } else {
+                                        echo "<img class='hidden' src='$image_link'>";
+                                    } ?>
+                                    <?= $motif->variant_product; ?>
+                                </label>
+                            <?php }
+                            if (count($variant) == 0) {
+                                echo 'Tidak ada variant pada produk ini';
+                            } ?>
+                            <!-- Motif Kecil Kecil -->
 
-                                <div class="item">
-                                    <div class="image-additional"><a class="thumbnail fancybox"
-                                                                     href="<?= base_url("img/original/$img"); ?>"
-                                                                     title="<?= $detail->name_product; ?>"> <img
-                                                src="<?= base_url("img/original/$img"); ?>"
-                                                title="<?= $detail->name_product; ?>"
-                                                alt="<?= $detail->name_product; ?>"/></a></div>
-                                </div>
-
-                            <?php } ?>
+                            <!--                            --><?php /*} */ ?>
 
                         </div>
                     </div>
@@ -158,7 +178,8 @@ unset($rowthumb[0]);
             <div class="productinfo-tab">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#detail-product">Detail Product</a></li>
-                    <li class=""><a data-toggle="tab" href="#tab-review">Ulasan (<?= count($comments); ?>)</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-review">Diskusi Produk (<?= count($comments); ?>)</a>
+                    </li>
                     <li class=""><a data-toggle="tab" href="#tab-pemasangan">Cara Pemasangan</a></li>
                     <li class=""><a data-toggle="tab" href="#tab-kebijakan">Kebijakan Pengembalian</a></li>
 
@@ -171,7 +192,7 @@ unset($rowthumb[0]);
                     </div>
                     <div class="tab-pane fade" id="tab-review">
                         <div id="review-list">
-                            <h2>Ulasan Teratas</h2>
+                            <h2>Diskusi Teratas</h2>
                             <?php
                             foreach ($comments as $comment) {
                                 ?>
@@ -190,7 +211,7 @@ unset($rowthumb[0]);
                                 </div>
                             <?php }
                             if (count($comments) == 0) {
-                                echo 'Belum ada ulasan';
+                                echo 'Belum ada diskusi untuk produk ini';
                             } ?>
 
                         </div>
@@ -198,7 +219,7 @@ unset($rowthumb[0]);
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value=""
                                    data-csrf="<?= $this->security->get_csrf_hash(); ?>" id="csrf-form" class="csrf">
                             <div id="review"></div>
-                            <h2>Tulis Ulasan</h2>
+                            <h2>Tulis Diskusi</h2>
                             <div class="form-group required">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="input-name">Nama</label>
@@ -215,7 +236,7 @@ unset($rowthumb[0]);
                             </div>
                             <div class="form-group required">
                                 <div class="col-sm-12">
-                                    <label class="control-label" for="input-review">Ulasan</label>
+                                    <label class="control-label" for="input-review">Diskusi</label>
                                     <textarea name="body_comment" rows="5" id="input-review"
                                               class="form-control"></textarea>
                                     <div class="help-block"><span class="text-danger">Note:</span> HTML tidak
@@ -223,21 +244,21 @@ unset($rowthumb[0]);
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label">Rating</label><br>Bad&nbsp;
-                                    <input type="radio" name="rating_comment" value="1"/>
-                                    &nbsp;
-                                    <input type="radio" name="rating_comment" value="2"/>
-                                    &nbsp;
-                                    <input type="radio" name="rating_comment" value="3"/>
-                                    &nbsp;
-                                    <input type="radio" name="rating_comment" value="4"/>
-                                    &nbsp;
-                                    <input type="radio" name="rating_comment" value="5"/>
-                                    &nbsp;Good
-                                </div>
-                            </div>
+                            <!--                            <div class="form-group required">
+                                                            <div class="col-sm-12">
+                                                                <label class="control-label">Rating</label><br>Bad&nbsp;
+                                                                <input type="radio" name="rating_comment" value="1"/>
+                                                                &nbsp;
+                                                                <input type="radio" name="rating_comment" value="2"/>
+                                                                &nbsp;
+                                                                <input type="radio" name="rating_comment" value="3"/>
+                                                                &nbsp;
+                                                                <input type="radio" name="rating_comment" value="4"/>
+                                                                &nbsp;
+                                                                <input type="radio" name="rating_comment" value="5"/>
+                                                                &nbsp;Good
+                                                            </div>
+                                                        </div>-->
                             <div class="buttons clearfix">
                                 <div class="pull-right">
                                     <button type="button" id="send-comment" data-loading-text="Loading..."
