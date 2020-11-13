@@ -41,7 +41,7 @@ unset($rowthumb[0]);
                                 echo '';
                             } ?>
                         </div>
-                        <div id="product-thumbnail" class="owl-carousel">
+                        <div id="product-thumbnail" class="mt-3 owl-carousel">
 
                             <!--                            --><?php
                             /*                            foreach ($rowthumb as $img) {
@@ -53,9 +53,10 @@ unset($rowthumb[0]);
                                 ?>
                                 <label>
                                     <div class="item">
-                                        <div class="image-additional"><a class="thumbnail fancybox"
-                                                                         href="<?= base_url('assets/motif' . $motif->motif_link); ?>"
+                                        <div class="image-additional"><a class="thumbnail fancybox" rel="lightbox"
+                                                                         href="<?= base_url('assets/motif/' . $motif->motif_link); ?>"
                                                                          title="<?= $detail->name_product; ?>"> <img
+                                                        id="Motif"
                                                         src="<?= base_url('assets/motif/' . $motif->motif_link); ?>"
                                                         title="<?= $detail->name_product; ?>"
                                                         alt="<?= $detail->name_product; ?>"/></a></div>
