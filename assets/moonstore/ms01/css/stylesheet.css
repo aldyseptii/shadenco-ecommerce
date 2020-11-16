@@ -82,15 +82,20 @@ label {
 	margin: 3px 0;
 }
 .box {
-	margin: 0 -20px;
+    margin: 0 -20px;
 }
+
+.wrapper-content {
+    margin-bottom: 12% !important;
+}
+
 select.form-control, textarea.form-control, input[type="text"].form-control, input[type="password"].form-control, input[type="datetime"].form-control, input[type="datetime-local"].form-control, input[type="date"].form-control, input[type="month"].form-control, input[type="time"].form-control, input[type="week"].form-control, input[type="number"].form-control, input[type="email"].form-control, input[type="url"].form-control, input[type="search"].form-control, input[type="tel"].form-control, input[type="color"].form-control {
-	font-size: 14px;
-	-moz-appearance: none;
-	appearance: none;
-	-webkit-appearance: none;
-	border: 1px solid #ddd;
-	font-size: 14px;
+    font-size: 14px;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #ddd;
+    font-size: 14px;
 }
 .input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
 	border: none;
@@ -1835,26 +1840,26 @@ p.list-group-item {
 	width: 50px;
 }
 .content .blog-heading h3, .productblock-title, .client-title, .contactus-title, .team-title, .about-title {
-	font-size: 24px;
-	clear: both;
-	margin: 100px 0 0px;
-	display: inline-block;
-	width: 100%;
-	padding: 0;
-	color: #000;
-	font-weight: 600;
-	letter-spacing: 0.5px;
-	text-transform: uppercase;
-	text-align: center;
+    font-size: 24px;
+    clear: both;
+    margin: 100px 0 0px;
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: left;
 }
-.productblock-title:after{
-	content: "";
-	background: #9ba8ae;
-	height: 3px;
-	width: 100px;
-	display: block;
-	margin: 0 auto;
-	margin-top: 10px;
+.productblock-title:after {
+    content: "";
+    background: #9ba8ae;
+    height: 3px;
+    width: 100px;
+    display: block;
+    /* margin: 0 auto; */
+    margin-top: 10px;
 }
 }
 .title-subline {

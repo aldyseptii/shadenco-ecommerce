@@ -272,9 +272,6 @@ $this->visitor->hit();
             color: #fff;
         }
 
-        #wrapper .rightmenu {
-            margin-left: 15px;
-        }
 
         #wrapper .rightmenu li {
             margin: 0px 10px;
@@ -724,7 +721,12 @@ $this->visitor->hit();
 
 
         function openNav2() {
-            document.getElementById("rightside").style.width = "450px";
+            if (screen.width <= 979) {
+                document.getElementById("rightside").style.width = "100%";
+
+            } else {
+                document.getElementById("rightside").style.width = "450px";
+            }
             document.body.style.backgroundColor = "#00000036";
         }
 
@@ -751,7 +753,7 @@ $this->visitor->hit();
     </script>
 </head>
 <body class="index">
-<div id="wrapper" style="margin-bottom: 12%;">
+<div id="wrapper" class="wrapper-content">
 
     <header class="header navbar-fixed-top" style="background-color: #525659;">
         <div class="container pt-5" style="display: none;">
@@ -762,8 +764,8 @@ $this->visitor->hit();
                     <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
                     <a href="#"><i class="fa fa-youtube fa-fw"></i></a>
                 </li>
-                <li class="active"><a href="callto:9999999999"><i class="fa fa-phone fa-fw"></i> +91 9999999999</a></li>
-                <li class="active"><a href="mailto:info@Aditya.com"><i class="fa fa-envelope fa-fw"></i> info@bloom.com</a>
+                <li class="active"><a href="callto:"><i class="fa fa-phone fa-fw"></i> +91 9999999999</a></li>
+                <li class="active"><a href="mailto:"><i class="fa fa-envelope fa-fw"></i> info@shadenco.co.id</a>
                 </li>
             </ul>
         </div><!-- end of container -->
@@ -772,6 +774,10 @@ $this->visitor->hit();
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+                    <a href="#" class="navbar-brand logo"><img src="<?= base_url("assets"); ?>/logo.png"
+                                                               title="<?= $this->shop_setting->sitename(); ?>"
+                                                               alt="<?= $this->shop_setting->sitename(); ?>"
+                                                               class="img-responsive"/></a>
                     <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                         <span class="sr-only"></span>
                         <span class="icon-bar"></span>
@@ -782,7 +788,7 @@ $this->visitor->hit();
                 </div>
                 <!-- Collection of nav links, forms, and other content for toggling -->
 
-                <ul class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-left hidden-xs">
                     <a href="#" class="navbar-brand logo"><img src="<?= base_url("assets"); ?>/logo.png"
                                                                style="min-width: 124px;max-width: 73px;"
                                                                title="<?= $this->shop_setting->sitename(); ?>"

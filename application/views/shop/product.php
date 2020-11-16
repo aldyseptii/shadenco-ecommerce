@@ -65,7 +65,7 @@ unset($rowthumb[0]);
                                                         alt="<?= $motif->variant_product; ?>"/></a></div>
                                     </div>
                                     <?php
-                                    $image_link = $motif->motif_link;
+                                    $image_link = base_url('assets/motif/') . $motif->motif_link;
                                     if (empty($motif->motif_link)) {
                                         echo '';
                                     } else {
@@ -311,8 +311,8 @@ unset($rowthumb[0]);
                     </div>
                 </div>
             </div>
-            <h3 class="productblock-title">Produk Serupa</h3>
-            <h4 class="title-subline">Produk yang mungkin Anda tertarik</h4>
+            <h3 class="productblock-title mb-4">Produk Serupa</h3>
+            <h4 class="title-subline mb-4">Produk yang mungkin Anda tertarik</h4>
             <div class="box">
                 <div id="related-slidertab" class="row owl-carousel product-slider">
 
@@ -350,7 +350,7 @@ unset($rowthumb[0]);
                                     <h4 class="product-name"><a
                                             href="<?= base_url("product/$rlt->id_product-$tourl"); ?>"
                                             title="<?= $rlt->name_product; ?>"><?= $rlt->name_product; ?></a></h4>
-                                    <span class="badge"
+                                    <span class="badge hidden"
                                           title="Stok Tersedia - <?= $rlt->stock_product; ?>"><?= $rlt->stock_product; ?> Stok</span>
                                     <p class="price product-price"><?= $this->toolset->rupiah($rlt->price_product); ?></p>
                                 </div>
@@ -523,7 +523,8 @@ unset($rowthumb[0]);
     }
 
     .shadow-variant {
-        box-shadow: -3px 0.3rem 0rem 0px rgb(0 0 0 / 15%);
+        box-shadow: -3px 0.3rem 0rem 0px rgb(0 0 0 / 52%);
+        font-weight: 800 !important;
     }
 </style>
 <script>
