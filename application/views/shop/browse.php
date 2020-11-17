@@ -1,4 +1,3 @@
-
 <?php
 if(!isset($min)) {
     $min = "";
@@ -19,13 +18,15 @@ if(!isset($max)) {
 </div>
 <div class="container">
     <div class="row">
-        <div id="column-left" class="col-sm-3 hidden-xs column-left">
+        <div id="column-left" class="col-sm-3 column-left">
             <div class="Categories left-sidebar-widget">
                 <div class="columnblock-title">Kategori</div>
 
                 <div class="category_block">
                     <ul class="box-category treeview">
                         <?php
+                        var_dump($categories);
+                        die;
                         foreach ($categories as $category) {
                             if (isset($caturl)) {
                                 $isurl = $caturl . $category->id_category;
@@ -34,9 +35,9 @@ if(!isset($max)) {
                             }
                             ?>
 
-            <li><a href="<?=$isurl;?>"><?=$category->name_category;?></a></li>
+                            <li><a href="<?= $isurl; ?>"><?= $category->name_category; ?></a></li>
 
-            <?php
+                            <?php
             }
             ?>
           </ul>
