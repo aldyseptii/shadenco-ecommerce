@@ -25,8 +25,6 @@ if(!isset($max)) {
                 <div class="category_block">
                     <ul class="box-category treeview">
                         <?php
-                        var_dump($categories);
-                        die;
                         foreach ($categories as $category) {
                             if (isset($caturl)) {
                                 $isurl = $caturl . $category->id_category;
