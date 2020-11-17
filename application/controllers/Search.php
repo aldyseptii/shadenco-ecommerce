@@ -19,13 +19,13 @@ class Search extends CI_Controller {
 
         $category = $this->input->get("category");
         $price = $this->input->get("price");
-        
-        
+
+
         $push['sliders'] = $this->slider_model->all_slider()->result();
         $push['categories'] = $this->category_model->get_all()->result();
         $push['pages'] = $this->page_model->all_page()->result();
         $push['cart'] = $this->cart_session->get_cart($this->session->cart);
-        
+
         $push['q'] = $q;
         $push['sort'] = $sort;
         $expfilter = explode("-",$price);
@@ -35,11 +35,11 @@ class Search extends CI_Controller {
         $push['pagetitle'] = "Hasil pencarian \"$q\"";
         $push['caturl'] = base_url("search/$page?q=$q&sort=$sort&price=$price&category=");
         $push['filterurl'] = base_url("search/$page?q=$q&sort=$sort&category=$category&price=");
-        
+
         $push['breadcrumb'] = ['<li><a href="'.base_url().'">Home</a></li>','<li>Pencarian</li>'];
-        
+
         if(!empty($category)) {
-            
+
             $query = $this->category_model->get_category($category);
             if($query->num_rows() < 1) {
                 redirect(base_url("404"));
@@ -48,12 +48,12 @@ class Search extends CI_Controller {
             $categoryname = $categoryname->name_category;
             $push['pagetitle'] .= " di $categoryname";
         }
-        
+
         $this->load->library('pagination');
-        
+
         $config['base_url'] = base_url("search");
         $config['total_rows'] = $this->product_list->search($q,$sort,$category,$price)->num_rows();;
-        $config['per_page'] = 8;
+        $config['per_page'] = 9;
         $config['reuse_query_string'] = TRUE;
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
@@ -71,7 +71,7 @@ class Search extends CI_Controller {
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><span>';
         $config['cur_tag_close'] = '</span></li>';
-        
+
         $this->pagination->initialize($config);
         $push['paging'] = $this->pagination->create_links();
         $push['productlist'] = $this->product_list->search($q,$sort,$category,$price,[$page,$config['per_page']])->result();
@@ -81,7 +81,7 @@ class Search extends CI_Controller {
             "to" => ($page + $config['per_page']),
             "total" => $config['total_rows']
         ];
-        
+
         $this->load->view('shop/header',$push);
         $this->load->view('shop/browse',$push);
         $this->load->view('shop/footer',$push);

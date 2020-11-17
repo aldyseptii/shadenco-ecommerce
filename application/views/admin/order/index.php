@@ -187,18 +187,19 @@
             <div class="table-responsive">
                 <table class="table table-sm detail-cart table-bordered" style="font-size:small">
                     <thead>
-                        <tr>
-                            <td class="text-center">Nama Produk</td>
-                            <td class="text-center">Qty</td>
-                            <td class="text-center">Harga Satuan</td>
-                            <td class="text-center">Sub-Total</td>
-                        </tr>
+                    <tr>
+                        <td class="text-center">Nama Produk</td>
+                        <td class="text-center bg-warning">Motif Pilihan</td>
+                        <td class="text-center">Qty</td>
+                        <td class="text-center">Harga Satuan</td>
+                        <td class="text-center">Sub-Total</td>
+                    </tr>
                     </thead>
                     <tbody>
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <td colspan="3" class="text-right">Total</td>
+                    <tr>
+                        <td colspan="3" class="text-right">Total</td>
                             <td class="text-right detail-total"></td>
                         </tr>
                         <tr>
@@ -279,26 +280,26 @@
       $.getJSON("<?=base_url("admin/order/get_json/");?>"+id,function(result){
         $('.detail-id').html("#"+result['no_invoice']);
         $('.detail-name').html(result['name_invoice']);
-        $('.detail-hp').html(result['hp_invoice']);
-        $('.detail-email').html(result['email_invoice']);
-        $('.detail-address').html(result['address_invoice']);
-        $('.detail-courier').html(result['courier_invoice']);
-        $('.detail-date').html(result['date_invoice']);
-        $('.detail-total').html(result['total_invoice']);
-        $('.detail-shipping').html(result['shipping_invoice']);
-        $('.detail-grand').html(result['grand_invoice']);
-        $('.detail-cart tbody').html("");
-        $.each(result['data'],function(){
-            $('.detail-cart tbody').append('<tr><td>'+this.product_detail+'</td><td class="text-center">'+this.qty_detail+'</td><td class="text-right">'+this.price_detail+'</td><td class="text-right">'+this.sub_detail+'</td></tr>');
-        });
-        $(".detail").modal("toggle");
+          $('.detail-hp').html(result['hp_invoice']);
+          $('.detail-email').html(result['email_invoice']);
+          $('.detail-address').html(result['address_invoice']);
+          $('.detail-courier').html(result['courier_invoice']);
+          $('.detail-date').html(result['date_invoice']);
+          $('.detail-total').html(result['total_invoice']);
+          $('.detail-shipping').html(result['shipping_invoice']);
+          $('.detail-grand').html(result['grand_invoice']);
+          $('.detail-cart tbody').html("");
+          $.each(result['data'], function () {
+              $('.detail-cart tbody').append('<tr><td>' + this.product_detail + '</td><td>' + this.motif_pilihan + '</td><td class="text-center">' + this.qty_detail + '</td><td class="text-right">' + this.price_detail + '</td><td class="text-right">' + this.sub_detail + '</td></tr>');
+          });
+          $(".detail").modal("toggle");
       });
   });
 
-  function reload(dom,data,datafor,url) {
-    $(dom).parent().parent().children(".datafor").html(datafor);
+  function reload(dom, data, datafor, url) {
+      $(dom).parent().parent().children(".datafor").html(datafor);
 
-    var dom2 =  $(dom).parent().parent().parent().parent().find(".table");
+      var dom2 = $(dom).parent().parent().parent().parent().find(".table");
 
     if(data == 0) {
         dom2.DataTable().ajax.url(url).load();

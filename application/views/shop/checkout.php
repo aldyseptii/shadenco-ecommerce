@@ -93,7 +93,7 @@
                                 <tr>
                                     <td class="text-center">#</td>
                                     <td class="text-center">Nama Produk</td>
-                                    <td class="text-center">Motif</td>
+                                    <td class="text-center">Motif Pilihan</td>
                                     <td class="text-center">Qty</td>
                                     <td class="text-center">Harga Satuan</td>
                                     <td class="text-center">Sub-Total</td>

@@ -68,30 +68,66 @@ if(!isset($max)) {
 
 
                         <li>
+                            <?php
+                            $opt1 = base_url('search?q=45cm+x+185cm');
+                            $opt2 = base_url('search?q=60cm+x+185cm');
+                            $opt3 = base_url('search?q=90cm+x+185cm');
+                            $opt4 = base_url('search?q=90cm+x+250cm');
+                            $opt5 = base_url('search?q=120cm+x+185cm');
+
+                            $opt1Txt = '45cm x 185cm';
+                            $opt2Txt = '60cm x 185cm';
+                            $opt3Txt = '90cm x 185cm';
+                            $opt4Txt = '90cm x 250cm';
+                            $opt5Txt = '120cm x 185cm';
+
+                            if (empty($q)) {
+
+                            } else {
+                                if ($q === $opt1Txt) {
+                                    $opt1Txt = '45cm x 185cm <i class="fa fa-check"></i> ';
+                                } elseif ($q === $opt2Txt) {
+                                    $opt2Txt = '60cm x 185cm <i class="fa fa-check"></i> ';
+                                } elseif ($q === $opt3Txt) {
+                                    $opt3Txt = '90cm x 185cm <i class="fa fa-check"></i> ';
+                                } elseif ($q === $opt4Txt) {
+                                    $opt4Txt = '90cm x 250cm <i class="fa fa-check"></i> ';
+                                } elseif ($q === $opt5Txt) {
+                                    $opt5Txt = '120cm x 185cm <i class="fa fa-check"></i> ';
+                                }
+                            }
+
+
+                            ?>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="">
-                                    <span>45cm x 185cm</span>
+                                    <a href="<?= $opt1; ?>">
+                                        <span><?= $opt1Txt; ?></span>
+                                    </a>
                                 </label>
                                 <br/>
                                 <label>
-                                    <input type="checkbox" value="">
-                                    <span>60cm x 185cm</span>
+                                    <a href="<?= $opt2; ?>">
+                                        <span><?= $opt2Txt; ?></span>
+                                    </a>
                                 </label>
                                 <br/>
                                 <label>
-                                    <input type="checkbox" value="">
-                                    <span>90cm x 185cm</span>
+                                    <a href="<?= $opt3; ?>">
+                                        <span><?= $opt3Txt; ?></span>
+                                    </a>
                                 </label>
                                 <br/>
                                 <label>
-                                    <input type="checkbox" value="">
-                                    <span>90cm x 250cm</span>
+                                    <a href="<?= $opt4; ?>">
+                                        <span><?= $opt4Txt; ?></span>
+                                    </a>
                                 </label>
                                 <br/>
                                 <label>
-                                    <input type="checkbox" value="">
-                                    <span>120cm x 185cm</span>
+                                    <a href="<?= $opt5; ?>">
+                                        <span><?= $opt5Txt; ?></span>
+                                    </a>
                                 </label>
                             </div>
                         </li>
