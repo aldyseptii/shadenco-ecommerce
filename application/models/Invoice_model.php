@@ -35,7 +35,7 @@ class Invoice_model extends CI_Model {
     }
 
     function get_invoice_detail($id) {
-        $this->db->select('`id_product`,`product_detail`,`qty_detail`,`price_detail`,`qty_detail` * `price_detail` as "sub_detail"',FALSE);
+        $this->db->select('`id_product`,`product_detail`,`motif_pilihan`,`qty_detail`,`price_detail`,`qty_detail` * `price_detail` as "sub_detail"', FALSE);
         $this->db->from("detail_invoice");
         $this->db->where("id_invoice",$id);
         return $this->db->get();
@@ -93,7 +93,7 @@ class Invoice_model extends CI_Model {
     }
 
     function get_invoice_detail_byno($no) {
-        $this->db->select('`id_product`,`product_detail`,`qty_detail`,`price_detail`,`qty_detail` * `price_detail` as "sub_detail"',FALSE);
+        $this->db->select('`id_product`,`product_detail`,`motif_pilihan`,`qty_detail`,`price_detail`,`qty_detail` * `price_detail` as "sub_detail"', FALSE);
         $this->db->from("detail_invoice");
         $this->db->where("no_invoice",$no);
         return $this->db->get();   

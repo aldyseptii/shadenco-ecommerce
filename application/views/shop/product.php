@@ -56,13 +56,13 @@ unset($rowthumb[0]);
                                 <label>
                                     <div class="item">
                                         <div class="image-additional"><a class="thumbnail fancybox" rel="lightbox"
-                                                                         href="<?= base_url('assets/motif/' . $motif->motif_link); ?>"
+                                                                         href="<?= $motif->image_url; ?>"
                                                                          title="<?= $motif->variant_product; ?>">
                                                 <img
-                                                        id="Motif"
-                                                        src="<?= base_url('assets/motif/' . $motif->motif_link); ?>"
-                                                        title="<?= $motif->variant_product; ?>"
-                                                        alt="<?= $motif->variant_product; ?>"/></a></div>
+                                                    id="MotifImage"
+                                                    src="<?= $motif->image_url; ?>"
+                                                    title="<?= $motif->variant_product; ?>"
+                                                    alt="<?= $motif->variant_product; ?>"/></a></div>
                                     </div>
                                     <?php
                                     $image_link = base_url('assets/motif/') . $motif->motif_link;
@@ -94,52 +94,55 @@ unset($rowthumb[0]);
                     </ul>
                     <hr>
                     <div class="col-md-12">
-                        <div class="row mb-4">
-                            <div class="col-md-3">UKURAN</div>
-                            <div class="col-md-8">
-                                <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
-                                    <option value="" selected disabled>-- Pilih Ukuran Untuk Produk Ini --</option>
-                                    <option value="" required>45cm x 185cm</option>
-                                    <option value="" required>60cm x 185cm</option>
-                                    <option value="" required>90cm x 185cm</option>
-                                    <option value="" required>90cm x 250cm</option>
-                                    <option value="" required>120cm x 185cm</option>
+                        <div class="form-group">
 
-                                </select>
-                                <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->
+                            <div class="row mb-4">
+                                <div class="col-md-3">UKURAN</div>
+                                <div class="col-md-8">
+                                    <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
+                                        <option value="" selected disabled>-- Pilih Ukuran Untuk Produk Ini --</option>
+                                        <option value="" required>45cm x 185cm</option>
+                                        <option value="" required>60cm x 185cm</option>
+                                        <option value="" required>90cm x 185cm</option>
+                                        <option value="" required>90cm x 250cm</option>
+                                        <option value="" required>120cm x 185cm</option>
+
+                                    </select>
+                                    <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->
+                                </div>
                             </div>
-                        </div>
-                        <!--                        <div class="ukuran">
+                            <!--                        <div class="ukuran">
                             <h5>Ukuran</h5>
                             <h1><? /*= $detail->size_product; */ ?></h1>
                         </div>-->
-                        <div class="row motif mb-4">
-                            <div class="col-md-3">MOTIF</div>
-                            <div class="col-md-8">
-                                <?php foreach ($variant as $motif) {
-                                    ?>
-                                    <label>
-                                        <input type="radio" name="test" value="<?= $motif->variant_product; ?>"
-                                               data-image="<?= $motif->variant_product; ?>">
-                                        <?php
-                                        $image_link = $motif->image_url;
-                                        if (empty($motif->image_url)) {
-                                            echo '';
-                                        } else {
-                                            echo "<img class='hidden' src='$image_link'>";
-                                        } ?>
-                                        <?= $motif->variant_product; ?>
-                                    </label>
-                                <?php }
-                                if (count($variant) == 0) {
-                                    echo 'Tidak ada variant pada produk ini';
-                                } ?>
+                            <div class="row motif mb-4">
+                                <div class="col-md-3">MOTIF</div>
+                                <div class="col-md-8">
+                                    <?php foreach ($variant as $motif) {
+                                        ?>
+                                        <label>
+                                            <input type="radio" name="motif"
+                                                   data-image="<?= $motif->variant_product; ?>"
+                                                   value="<?= $motif->variant_product; ?>">
+                                            <?php
+                                            $image_link = base_url('assets/motif/' . $motif->motif_link);
 
+                                            if (empty($motif->image_url)) {
+                                                echo '';
+                                            } else {
+                                                echo "<img src='$image_link'>";
+                                            } ?>
+                                            <?= $motif->variant_product; ?>
+                                        </label>
+                                    <?php }
+                                    if (count($variant) == 0) {
+                                        echo 'Tidak ada variant pada produk ini';
+                                    } ?>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div>
-                                <div class="form-group">
+                            <div class="row mb-4">
+                                <div>
                                     <div class="col-md-3">KUANTITAS</div>
                                     <div class="col-md-8 pl-2">
                                         <div class="input-group">
@@ -172,10 +175,10 @@ unset($rowthumb[0]);
                                     </div>
                                 </div>
                             </div>
+
+                            <hr>
+
                         </div>
-
-                        <hr>
-
                     </div>
                 </div>
             </div>
@@ -413,6 +416,7 @@ unset($rowthumb[0]);
             method: "POST",
             data: {
                 "id": id,
+                "motif": $("[name='motif']:checked").val(),
                 "qty": qty,
                 "<?=$this->security->get_csrf_token_name();?>": csrf
             },
@@ -450,83 +454,6 @@ unset($rowthumb[0]);
         });
     });
 </script>
-<style>
-    div .motif label input[type=radio] + img {
-        flex-shrink: 0;
-        width: 38px;
-        height: 38px;
-        background-size: 38px;
-        /*border-radius: 12px;*/
-        margin: 0 4px 0 0;
-    }
-
-    div .motif label:hover {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-    }
-
-    div .motif label {
-        font-weight: 400;
-        margin-right: 2px;
-        -webkit-box-align: center;
-        align-items: center;
-        background-color: rgb(155 168 174 / 0%);
-        /* border-radius: 16px; */
-        border: 1px solid #a5a5a5;
-        /* color: rgb(155 168 174); */
-        display: inline-flex;
-        vertical-align: top;
-        flex: 1 1 0%;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        transition: all 0.28s ease-in-out 0s;
-        cursor: pointer;
-        min-width: 106px;
-        height: 42px;
-        padding: 3px 5px;
-        line-height: 18px;
-        font-size: 12px;
-        white-space: normal;
-    }
-
-    /* HIDE RADIO */
-    div .motif label [type=radio] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* IMAGE STYLES */
-    [type=radio] + img {
-        cursor: pointer;
-    }
-
-    /* CHECKED STYLES */
-    [type=radio]:checked + img {
-        background: #bccad0;
-        padding: 4px;
-        transition: all 0.28s ease-in-out 0s;
-    }
-
-    /* Left Column */
-    .left-column img {
-        width: 100%;
-        opacity: 0;
-        transition: all 0.3s ease;
-        display: none;
-    }
-
-    .left-column img.tampil {
-        display: block;
-        opacity: 1;
-    }
-
-    .shadow-variant {
-        box-shadow: -3px 0.3rem 0rem 0px rgb(0 0 0 / 52%);
-        font-weight: 800 !important;
-    }
-</style>
 <script>
     $(document).ready(function () {
 
@@ -585,6 +512,84 @@ unset($rowthumb[0]);
 
     });
 </script>
+
+<style>
+    div .motif label input[type=radio] + img {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        background-size: 38px;
+        border-radius: 2px;
+        margin: 0 4px 0 0;
+    }
+
+    div .motif label:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+    div .motif label {
+        font-weight: 400;
+        margin-right: 2px;
+        -webkit-box-align: center;
+        align-items: center;
+        background-color: rgb(155 168 174 / 0%);
+        /* border-radius: 16px; */
+        border: 1px solid #a5a5a5;
+        /* color: rgb(155 168 174); */
+        display: inline-flex;
+        vertical-align: top;
+        flex: 1 1 0%;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.28s ease-in-out 0s;
+        cursor: pointer;
+        max-width: 107px;
+        height: 42px;
+        padding: 3px 5px;
+        line-height: 18px;
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    /* HIDE RADIO */
+    div .motif label [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* IMAGE STYLES */
+    [type=radio] + img {
+        cursor: pointer;
+    }
+
+    /* CHECKED STYLES */
+    /*    [type=radio]:checked + img {
+            background: #bccad0;
+            padding: 4px;
+            transition: all 0.28s ease-in-out 0s;
+        }*/
+
+    /* Left Column */
+    .left-column img {
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: none;
+    }
+
+    .left-column img.tampil {
+        display: block;
+        opacity: 1;
+    }
+
+    .shadow-variant {
+        box-shadow: -3px 0.3rem 0rem 0px rgb(0 0 0 / 52%);
+        font-weight: 800 !important;
+    }
+</style>
 <script>$(document).ready(function () {
         $('.fancybox').fancybox();
     });</script>

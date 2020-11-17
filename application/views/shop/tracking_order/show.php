@@ -23,43 +23,49 @@
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th class="text-center">#</th>
-                            <th class="text-center">Nama Produk</th>
-                            <th class="text-center">Harga Satuan</th>
-                            <th class="text-center">Qty</th>
-                            <th class="text-center">Sub-Total</th>
-                        </tr>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Nama Produk</th>
+                        <th class="text-center">Harga Satuan</th>
+                        <th class="text-center">Motif Pilihan</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-center">Sub-Total</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <?php
                     $num = 0;
                     foreach($detail_invoice as $di) {
                         $num++;
-                    ?>
+                        ?>
 
                         <tr>
-                            <td class="text-center"><?=$num;?>
+                            <td class="text-center"><?= $num; ?>
                             <td class="text-left">
-                                <a href="<?=base_url("product/".$di['id_product']."-".$this->toolset->tourl($di['product_detail']));?>"><?=$di['product_detail'];?></a>
+                                <a href="<?= base_url("product/" . $di['id_product'] . "-" . $this->toolset->tourl($di['product_detail'])); ?>"><?= $di['product_detail']; ?></a>
                             </td>
-                            <td class="text-right"><?=$this->toolset->rupiah($di['price_detail']);?></td>
-                            <td class="text-center"><?=$di['qty_detail'];?></td>
-                            <td class="text-right"><?=$this->toolset->rupiah($di['sub_detail']);?></td>
+                            <td class="text-right"><?= $this->toolset->rupiah($di['price_detail']); ?></td>
+                            <td class="text-center"><?php if (empty($di['motif_pilihan'])) {
+                                    echo "Default";
+                                } else {
+                                    echo $di['motif_pilihan'];
+                                } ?></td>
+                            <td class="text-center"><?= $di['qty_detail']; ?></td>
+                            <td class="text-right"><?= $this->toolset->rupiah($di['sub_detail']); ?></td>
                         </tr>
                     <?php } ?>
 
-                        <tr>
-                            <td colspan="4" class="text-right">Total</td>
-                            <td class="text-right"><?=$this->toolset->rupiah($invoice['total_invoice']);?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" class="text-right">Ongkos Kirim</td>
-                            <td class="text-right"><?=$this->toolset->rupiah($invoice['shipping_invoice']);?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" class="text-right">Grand Total</td>
-                            <td class="text-right"><?=$this->toolset->rupiah($invoice['shipping_invoice'] + $invoice['total_invoice']);?></td>
+                    <tr>
+                        <td colspan="5" class="text-right">Total</td>
+                        <td class="text-right"><?=$this->toolset->rupiah($invoice['total_invoice']);?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">Ongkos Kirim</td>
+                        <td class="text-right"><?=$this->toolset->rupiah($invoice['shipping_invoice']);?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">Grand Total</td>
+                        <td class="text-right"><?=$this->toolset->rupiah($invoice['shipping_invoice'] + $invoice['total_invoice']);?></td>
                         </tr>
                     </tbody>
                 </table>

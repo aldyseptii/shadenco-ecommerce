@@ -49,6 +49,7 @@ class Cart extends CI_Controller {
 
         $id = $this->input->post("id");
         $qty = $this->input->post("qty");
+        $motif = $this->input->post("motif");
         if(empty($qty)) {
             $qty = 1;
         }
@@ -69,7 +70,7 @@ class Cart extends CI_Controller {
                 $callback['msg'] = "Stok tidak tersedia sebanyak $qty <br/>Hubungi admin <a href='https://wa.me/6281278947744'>+6281278947744</a>";
             } else {
                 if(empty($this->session->cart)) {
-                    $row = [$id => [$id,$qty]];
+                    $row = [$id => [$id, $qty, $motif]];
                     $this->session->set_userdata(["cart" => $row]);
                 } else {
                     $rowbefore = $this->session->cart;
@@ -82,7 +83,7 @@ class Cart extends CI_Controller {
                         $callback['status'] = 0;
                         $callback['msg'] = "Maaf stok tidak tersedia";
                     } else {
-                        $rowbefore[$id] = [$id,$qty];
+                        $rowbefore[$id] = [$id, $qty, $motif];
                         $this->session->set_userdata(["cart" => $rowbefore]);
                     }
                 }

@@ -168,7 +168,8 @@ class Transaction extends CI_Controller {
                     $row = array();
                     $row['price'] = $crt['price'];
                     $row['quantity'] = $crt['qty'];
-                    $row['name'] = substr($crt['name'],0,50);
+                    $row['motif_pilihan'] = $crt['motif'];
+                    $row['name'] = substr($crt['name'], 0, 50);
                     $pushitem1[] = $row;
                 }
                 $pushitem1[] = [
@@ -218,6 +219,7 @@ class Transaction extends CI_Controller {
                         $row['id_invoice'] = $lastid;
                         $row['id_product'] = $crt['id'];
                         $row['product_detail'] = $crt['name'];
+                        $row['motif_pilihan'] = $crt['motif'];
                         $row['price_detail'] = $crt['price'];
                         $row['qty_detail'] = $crt['qty'];
                         $pushitem2[] = $row;

@@ -79,59 +79,74 @@
             </div>
             <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapse-checkout-option" aria-expanded="false">Step 3: Ringkasan <i class="fa fa-caret-down"></i></a></h4>
+                <h4 class="panel-title"><a class="accordion-toggle collapsed" data-parent="#accordion"
+                                           data-toggle="collapse" href="#collapse-checkout-option"
+                                           aria-expanded="false">Step 3: Ringkasan <i class="fa fa-caret-down"></i></a>
+                </h4>
             </div>
-            <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                        <td class="text-center">#</td>
-                        <td class="text-center">Nama Produk</td>
-                        <td class="text-center">Qty</td>
-                        <td class="text-center">Harga Satuan</td>
-                        <td class="text-center">Sub-Total</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
+                <div id="collapse-checkout-option" role="heading" class="panel-collapse collapse" aria-expanded="false"
+                     style="height: 0px;">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <td class="text-center">#</td>
+                                    <td class="text-center">Nama Produk</td>
+                                    <td class="text-center">Motif</td>
+                                    <td class="text-center">Qty</td>
+                                    <td class="text-center">Harga Satuan</td>
+                                    <td class="text-center">Sub-Total</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
                     $num = 0;
                     foreach($cart['data'] as $crt) {
                         $num++;
-                    ?>
+                        ?>
 
                         <tr>
-                        <td class="text-center"><?=$num;?></td>
-                        <td class="text-center"><a href="<?=base_url("product/".$crt['id']."-".$this->toolset->tourl($crt['name']));?>"><?=$crt['name'];?></a></td>
-                        <td class="text-center"><?=$crt['qty'];?></td>
-                        <td class="text-center"><?=$this->toolset->rupiah($crt['price']);?></td>
-                        <td class="text-right"><?=$this->toolset->rupiah($crt['sub']);?></td>
+                            <td class="text-center"><?= $num; ?></td>
+                            <td class="text-center"><a
+                                    href="<?= base_url("product/" . $crt['id'] . "-" . $this->toolset->tourl($crt['name'])); ?>"><?= $crt['name']; ?></a>
+                            </td>
+                            <td class="text-center"><?php if (empty($crt['motif'])) {
+                                    echo "Default";
+                                } else { ?>
+                                    <span class="badge badge-warning"
+                                          style="background: orange;"><?= $crt['motif']; ?></span>
+                                <?php } ?>
+                            </td>
+                            <td class="text-center"><?= $crt['qty']; ?></td>
+                            <td class="text-center"><?= $this->toolset->rupiah($crt['price']); ?></td>
+                            <td class="text-right"><?= $this->toolset->rupiah($crt['sub']); ?></td>
                         </tr>
                     <?php } ?>
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                        <td class="text-right" colspan="4"><strong>Total:</strong></td>
-                        <td class="text-right"><?=$this->toolset->rupiah($cart['total']);?></td>
-                        </tr>
-                        <tr>
-                        <td class="text-right" colspan="4"><strong>Ongkos Kirim:</strong></td>
-                        <td class="text-right"><span class="shipping"></span></td>
-                        </tr>
-                        <tr>
-                        <td class="text-right" colspan="4"><strong>Grand Total:</strong></td>
-                        <td class="text-right"><span class="total"></span></td>
-                        </tr>
-                    </tfoot>
-                    </table>
-                </div>
-                <div class="buttons">
-                    <div class="pull-right">
-                    <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Lanjutkan">
-                    </div>
-                </div>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td class="text-right" colspan="5"><strong>Total:</strong></td>
+                                    <td class="text-right"><?=$this->toolset->rupiah($cart['total']);?></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" colspan="5"><strong>Ongkos Kirim:</strong></td>
+                                    <td class="text-right"><span class="shipping"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right" colspan="5"><strong>Grand Total:</strong></td>
+                                    <td class="text-right"><span class="total"></span></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="buttons">
+                            <div class="pull-right">
+                                <input type="button" data-loading-text="Loading..." class="btn btn-primary"
+                                       id="button-confirm" value="Lanjutkan">
+                            </div>
+                        </div>
                 </div>
             </div>
             </div>

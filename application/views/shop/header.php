@@ -801,7 +801,7 @@ $this->visitor->hit();
                                                                                  id="cart_count"><?= count($cart['data']); ?></span></a>
                     </li>
 
-                    <li class="dropdown">
+                    <li class="dropdown hidden">
                         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><span><i
                                     class="fa fa-user"></i></span></a>
                         <ul class="dropdown-menu">

@@ -26,22 +26,37 @@
 $num = 0;
 foreach($cart['data'] as $crt) {
     $num++;
-?>
+    ?>
 
-              <tr>
-                <td class="text-center"><?=$num;?>
-                <td class="text-center"><a href="<?=$crt['photo'];?>"><img class="img-thumbnail" title="<?=$crt['name'];?>" alt="<?=$crt['name'];?>" src="<?=$crt['photo'];?>" style="max-width:50px"></a></td>
-                <td class="text-left"><a href="<?=base_url("product/".$crt['id']."-".$this->toolset->tourl($crt['name']));?>"><?=$crt['name'];?></a></td>
-                <td class="text-right"><?=$this->toolset->rupiah($crt['price']);?></td>
-                <td class="text-left">
-                    <div style="max-width: 200px;" class="input-group btn-block">
-                        <input type="text" class="form-control quantity" size="1" value="<?=$crt['qty'];?>" name="quantity">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary btn-update" title="" data-toggle="tooltip" type="button" data-original-title="Update" data-id="<?=$crt['id'];?>"><i class="fa fa-refresh"></i></button>
-                            <button  class="btn btn-danger btn-remove" title="" data-toggle="tooltip" type="button" data-original-title="Remove" data-id="<?=$crt['id'];?>"><i class="fa fa-times-circle"></i></button>
+    <tr>
+        <td class="text-center"><?= $num; ?>
+        <td class="text-center"><a href="<?= $crt['photo']; ?>"><img class="img-thumbnail" title="<?= $crt['name']; ?>"
+                                                                     alt="<?= $crt['name']; ?>"
+                                                                     src="<?= $crt['photo']; ?>" style="max-width:50px"></a>
+        </td>
+        <td class="text-left"><a
+                    href="<?= base_url("product/" . $crt['id'] . "-" . $this->toolset->tourl($crt['name'])); ?>"><?= $crt['name']; ?>
+                <?php if (empty($crt['motif'])) {
+                    echo '';
+                } else { ?>
+                    <span class="badge badge-warning"
+                          style="background: orange;">Motif Terpilih : <?= $crt['motif']; ?></span>
+                <?php } ?>
+            </a></td>
+        <td class="text-right"><?= $this->toolset->rupiah($crt['price']); ?></td>
+        <td class="text-left">
+            <div style="max-width: 200px;" class="input-group btn-block">
+                <input type="text" class="form-control quantity" size="1" value="<?= $crt['qty']; ?>" name="quantity">
+                <span class="input-group-btn">
+                            <button class="btn btn-primary btn-update" title="" data-toggle="tooltip" type="button"
+                                    data-original-title="Update" data-id="<?= $crt['id']; ?>"><i
+                                        class="fa fa-refresh"></i></button>
+                            <button class="btn btn-danger btn-remove" title="" data-toggle="tooltip" type="button"
+                                    data-original-title="Remove" data-id="<?= $crt['id']; ?>"><i
+                                        class="fa fa-times-circle"></i></button>
                         </span>
-                    </div>
-                </td>
+            </div>
+        </td>
                 <td class="text-right"><?=$this->toolset->rupiah($crt['sub']);?></td>
               </tr>
 <?php 

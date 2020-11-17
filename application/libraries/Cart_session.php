@@ -21,7 +21,6 @@ class Cart_session {
             $append = array();
             $total = 0;
             $weight = 0;
-
             foreach($dbitem as $itemget) {
                 if($itemget['stock_product'] > 0) {
                     $tmp = array();
@@ -30,7 +29,9 @@ class Cart_session {
                     $tmp['name'] = $itemget['name_product'];
                     $tmp['price'] = $itemget['price_product'];
                     $tmp['photo'] = base_url("img/622x800/".$itemget['url_photo']);
+//                    echo json_encode($data[$id][2]);die;
                     $tmp['qty'] = $data[$id][1];
+                    $tmp['motif'] = $data[$id][2];
                     if($itemget['stock_product'] < $data[$id][1]) {
                         $tmp['qty'] = $itemget['stock_product'];
                     }
@@ -56,7 +57,6 @@ class Cart_session {
                 "total" => 0,
                 "data" => []
             ];
-
             return $return;
         }
     }
