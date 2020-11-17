@@ -4,20 +4,23 @@
   <h1>Checkout</h1>
   <ul>
     <li><a href="<?=base_url();?>">Home</a></li>
-    <li>Checkout</li>
+      <li>Checkout</li>
   </ul>
 </div>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-9" style="float:none;margin:0 auto">
-        <div id="accordion" class="panel-group">
-            <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#buyerdata" aria-expanded="false">Step 1: Data & Alamat Kirim <i class="fa fa-caret-down"></i></a></h4>
-            </div>
-            <div id="buyerdata" role="heading" class="panel-collapse collapse in" aria-expanded="false" style="">
-                <div class="panel-body">
-                    <form action="<?=base_url("transaction/payment");?>" method="post" id="formPayment">
+    <div class="row justify-content-center">
+        <div class="col-sm-9 shadow p-3" style="float:none;margin:0 auto">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion"
+                                                   data-toggle="collapse" href="#buyerdata" aria-expanded="false">Step
+                                1: Data & Alamat Kirim <i class="fa fa-caret-down"></i></a></h4>
+                    </div>
+                    <div id="buyerdata" role="heading" class="panel-collapse collapse in" aria-expanded="false"
+                         style="">
+                        <div class="panel-body">
+                            <form action="<?=base_url("transaction/payment");?>" method="post" id="formPayment">
                     <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="" data-csrf="<?=$this->security->get_csrf_hash();?>" class="csrf" id="csrf-form">
                     <input type="hidden" name="courier_invoice" id="courier-form" value="">
                     <div class="form-group">
