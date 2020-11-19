@@ -146,7 +146,7 @@ if(!isset($max)) {
                                     <label>
                                         <a href="<?= $opt1; ?>">
                                             <img src="<?= base_url('assets/ukuran/') . '45cmx185cm.png' ?>">
-                                            <span><?= $opt1Txt; ?></span>
+                                            <span style="color: rgb(255 255 255);background: rgb(37 37 37);margin-left: 1px;-webkit-box-align: center;align-items: center;border: 2px solid rgb(37 37 37);padding: 5px;"><?= $opt1Txt; ?></span>
                                         </a>
                                     </label>
                                 </div>
@@ -155,7 +155,7 @@ if(!isset($max)) {
                                     <label>
                                         <a href="<?= $opt2; ?>">
                                             <img src="<?= base_url('assets/ukuran/') . '60cmx185cm.png' ?>">
-                                            <span><?= $opt2Txt; ?></span>
+                                            <span style="color: rgb(255 255 255);background: rgb(37 37 37);margin-left: 1px;-webkit-box-align: center;align-items: center;border: 2px solid rgb(37 37 37);padding: 5px;"><?= $opt2Txt; ?></span>
                                         </a>
                                     </label>
                                 </div>
@@ -164,7 +164,7 @@ if(!isset($max)) {
                                     <label>
                                         <a href="<?= $opt3; ?>">
                                             <img src="<?= base_url('assets/ukuran/') . '90cmx185cm.png' ?>">
-                                            <span><?= $opt3Txt; ?></span>
+                                            <span style="color: rgb(255 255 255);background: rgb(37 37 37);margin-left: 1px;-webkit-box-align: center;align-items: center;border: 2px solid rgb(37 37 37);padding: 5px;"><?= $opt3Txt; ?></span>
                                         </a>
                                     </label>
                                 </div>
@@ -173,7 +173,7 @@ if(!isset($max)) {
                                     <label>
                                         <a href="<?= $opt4; ?>">
                                             <img src="<?= base_url('assets/ukuran/') . '90cmx250cm.png' ?>">
-                                            <span><?= $opt4Txt; ?></span>
+                                            <span style="color: rgb(255 255 255);background: rgb(37 37 37);margin-left: 1px;-webkit-box-align: center;align-items: center;border: 2px solid rgb(37 37 37);padding: 5px;"><?= $opt4Txt; ?></span>
                                         </a>
                                     </label>
                                 </div>
@@ -182,7 +182,7 @@ if(!isset($max)) {
                                     <label>
                                         <a href="<?= $opt5; ?>">
                                             <img src="<?= base_url('assets/ukuran/') . '120cmx185cm.png' ?>">
-                                            <span><?= $opt5Txt; ?></span>
+                                            <span style="color: rgb(255 255 255);background: rgb(37 37 37);margin-left: 1px;-webkit-box-align: center;align-items: center;border: 2px solid rgb(37 37 37);padding: 5px;"><?= $opt5Txt; ?></span>
                                         </a>
                                     </label>
                                 </div>
