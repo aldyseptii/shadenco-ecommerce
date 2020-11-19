@@ -101,11 +101,6 @@ unset($rowthumb[0]);
                                 <div class="col-md-8">
                                     <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
                                         <option value="" selected disabled><?= $detail->size_product; ?></option>
-                                        <option value="" required>45cm x 185cm</option>
-                                        <option value="" required>60cm x 185cm</option>
-                                        <option value="" required>90cm x 185cm</option>
-                                        <option value="" required>90cm x 250cm</option>
-                                        <option value="" required>120cm x 185cm</option>
 
                                     </select>
                                     <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->

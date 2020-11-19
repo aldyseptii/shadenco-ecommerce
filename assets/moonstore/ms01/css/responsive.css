@@ -178,6 +178,17 @@ span.banner-mid-text2 {
 		left: 201px;
 	}
 
+	.product-thumb .button-group .addtocart-btn {
+		background: #9ba8ae none repeat scroll 0 0;
+		margin: 0 0 !important;
+		overflow: hidden;
+		margin-top: 10px;
+		padding: 0 0 !important;;
+		color: #fff;
+		margin: 0 -16px !important;
+		transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
+	}
+
 	.breadcrumb {
 		/*padding: 70px 0 !important;*/
 		margin: 0 0 40px !important;
@@ -916,24 +927,39 @@ div#banner1, div#banner2 {
 .col-2 #product-thumbnail.owl-carousel {
 	width: 100%;
 }
-.nav-tabs>li {
-	width: auto;
-	margin: 0 10px -2px 0;
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus, .nav-tabs>li>a:hover {
-	border-bottom: 2px solid #d1d0ce;
-	margin: 0;
-}
-.nav-tabs>li>a {
-	margin: 0;
-}
-.footer-bottom .copyright, .footer-bottom-cms {
-	float: none;
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-}
-.footer-bottom-cms {
+
+	.nav-tabs > li {
+		/*width: auto;*/
+		/*margin: 0 10px -2px 0;*/
+		display: contents;
+	}
+
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:hover {
+		/*border-bottom: 2px solid #d1d0ce;*/
+		/*margin: 0;*/
+	}
+
+	.nav-tabs > li > a:hover {
+		background: #495054 !important;
+		padding: 8px !important;
+		margin: 0 !important;
+		color: #fff !important;
+		font-size: 13px !important;
+		font-weight: 500 !important;
+	}
+
+	.nav-tabs > li > a {
+		margin: 0;
+	}
+
+	.footer-bottom .copyright, .footer-bottom-cms {
+		float: none;
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.footer-bottom-cms {
 	margin: 10px 0 0;
 }
 .footer-bottom a {
