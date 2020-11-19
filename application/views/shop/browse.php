@@ -88,9 +88,9 @@ if(!isset($max)) {
 
                             $opt1Txt = '45cm x 185cm';
                             $opt2Txt = '60cm x 185cm';
-                            $opt3Txt = '90 cm x 185 cm';
+                            $opt3Txt = '90cm x 185cm';
                             $opt4Txt = '90cm x 250cm';
-                            $opt5Txt = '120 cm x 185cm';
+                            $opt5Txt = '120cm x 185cm';
 
                             if (empty($q)) {
 
