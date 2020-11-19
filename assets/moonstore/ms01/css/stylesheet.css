@@ -2111,11 +2111,12 @@ button.btn.btn-default.btn-lg span {
 
 #scrollup {
 	background: url("../image/scroll.png") no-repeat;
+	background-size: 44px;
 	width: 60px;
 	height: 60px;
 	position: fixed;
 	bottom: 46px;
-	right: 20px;
+	right: -1px;
 	display: none;
 	text-indent: -9999px;
 	cursor: pointer;
