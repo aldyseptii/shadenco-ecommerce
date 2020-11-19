@@ -901,7 +901,10 @@ $this->visitor->hit();
     <div class="container">
         <nav class="bottom-nav">
             <div class="bottom-nav-item">
-                <a href="<?= base_url('catalog') ?>" class="text-white">
+                <a href="<?= base_url('catalog') ?>" class="text-white"
+                   style="<?php if ($this->uri->segment(1) == 'catalog') {
+                       echo 'color: #00bcd4!important;';
+                   } ?>">
                     <div class="bottom-nav-link">
                         <i class="fa fa-home"></i>
                         <span>Home</span>
@@ -909,7 +912,10 @@ $this->visitor->hit();
                 </a>
             </div>
             <div class="bottom-nav-item">
-                <a href="<?= base_url('kategori') ?>" class="text-white">
+                <a href="<?= base_url('kategori') ?>" class="text-white"
+                   style="<?php if ($this->uri->segment(1) == 'kategori') {
+                       echo 'color: #00bcd4!important;';
+                   } ?>">
                     <div class="bottom-nav-link">
                         <i class="fa fa-sort-alpha-asc"></i>
                         <span>Kategori</span>
@@ -919,7 +925,10 @@ $this->visitor->hit();
             <div class="bottom-nav-item">
                 <span class="cart-count"
                       id="cart_count"><?= count($cart['data']); ?></span>
-                <a href="<?= base_url("cart"); ?>" class="text-white">
+                <a href="<?= base_url("cart"); ?>" class="text-white"
+                   style="<?php if ($this->uri->segment(1) == 'cart') {
+                       echo 'color: #00bcd4!important;';
+                   } ?>">
                     <div class="bottom-nav-link">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Keranjang Belanja</span>
@@ -927,7 +936,10 @@ $this->visitor->hit();
                 </a>
             </div>
             <div class="bottom-nav-item">
-                <a href="<?= base_url('tracking') ?>" class="text-white">
+                <a href="<?= base_url('tracking') ?>" class="text-white"
+                   style="<?php if ($this->uri->segment(1) == 'tracking') {
+                       echo 'color: #00bcd4!important;';
+                   } ?>">
                     <div class="bottom-nav-link">
                         <i class="fa fa fa-truck"></i>
                         <span>Status Pemesanan</span>
@@ -948,3 +960,4 @@ $this->visitor->hit();
     </header>
 
 </div><!-- end of wrapper -->
+
