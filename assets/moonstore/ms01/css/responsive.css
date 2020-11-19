@@ -121,11 +121,37 @@ span.banner-mid-text2 {
 @media (max-width: 979px) {
 	.grid-list-wrapper .product-grid {
 		padding-bottom: 35px;
-		min-height: 0px;
+		min-height: 345px;
 	}
 
 	.product-grid .product-thumb .caption {
 		padding: 0;
+	}
+
+	div .motif label {
+		font-weight: 400 !important;
+		margin-right: 8px !important;
+		margin-bottom: 8px !important;
+		-webkit-box-align: center !important;
+		align-items: center !important;
+		background-color: rgb(155 168 174 / 0%) !important;
+		/* border-radius: 16px; */
+		border: 1px solid #a5a5a5 !important;
+		/* color: rgb(155 168 174); */
+		display: inline-flex !important;
+		vertical-align: top !important;
+		flex: 1 1 0% !important;
+		flex-wrap: nowrap !important;
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		transition: all 0.28s ease-in-out 0s !important;
+		cursor: pointer !important;
+		max-width: 121px !important;
+		height: 42px !important;
+		padding: 3px 5px !important;
+		line-height: 18px !important;
+		font-size: 12px !important;
+		white-space: normal !important;
 	}
 
 	.header-responsive .bottom-nav {
