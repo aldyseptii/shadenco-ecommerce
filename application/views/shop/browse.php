@@ -8,18 +8,29 @@ if(!isset($max)) {
 ?>
 
 <div class="breadcrumb parallax-container p-0">
-    <h1 class="category-title"><?=$pagetitle;?></h1>
+    <h1 class="category-title"><?= $pagetitle; ?></h1>
     <ul>
         <?php foreach ($breadcrumb as $bc) {
             echo $bc;
         } ?>
 
     </ul>
+    <?php if (isset($description_category)) { ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <hr/>
+                    <h3><?= $description_category ?></h3>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 </div>
 <div class="container">
     <div class="row">
         <div id="column-left" class="col-sm-3 column-left">
-            <div class="Categories left-sidebar-widget">
+            <div class="Categories left-sidebar-widget hidden-xs">
                 <div class="columnblock-title">Kategori</div>
 
                 <div class="category_block">
@@ -38,10 +49,10 @@ if(!isset($max)) {
                             <?php
             }
             ?>
-          </ul>
-        </div>
-      </div>
-      <div class="filter left-sidebar-widget">
+                    </ul>
+                </div>
+            </div>
+            <!--      <div class="filter left-sidebar-widget">
         <div class="columnblock-title">Filter</div>
         <div class="filter-block">
           <div class="list-group">
@@ -49,9 +60,9 @@ if(!isset($max)) {
             <div class="list-group-item">
               <div id="filter-group1">
                 <label>Min</label>
-                <input type="number" value="<?=$min;?>" class="form-control min">
+                <input type="number" value="<? /*=$min;*/ ?>" class="form-control min">
                 <label>Max</label>
-                <input type="number" value="<?=$max;?>" class="form-control max">
+                <input type="number" value="<? /*=$max;*/ ?>" class="form-control max">
               </div>
             </div>
           </div>
@@ -60,6 +71,7 @@ if(!isset($max)) {
             </div>
         </div>
       </div>
+-->
             <div class="Categories left-sidebar-widget">
                 <div class="columnblock-title">Ukuran</div>
                 <div class="category_block">
@@ -78,7 +90,7 @@ if(!isset($max)) {
                             $opt2Txt = '60cm x 185cm';
                             $opt3Txt = '90cm x 185cm';
                             $opt4Txt = '90cm x 250cm';
-                            $opt5Txt = '120cm x 185cm';
+                            $opt5Txt = '120 cm x 185cm';
 
                             if (empty($q)) {
 
@@ -98,7 +110,7 @@ if(!isset($max)) {
 
 
                             ?>
-                            <div class="checkbox">
+                            <div class="checkbox hidden-sm hidden-xs">
                                 <label>
                                     <a href="<?= $opt1; ?>">
                                         <span><?= $opt1Txt; ?></span>
@@ -129,6 +141,54 @@ if(!isset($max)) {
                                     </a>
                                 </label>
                             </div>
+                            <div class="row hidden-md hidden-lg">
+                                <div class="col-sm-6 col-xs-6 text-center">
+                                    <label>
+                                        <a href="<?= $opt1; ?>">
+                                            <img src="<?= base_url('assets/ukuran/') . '45cmx185cm.png' ?>">
+                                            <span><?= $opt1Txt; ?></span>
+                                        </a>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-6 text-center">
+                                    <label>
+                                        <a href="<?= $opt2; ?>">
+                                            <img src="<?= base_url('assets/ukuran/') . '60cmx185cm.png' ?>">
+                                            <span><?= $opt2Txt; ?></span>
+                                        </a>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-6 text-center">
+                                    <label>
+                                        <a href="<?= $opt3; ?>">
+                                            <img src="<?= base_url('assets/ukuran/') . '90cmx185cm.png' ?>">
+                                            <span><?= $opt3Txt; ?></span>
+                                        </a>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-6 text-center">
+                                    <label>
+                                        <a href="<?= $opt4; ?>">
+                                            <img src="<?= base_url('assets/ukuran/') . '90cmx250cm.png' ?>">
+                                            <span><?= $opt4Txt; ?></span>
+                                        </a>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-6 text-center">
+                                    <label>
+                                        <a href="<?= $opt5; ?>">
+                                            <img src="<?= base_url('assets/ukuran/') . '120cmx185cm.png' ?>">
+                                            <span><?= $opt5Txt; ?></span>
+                                        </a>
+                                    </label>
+                                </div>
+
+                            </div>
+
                         </li>
 
                     </ul>
@@ -166,7 +226,7 @@ if(!isset($max)) {
             if(empty($product->url_photo)) {
                 $url_photo = base_url("assets/moonstore/ms01") . "/image/product/product8-8.jpg";
             } else {
-                $url_photo = base_url("img/622x800/$product->url_photo");
+                $url_photo = base_url("img/original/$product->url_photo");
             }
             ?>
 

@@ -1,58 +1,58 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
+class Kategori extends CI_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
-        $this->load->model("product_list");
+        $this->load->model("product_model");
         $this->load->model("slider_model");
         $this->load->model("category_model");
         $this->load->model("page_model");
+        $this->load->model("product_list");
         $this->load->library("cart_session");
 
     }
 
-    function index($id,$slug,$page = 0) {
-
-        $query = $this->category_model->get_category($id);
-
-        if($query->num_rows() < 1) {
-            redirect(base_url('404'));
-        }
-        
-        $fetching = $query->row();
-        
-        if($this->toolset->tourl($fetching->name_category) != $slug) {
-            redirect(base_url('404'));
-        }
+    function index($page = 0)
+    {
 
         $sort = $this->input->get('sort');
 
         $price = $this->input->get("price");
-        
-        
+
         $push['sliders'] = $this->slider_model->all_slider()->result();
         $push['categories'] = $this->category_model->get_all()->result();
         $push['pages'] = $this->page_model->all_page()->result();
         $push['cart'] = $this->cart_session->get_cart($this->session->cart);
-        
+
         $push['sort'] = $sort;
-        $expfilter = explode("-",$price);
+        $expfilter = explode("-", $price);
         $push['min'] = $expfilter[0];
-        if(count($expfilter) > 1) { $push['max'] = $expfilter[1]; }
-        $push['sorturl'] = base_url("category/$id-$slug/$page?price=$price&sort=");
-        $push['pagetitle'] = $fetching->name_category;
-        $push['description_category'] = $fetching->description;
-        $push['filterurl'] = base_url("category/$id-$slug/$page?sort=$sort&price=");
-        
-        $push['breadcrumb'] = ['<li><a href="'.base_url().'">Home</a></li>','<li>'.$fetching->name_category.'</li>'];
-        
-        
+        if (count($expfilter) > 1) {
+            $push['max'] = $expfilter[1];
+        }
+        $push['sorturl'] = base_url("catalog/$page?price=$price&sort=");
+        $push['filterurl'] = base_url("catalog/$page?sort=$sort&price=");
+
+        if ($sort == 'id_product-DESC') {
+            $push['pagetitle'] = "Produk Terbaru";
+        } else if ($sort == 'total_rating-DESC') {
+            $push['pagetitle'] = "Rating Teratas";
+        } else {
+            $push['pagetitle'] = "Kategori Produk";
+        }
+
+
+        $push['breadcrumb'] = ['<li><a href="' . base_url() . '">Home</a></li>', '<li>' . $push['pagetitle'] . '</li>'];
+
+
         $this->load->library('pagination');
-        
-        $config['base_url'] = base_url("category/$id-$slug");
-        $config['total_rows'] = $this->product_list->category_list($sort,$id,$price)->num_rows();;
+
+        $config['base_url'] = base_url("catalog");
+        $config['total_rows'] = $this->product_list->showall($sort, $price)->num_rows();;
         $config['per_page'] = 9;
         $config['reuse_query_string'] = TRUE;
         $config['full_tag_open'] = '<ul class="pagination">';
@@ -71,19 +71,19 @@ class Category extends CI_Controller {
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><span>';
         $config['cur_tag_close'] = '</span></li>';
-        
+
         $this->pagination->initialize($config);
         $push['paging'] = $this->pagination->create_links();
-        $push['productlist'] = $this->product_list->category_list($sort,$id,$price,[$page,$config['per_page']])->result();
+        $push['productlist'] = $this->product_list->showall($sort, $price, [$page, $config['per_page']])->result();
         $push['pageinfo'] = [
             "numpage" => ceil($config['total_rows'] / $config['per_page']),
             "from" => ($page + 1),
             "to" => ($page + $config['per_page']),
             "total" => $config['total_rows']
         ];
-        
-        $this->load->view('shop/header',$push);
-        $this->load->view('shop/browse',$push);
-        $this->load->view('shop/footer',$push);
+
+        $this->load->view('shop/header', $push);
+        $this->load->view('shop/kategori', $push);
+        $this->load->view('shop/footer', $push);
     }
 }

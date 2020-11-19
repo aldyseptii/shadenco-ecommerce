@@ -750,11 +750,21 @@ $this->visitor->hit();
                 });
         });
 
+        var navItems = document.querySelectorAll(".bottom-nav-item");
+
+        navItems.forEach(function (e, i) {
+            e.addEventListener("click", function (e) {
+                navItems.forEach(function (e2, i2) {
+                    e2.classList.remove("active");
+                });
+                this.classList.add("active");
+            });
+        });
+
     </script>
 </head>
 <body class="index">
 <div id="wrapper" class="wrapper-content">
-
     <header class="header navbar-fixed-top" style="background-color: #525659;">
         <div class="container pt-5" style="display: none;">
             <ul class="nav navbar-nav navbar-right topnav hidden">
@@ -778,7 +788,8 @@ $this->visitor->hit();
                                                                title="<?= $this->shop_setting->sitename(); ?>"
                                                                alt="<?= $this->shop_setting->sitename(); ?>"
                                                                class="img-responsive"/></a>
-                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
+                            class="navbar-toggle hidden-sm hidden-xs">
                         <span class="sr-only"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -795,7 +806,7 @@ $this->visitor->hit();
                                                                alt="<?= $this->shop_setting->sitename(); ?>"
                                                                class="img-responsive"/></a>
                 </ul>
-                <ul class="nav navbar-nav navbar-right rightmenu mt-4">
+                <ul class="nav navbar-nav navbar-right rightmenu mt-4 hidden-xs">
                     <li><a href="<?= base_url("cart"); ?>"><span><i
                                     class="fa fa-shopping-cart"></i></span><span class="cart-count"
                                                                                  id="cart_count"><?= count($cart['data']); ?></span></a>
@@ -882,6 +893,58 @@ $this->visitor->hit();
             </div><!-- end of sidemenu -->
         </div><!-- end of sidenav2 -->
 
-    </header><!-- end of header -->
+    </header>
+
+    <!-- end of header desktop -->
+
+    <header class="header-responsive hidden-lg hidden-md"
+    <div class="container">
+        <nav class="bottom-nav">
+            <div class="bottom-nav-item">
+                <a href="<?= base_url('catalog') ?>" class="text-white">
+                    <div class="bottom-nav-link">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                </a>
+            </div>
+            <div class="bottom-nav-item">
+                <a href="<?= base_url('kategori') ?>" class="text-white">
+                    <div class="bottom-nav-link">
+                        <i class="fa fa-sort-alpha-asc"></i>
+                        <span>Kategori</span>
+                    </div>
+                </a>
+            </div>
+            <div class="bottom-nav-item">
+                <span class="cart-count"
+                      id="cart_count"><?= count($cart['data']); ?></span>
+                <a href="<?= base_url("cart"); ?>" class="text-white">
+                    <div class="bottom-nav-link">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Keranjang Belanja</span>
+                    </div>
+                </a>
+            </div>
+            <div class="bottom-nav-item">
+                <a href="<?= base_url('tracking') ?>" class="text-white">
+                    <div class="bottom-nav-link">
+                        <i class="fa fa fa-truck"></i>
+                        <span>Status Pemesanan</span>
+                    </div>
+                </a>
+            </div>
+            <div class="bottom-nav-item">
+                <a href="#" onclick="openNav2()" class="text-white">
+                    <div class="bottom-nav-link">
+                        <i class="fa fa-search"></i>
+                        <span>Pencarian</span>
+                    </div>
+                </a>
+            </div>
+
+        </nav>
+    </div>
+    </header>
 
 </div><!-- end of wrapper -->

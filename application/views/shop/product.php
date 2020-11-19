@@ -10,15 +10,15 @@ unset($rowthumb[0]);
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 mb-2 px-5">
+        <!--        <div class="col-md-12 mb-2 px-5">
             <span class="breadcrumb-mod">
-                    <a href="<?= base_url(); ?>">Home</a>
+                    <a href="<? /*= base_url(); */ ?>">Home</a>
                         <i class="fa fa-angle-double-right"></i>
-                    <a href="<?= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); ?>"><?= $detail->name_category; ?></a>
+                    <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>
                         <i class="fa fa-angle-double-right"></i>
-                    <?= $detail->name_product; ?>
+                    <? /*= $detail->name_product; */ ?>
             </span>
-        </div>
+        </div>-->
         <div class="content col-sm-12">
             <div class="row">
                 <div class="col-sm-6 p-5">

@@ -1063,6 +1063,11 @@ footer ul li {
 	background: #F5F5F5;
 	margin: 0 20px 0 0;
 }
+
+.product-list .product-thumb .image a img {
+	max-width: 276px
+}
+
 .product-thumb .product-name {
 	font-weight: 600;
 	margin: 10px 0 0;
@@ -2109,7 +2114,7 @@ button.btn.btn-default.btn-lg span {
 	width: 60px;
 	height: 60px;
 	position: fixed;
-	bottom: 20px;
+	bottom: 46px;
 	right: 20px;
 	display: none;
 	text-indent: -9999px;
