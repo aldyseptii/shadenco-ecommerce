@@ -82,9 +82,9 @@ if(!isset($max)) {
                             <?php
                             $opt1 = base_url('search?q=45cm+x+185cm');
                             $opt2 = base_url('search?q=60cm+x+185cm');
-                            $opt3 = base_url('search?q=90%20cm+x+185%20cm');
+                            $opt3 = base_url('search?q=90cm+x+185cm');
                             $opt4 = base_url('search?q=90cm+x+250cm');
-                            $opt5 = base_url('search?q=120%20cm%20x%20185%20cm');
+                            $opt5 = base_url('search?q=120cm+x+185cm');
 
                             $opt1Txt = '45cm x 185cm';
                             $opt2Txt = '60cm x 185cm';
