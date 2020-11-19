@@ -58,6 +58,7 @@ $route['product/(:num)-(:any)'] = 'product/index/$1/$2';
 $route['search/(:num)'] = 'search/index/$1';
 $route['category/(:num)-(:any)'] = 'category/index/$1/$2';
 $route['category/(:num)-(:any)/(:num)'] = 'category/index/$1/$2/$3';
+$route['category'] = '';
 $route['kategori/(:num)'] = 'kategori/index/$1';
 $route['catalog/(:num)'] = 'catalog/index/$1';
 
