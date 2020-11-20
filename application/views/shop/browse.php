@@ -250,7 +250,7 @@ if(!isset($max)) {
                     </div>
                     <div class="caption product-detail">
                         <div class="rating hidden"> <?= $this->toolset->rating($product->total_rating); ?> </div>
-                        <h4 class="product-name"><a href="#"
+                        <h4 class="product-name"><a href="<?= base_url("product/$product->id_product-$tourl"); ?>"
                                                     title="<?= $product->name_product; ?>"><?= $product->name_product; ?></a>
                         </h4>
                         <span class="badge hidden"
