@@ -99,7 +99,7 @@ unset($rowthumb[0]);
                             <div class="row mb-4">
                                 <div class="col-md-3">UKURAN</div>
                                 <div class="col-md-8">
-                                    <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
+                                    <select disabled style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
                                         <option value="" selected disabled><?= $detail->size_product; ?></option>
 
                                     </select>
@@ -512,7 +512,7 @@ unset($rowthumb[0]);
     div .motif label input[type=radio] + img {
         flex-shrink: 0;
         width: 36px;
-        height: 36px;
+        height: 33px;
         background-size: 38px;
         border-radius: 2px;
         margin: 0 4px 0 0;
