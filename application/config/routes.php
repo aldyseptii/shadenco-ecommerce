@@ -54,11 +54,13 @@ $route['admin/(.*)'] = 'admin_$1';
 $route['img/(:any)/(:any)'] = 'image_create/crop/$1/$2';
 $route['slider/(:any)/(:any)'] = 'image_create/crop_slider/$1/$2';
 $route['page/(:any)'] = "page/index/$1";
+$route['page'] = '404_override';
 $route['product/(:num)-(:any)'] = 'product/index/$1/$2';
+$route['product'] = '404_override';
 $route['search/(:num)'] = 'search/index/$1';
 $route['category/(:num)-(:any)'] = 'category/index/$1/$2';
 $route['category/(:num)-(:any)/(:num)'] = 'category/index/$1/$2/$3';
-$route['category'] = '';
+$route['category'] = '404_override';
 $route['kategori/(:num)'] = 'kategori/index/$1';
 $route['catalog/(:num)'] = 'catalog/index/$1';
 

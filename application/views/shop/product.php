@@ -543,7 +543,7 @@ unset($rowthumb[0]);
         height: 42px;
         padding: 3px 5px;
         line-height: 18px;
-        font-size: 12px;
+        font-size: 11px;
         white-space: normal;
     }
 

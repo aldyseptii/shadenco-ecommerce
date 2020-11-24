@@ -784,10 +784,11 @@ $this->visitor->hit();
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="#" class="navbar-brand logo"><img src="<?= base_url("assets"); ?>/logo.png"
-                                                               title="<?= $this->shop_setting->sitename(); ?>"
-                                                               alt="<?= $this->shop_setting->sitename(); ?>"
-                                                               class="img-responsive"/></a>
+                    <a href="https://www.shadenco.co.id/" class="navbar-brand logo"><img
+                                src="<?= base_url("assets"); ?>/logo.png"
+                                title="<?= $this->shop_setting->sitename(); ?>"
+                                alt="<?= $this->shop_setting->sitename(); ?>"
+                                class="img-responsive"/></a>
                     <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
                             class="navbar-toggle hidden-sm hidden-xs">
                         <span class="sr-only"></span>
