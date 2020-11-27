@@ -33,7 +33,7 @@ if (!isset($max)) {
         if (isset($caturl)) {
             $isurl = $caturl . $category->id_category;
         } else {
-            $isurl = base_url("category/$category->id_category-" . $this->toolset->tourl($category->name_category));
+            $isurl = base_url("search?category=$category->id_category");
         }
         ?>
         <a href="<?= $isurl; ?>" class="d-flex">

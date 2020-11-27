@@ -44,10 +44,14 @@ if(!isset($max)) {
                             }
                             ?>
 
-                            <li><a href="<?= $isurl; ?>"><?= $category->name_category; ?></a></li>
+                            <li <?php if ($this->uri->segment(2) == $category->id_category . '-' . $this->toolset->tourl($category->name_category)) {
+                                echo 'style="font-weight:600;"';
+                            } elseif ($this->input->get("category") == $category->id_category) {
+                                echo 'style="font-weight:600;"';
+                            } ?>><a href="<?= $isurl; ?>"><?= $category->name_category; ?></a></li>
 
                             <?php
-            }
+                        }
             ?>
                     </ul>
                 </div>
@@ -80,17 +84,22 @@ if(!isset($max)) {
 
                         <li>
                             <?php
-                            $opt1 = base_url('search?q=45cm+x+185cm');
-                            $opt2 = base_url('search?q=60cm+x+185cm');
-                            $opt3 = base_url('search?q=90cm+x+185cm');
-                            $opt4 = base_url('search?q=90cm+x+250cm');
-                            $opt5 = base_url('search?q=120cm+x+185cm');
+                            if ($this->input->get("category") == 0) {
+
+                            }
+
 
                             $opt1Txt = '45cm x 185cm';
                             $opt2Txt = '60cm x 185cm';
                             $opt3Txt = '90cm x 185cm';
                             $opt4Txt = '90cm x 250cm';
                             $opt5Txt = '120cm x 185cm';
+
+                            $opt1 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt1Txt;
+                            $opt2 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt2Txt;
+                            $opt3 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt3Txt;
+                            $opt4 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt4Txt;
+                            $opt5 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt5Txt;
 
                             if (empty($q)) {
 

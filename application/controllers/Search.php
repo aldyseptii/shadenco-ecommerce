@@ -36,6 +36,7 @@ class Search extends CI_Controller {
         $push['caturl'] = base_url("search/$page?q=$q&sort=$sort&price=$price&category=");
         $push['filterurl'] = base_url("search/$page?q=$q&sort=$sort&category=$category&price=");
 
+
         $push['breadcrumb'] = ['<li><a href="'.base_url().'">Home</a></li>','<li>Pencarian</li>'];
 
         if(!empty($category)) {
