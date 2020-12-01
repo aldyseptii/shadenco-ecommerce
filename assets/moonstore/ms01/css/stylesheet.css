@@ -1046,18 +1046,42 @@ footer ul li {
 .product-grid .product-thumb .image {
 	float: none;
 }
+
 .product-thumb .button-group > li {
 	list-style: outside none none;
 	display: inline;
 }
+
 .addtocart-btn {
 	display: table-cell;
 }
+
+.btn-category-ukuran {
+	color: rgb(37 37 37);
+	font-weight: 600;
+	/* background: rgb(37 37 37); */
+	margin-left: 1px;
+	-webkit-box-align: center;
+	align-items: center;
+	border: 2px solid rgb(37 37 37);
+	padding: 5px;
+	width: 65%;
+	position: relative;
+	left: 50px;
+}
+
+.btn-category-ukuran:hover {
+	color: #ffffff;
+	font-weight: 600;
+	background: rgb(37 37 37);
+}
+
 .addtocart-btn > a {
 	color: #ffffff;
 	font-weight: 400;
 	padding: 0 16px;
 }
+
 .product-list .product-thumb .image {
 	float: left;
 	background: #F5F5F5;
