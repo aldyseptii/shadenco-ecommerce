@@ -20,11 +20,34 @@ if(!isset($max)) {
             <div class="row">
                 <div class="col-md-12">
                     <hr/>
-                    <h3><?= $description_category ?></h3>
+                    <h3><?= $description_category; ?></h3>
                     <hr/>
                 </div>
             </div>
         </div>
+    <?php } elseif (!empty($this->input->get("category"))) { ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <hr/>
+                    <h3>
+                        <?php
+                        if ($this->input->get("category") == 1) {
+                            echo $categories[0]->description;
+                        } elseif ($this->input->get("category") == 2) {
+                            echo $categories[1]->description;
+                        } elseif ($this->input->get("category") == 3) {
+                            echo $categories[2]->description;
+                        } elseif ($this->input->get("category") == 4) {
+                            echo $categories[3]->description;
+                        }
+                        ?>
+                    </h3>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+
     <?php } ?>
 </div>
 <div class="container">
@@ -84,8 +107,12 @@ if(!isset($max)) {
 
                         <li>
                             <?php
-                            if ($this->input->get("category") == 0) {
+                            $x = $this->input->get("category");
+                            if ($this->router->fetch_class() == 'catalog') {
 
+                                //$y = ($x == 0 && $this->uri->segment(2) == $id_cat);
+                            } else {
+                                $y = ($x == 0 && $this->uri->segment(2) == $id_cat);
                             }
 
 
@@ -94,13 +121,20 @@ if(!isset($max)) {
                             $opt3Txt = '90cm x 185cm';
                             $opt4Txt = '90cm x 250cm';
                             $opt5Txt = '120cm x 185cm';
+                            if ($this->uri->segment(1) == 'category') {
+                                $opt1 = base_url() . 'search?category=' . $id_cat . '&q=' . $opt1Txt;
+                                $opt2 = base_url() . 'search?category=' . $id_cat . '&q=' . $opt2Txt;
+                                $opt3 = base_url() . 'search?category=' . $id_cat . '&q=' . $opt3Txt;
+                                $opt4 = base_url() . 'search?category=' . $id_cat . '&q=' . $opt4Txt;
+                                $opt5 = base_url() . 'search?category=' . $id_cat . '&q=' . $opt5Txt;
 
-                            $opt1 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt1Txt;
-                            $opt2 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt2Txt;
-                            $opt3 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt3Txt;
-                            $opt4 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt4Txt;
-                            $opt5 = base_url() . 'search?category=' . $this->input->get("category") . '&q=' . $opt5Txt;
-
+                            } else {
+                                $opt1 = base_url() . 'search?category=' . $x . '&q=' . $opt1Txt;
+                                $opt2 = base_url() . 'search?category=' . $x . '&q=' . $opt2Txt;
+                                $opt3 = base_url() . 'search?category=' . $x . '&q=' . $opt3Txt;
+                                $opt4 = base_url() . 'search?category=' . $x . '&q=' . $opt4Txt;
+                                $opt5 = base_url() . 'search?category=' . $x . '&q=' . $opt5Txt;
+                            }
                             if (empty($q)) {
 
                             } else {

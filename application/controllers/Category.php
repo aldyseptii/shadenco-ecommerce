@@ -36,23 +36,26 @@ class Category extends CI_Controller {
         $push['categories'] = $this->category_model->get_all()->result();
         $push['pages'] = $this->page_model->all_page()->result();
         $push['cart'] = $this->cart_session->get_cart($this->session->cart);
-        
+
         $push['sort'] = $sort;
-        $expfilter = explode("-",$price);
+        $expfilter = explode("-", $price);
         $push['min'] = $expfilter[0];
-        if(count($expfilter) > 1) { $push['max'] = $expfilter[1]; }
+        if (count($expfilter) > 1) {
+            $push['max'] = $expfilter[1];
+        }
         $push['sorturl'] = base_url("category/$id-$slug/$page?price=$price&sort=");
         $push['pagetitle'] = $fetching->name_category;
         $push['description_category'] = $fetching->description;
         $push['filterurl'] = base_url("category/$id-$slug/$page?sort=$sort&price=");
-        
-        $push['breadcrumb'] = ['<li><a href="'.base_url().'">Home</a></li>','<li>'.$fetching->name_category.'</li>'];
-        
-        
+
+        $push['breadcrumb'] = ['<li><a href="' . base_url() . '">Home</a></li>', '<li>' . $fetching->name_category . '</li>'];
+        $push['id_cat'] = $id;
+
+
         $this->load->library('pagination');
-        
+
         $config['base_url'] = base_url("category/$id-$slug");
-        $config['total_rows'] = $this->product_list->category_list($sort,$id,$price)->num_rows();;
+        $config['total_rows'] = $this->product_list->category_list($sort, $id, $price)->num_rows();;
         $config['per_page'] = 9;
         $config['reuse_query_string'] = TRUE;
         $config['full_tag_open'] = '<ul class="pagination">';

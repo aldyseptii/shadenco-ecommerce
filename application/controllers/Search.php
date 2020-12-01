@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Search extends CI_Controller {
+class Search extends CI_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this->load->model("product_list");
         $this->load->model("slider_model");
@@ -13,13 +15,13 @@ class Search extends CI_Controller {
 
     }
 
-    function index($page = 0) {
+    function index($page = 0)
+    {
         $q = $this->input->get("q");
         $sort = $this->input->get('sort');
 
         $category = $this->input->get("category");
         $price = $this->input->get("price");
-
 
         $push['sliders'] = $this->slider_model->all_slider()->result();
         $push['categories'] = $this->category_model->get_all()->result();
@@ -28,32 +30,35 @@ class Search extends CI_Controller {
 
         $push['q'] = $q;
         $push['sort'] = $sort;
-        $expfilter = explode("-",$price);
+        $expfilter = explode("-", $price);
         $push['min'] = $expfilter[0];
-        if(count($expfilter) > 1) { $push['max'] = $expfilter[1]; }
+        if (count($expfilter) > 1) {
+            $push['max'] = $expfilter[1];
+        }
         $push['sorturl'] = base_url("search/$page?q=$q&category=$category&price=$price&sort=");
-        $push['pagetitle'] = "Hasil pencarian \"$q\"";
+        $push['pagetitle'] = "Hasil pencarian $q";
         $push['caturl'] = base_url("search/$page?q=$q&sort=$sort&price=$price&category=");
         $push['filterurl'] = base_url("search/$page?q=$q&sort=$sort&category=$category&price=");
 
 
-        $push['breadcrumb'] = ['<li><a href="'.base_url().'">Home</a></li>','<li>Pencarian</li>'];
+        $push['breadcrumb'] = ['<li><a href="' . base_url() . '">Home</a></li>', '<li>Pencarian</li>'];
 
-        if(!empty($category)) {
+        if (!empty($category)) {
 
             $query = $this->category_model->get_category($category);
-            if($query->num_rows() < 1) {
+            if ($query->num_rows() < 1) {
                 redirect(base_url("404"));
             }
             $categoryname = $query->row();
             $categoryname = $categoryname->name_category;
             $push['pagetitle'] .= " di $categoryname";
+
         }
 
         $this->load->library('pagination');
 
         $config['base_url'] = base_url("search");
-        $config['total_rows'] = $this->product_list->search($q,$sort,$category,$price)->num_rows();;
+        $config['total_rows'] = $this->product_list->search($q, $sort, $category, $price)->num_rows();;
         $config['per_page'] = 9;
         $config['reuse_query_string'] = TRUE;
         $config['full_tag_open'] = '<ul class="pagination">';
@@ -75,7 +80,7 @@ class Search extends CI_Controller {
 
         $this->pagination->initialize($config);
         $push['paging'] = $this->pagination->create_links();
-        $push['productlist'] = $this->product_list->search($q,$sort,$category,$price,[$page,$config['per_page']])->result();
+        $push['productlist'] = $this->product_list->search($q, $sort, $category, $price, [$page, $config['per_page']])->result();
         $push['pageinfo'] = [
             "numpage" => ceil($config['total_rows'] / $config['per_page']),
             "from" => ($page + 1),
@@ -83,8 +88,8 @@ class Search extends CI_Controller {
             "total" => $config['total_rows']
         ];
 
-        $this->load->view('shop/header',$push);
-        $this->load->view('shop/browse',$push);
-        $this->load->view('shop/footer',$push);
+        $this->load->view('shop/header', $push);
+        $this->load->view('shop/browse', $push);
+        $this->load->view('shop/footer', $push);
     }
 }
