@@ -228,7 +228,8 @@ class Admin_product extends CI_Controller {
                     $url = trim($url);
                     $filebefore = '././upload/product/'.$url;
                     if(is_readable($filebefore)) {
-                        unlink($filebefore);
+                        ///Delete image from Upload Product when the Product is deleted
+//                        unlink($filebefore);
                     }
 
                 }
