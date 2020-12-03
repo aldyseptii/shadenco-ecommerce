@@ -31,7 +31,7 @@ class Product_model extends CI_Model {
     }
 
     private function getter() {
-        $this->db->select("product.*,variant.id_variant,variant.variant_product,photo_product.id_photo,photo_product.url_photo,category.name_category,(SUM(comment.rating_comment) / COUNT(comment.name_comment)) AS total_rating");
+        $this->db->select("product.*,variant.id_variant,variant.name_variant,photo_product.id_photo,photo_product.url_photo,category.name_category,(SUM(comment.rating_comment) / COUNT(comment.name_comment)) AS total_rating");
         $this->db->from("product");
         $this->db->join("photo_product","photo_product.id_product=product.id_product","left");
         $this->db->join("category", "category.id_category=product.id_category", "left");
@@ -56,7 +56,7 @@ class Product_model extends CI_Model {
         $this->db->join("(SELECT id_product,GROUP_CONCAT(id_photo SEPARATOR ',') as id_photo,GROUP_CONCAT(url_photo SEPARATOR ',') as photo_product FROM `photo_product` GROUP BY `id_product`) AS photo","photo.id_product=product.id_product","left");
         $this->db->join("category","category.id_category=product.id_category","left");
         $this->db->join("(SELECT id_product,(SUM(comment.rating_comment) / COUNT(comment.name_comment)) AS total_rating FROM `comment` GROUP BY `id_product`) as rating", "rating.id_product=product.id_product", "left");
-        $this->db->join("(SELECT id_product,COUNT(variant.variant_product) AS total_motif FROM `variant` GROUP BY `id_product`) as motif", "motif.id_product=product.id_product", "left");
+        $this->db->join("(SELECT id_product,COUNT(variant.name_variant) AS total_motif FROM `variant` GROUP BY `id_product`) as motif", "motif.id_product=product.id_product", "left");
         $this->db->group_by("id_product");
         $this->db->where("product.id_product",$id);
         return $this->db->get();

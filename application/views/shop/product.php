@@ -33,10 +33,10 @@ unset($rowthumb[0]);
                             <?php foreach ($variant as $motif) {
                                 ?>
                                 <a class="mb-4 fancybox" rel="lightbox2" href="<?= $motif->image_url; ?>"
-                                   title="Motif <?= $motif->variant_product; ?>">
+                                   title="Motif <?= $motif->name_variant; ?>">
                                     <img id="ProductPhotoImg"
-                                         src="<?= $motif->image_url; ?>" data-image="<?= $motif->variant_product; ?>"
-                                         alt="<?= $motif->variant_product; ?>" title="<?= $motif->variant_product; ?>"/>
+                                         src="<?= $motif->image_url; ?>" data-image="<?= $motif->name_variant; ?>"
+                                         alt="<?= $motif->name_variant; ?>" title="<?= $motif->name_variant; ?>"/>
                                 </a>
                             <?php }
                             if (count($variant) == 0) {
@@ -57,12 +57,12 @@ unset($rowthumb[0]);
                                     <div class="item">
                                         <div class="image-additional"><a class="thumbnail fancybox" rel="lightbox"
                                                                          href="<?= $motif->image_url; ?>"
-                                                                         title="<?= $motif->variant_product; ?>">
+                                                                         title="<?= $motif->name_variant; ?>">
                                                 <img
                                                     id="MotifImage"
                                                     src="<?= $motif->image_url; ?>"
-                                                    title="<?= $motif->variant_product; ?>"
-                                                    alt="<?= $motif->variant_product; ?>"/></a></div>
+                                                    title="<?= $motif->name_variant; ?>"
+                                                    alt="<?= $motif->name_variant; ?>"/></a></div>
                                     </div>
                                     <?php
                                     $image_link = base_url('assets/motif/') . $motif->motif_link;
@@ -71,7 +71,7 @@ unset($rowthumb[0]);
                                     } else {
                                         echo "<img class='hidden' src='$image_link'>";
                                     } ?>
-                                    <?= $motif->variant_product; ?>
+                                    <?= $motif->name_variant; ?>
                                 </label>
                             <?php }
                             if (count($variant) == 0) {
@@ -117,8 +117,8 @@ unset($rowthumb[0]);
                                         ?>
                                         <label>
                                             <input type="radio" name="motif"
-                                                   data-image="<?= $motif->variant_product; ?>"
-                                                   value="<?= $motif->variant_product; ?>">
+                                                   data-image="<?= $motif->name_variant; ?>"
+                                                   value="<?= $motif->name_variant; ?>">
                                             <?php
                                             $image_link = base_url('assets/motif/' . $motif->motif_link);
 
@@ -127,7 +127,7 @@ unset($rowthumb[0]);
                                             } else {
                                                 echo "<img src='$image_link'>";
                                             } ?>
-                                            <?= $motif->variant_product; ?>
+                                            <?= $motif->name_variant; ?>
                                         </label>
                                     <?php }
                                     if (count($variant) == 0) {

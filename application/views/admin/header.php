@@ -150,24 +150,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
           </li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/category');?>" class="nav-link">
-                <i class="nav-icon fas fa-cubes"></i>
-                <p>
-                    Kategori
-                </p>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/slider');?>" class="nav-link">
-                <i class="nav-icon far fa-newspaper"></i>
-                <p>
-                    Slider
-                </p>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/page');?>" class="nav-link">
+            <li class="nav-item">
+                <a href="<?= base_url('admin/category'); ?>" class="nav-link">
+                    <i class="nav-icon fas fa-cubes"></i>
+                    <p>
+                        Kategori
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url('admin/motif'); ?>" class="nav-link">
+                    <i class="nav-icon fas fa-adjust"></i>
+                    <p>
+                        Motif
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url('admin/slider'); ?>" class="nav-link">
+                    <i class="nav-icon far fa-newspaper"></i>
+                    <p>
+                        Slider
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url('admin/page'); ?>" class="nav-link">
                 <i class="nav-icon far fa-file-alt"></i>
                 <p>
                     Halaman
