@@ -1450,6 +1450,7 @@ h2.price {
 	padding: 4px 10px;
 	color: #fff;
 	background-color: #000;
+	border: black solid 8px;
 }
 #product-thumbnail.owl-carousel .owl-buttons > div.owl-next:before {
 	content: '\f105';

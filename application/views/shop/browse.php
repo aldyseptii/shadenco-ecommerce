@@ -114,6 +114,8 @@ if(!isset($max)) {
                                 if ($this->router->fetch_class() == 'catalog') {
 
                                     //$y = ($x == 0 && $this->uri->segment(2) == $id_cat);
+                                } else if (empty($id_cat)) {
+
                                 } else {
                                     $y = ($x == 0 && $this->uri->segment(2) == $id_cat);
                                 }
