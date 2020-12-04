@@ -774,7 +774,6 @@ $this->visitor->hit();
                     <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
                     <a href="#"><i class="fa fa-youtube fa-fw"></i></a>
                 </li>
-                <li class="active"><a href="callto:"><i class="fa fa-phone fa-fw"></i> +91 9999999999</a></li>
                 <li class="active"><a href="mailto:"><i class="fa fa-envelope fa-fw"></i> info@shadenco.co.id</a>
                 </li>
             </ul>
