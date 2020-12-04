@@ -1462,11 +1462,13 @@ h2.price {
 	background-color: #bccad0;
 }
 #product-thumbnail.owl-carousel .owl-buttons .owl-next, #product-thumbnail.owl-carousel:hover .owl-buttons .owl-next {
-	right: 0;
-	left: auto;
+    right: 0;
+    left: auto;
+    opacity: 1;
 }
 #product-thumbnail.owl-carousel .owl-buttons .owl-prev, #product-thumbnail.owl-carousel:hover .owl-buttons .owl-prev {
-	left: 0;
+    left: 0;
+    opacity: 1;
 }
 #product-thumbnail.owl-carousel .image-additional a {
 	margin-bottom: 0;

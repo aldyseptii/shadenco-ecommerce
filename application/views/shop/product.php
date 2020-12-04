@@ -118,6 +118,7 @@ unset($rowthumb[0]);
                                         <label>
                                             <input type="radio" name="motif"
                                                    data-image="<?= $motif->name_variant; ?>"
+                                                   data-stok="<?= $motif->stock; ?>"
                                                    value="<?= $motif->name_variant; ?>">
                                             <?php
                                             $image_link = base_url('assets/motif/' . $motif->motif_link);
