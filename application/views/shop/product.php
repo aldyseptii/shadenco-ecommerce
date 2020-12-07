@@ -99,8 +99,18 @@ unset($rowthumb[0]);
                             <div class="row mb-4">
                                 <div class="col-md-3">UKURAN</div>
                                 <div class="col-md-8">
-                                    <select disabled style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;">
-                                        <option value="" selected disabled><?= $detail->size_product; ?></option>
+                                    <select style="height: 43px;border: 1px solid #a5a5a5;margin-bottom: 9px;"
+                                            onchange="location = this.value;">
+                                        <option value="" selected><?= $detail->size_product; ?></option>
+                                        <?php
+                                        $relateUkuran = $detail->size_product;
+                                        foreach ($ukuran as $u) { ?>
+                                            <?php if ($relateUkuran == $u->name_ukuran) {
+                                            } else { ?>
+                                                <option
+                                                    value="<?= base_url() . $u->url_ukuran; ?>"><?= $u->name_ukuran; ?></option>
+                                            <?php }
+                                        } ?>
 
                                     </select>
                                     <!-- <a href="<? /*= base_url("category/$detail->id_category-" . $this->toolset->tourl($detail->name_category)); */ ?>"><? /*= $detail->name_category; */ ?></a>-->
@@ -118,7 +128,7 @@ unset($rowthumb[0]);
                                         <label>
                                             <input type="radio" name="motif"
                                                    data-image="<?= $motif->name_variant; ?>"
-                                                   data-stok="<?= $motif->stock; ?>"
+                                                   data-stok="<?= $motif->stock . ' pcs'; ?>"
                                                    value="<?= $motif->name_variant; ?>">
                                             <?php
                                             $image_link = base_url('assets/motif/' . $motif->motif_link);
@@ -159,9 +169,9 @@ unset($rowthumb[0]);
                                         </button>
                                     </span>
                                         </div>
-                                        <!--                                        <input id="qty" value="1" type="number">
-                                        --> <span class="stock-right">Stok <?= $detail->stock_product; ?> pcs</span>
+                                        <span class="results stock-right"><?= $detail->stock_product . ' pcs'; ?></span>
                                     </div>
+
                                     <div class=" col-md-3 mt-3 my-5">
                                         <button type="button" class="addtocart-btn csrf text-white btn-tocart"
                                                 data-csrf="<?= $this->security->get_csrf_hash(); ?>"
@@ -618,5 +628,17 @@ unset($rowthumb[0]);
 
     $(window).resize(function () {
         productZoomDisable();
+    });
+
+    $(document).ready(function () {
+        $("input[type=radio]").on("change", function () {
+            var results = "";
+
+            $("input:checked").each(function (key, attr) {
+                results += $(this).attr('data-stok') + "<br>";
+            });
+
+            $(".results").html(results);
+        });
     });
 </script>

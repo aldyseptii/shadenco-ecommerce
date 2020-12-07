@@ -11,6 +11,7 @@ class Product extends CI_Controller {
         $this->load->model("page_model");
         $this->load->model("comment_model");
         $this->load->model("variant_model");
+        $this->load->model("ukuran_model");
         $this->load->library("cart_session");
 
     }
@@ -36,6 +37,7 @@ class Product extends CI_Controller {
         $push['cart'] = $this->cart_session->get_cart($this->session->cart);
         $push['comments'] = $this->comment_model->get_allcomment($id)->result();
         $push['variant'] = $this->variant_model->get_allvariant($id)->result();
+        $push['ukuran'] = $this->ukuran_model->get_allukuran($id)->result();
 
         $this->load->view('shop/header',$push);
         $this->load->view('shop/product',$push);
