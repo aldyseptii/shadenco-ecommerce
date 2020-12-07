@@ -37,14 +37,11 @@
                             </div>
                             <hr/>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="tableUkuran">
+                                <table class="table table-bordered" id="tableSize">
                                     <thead class="bg-gradient-secondary">
                                     <th scope="col" style="text-align:center">#</th>
                                     <th scope="col" style="text-align:center">Link to ID</th>
-                                    <th scope="col" style="text-align:center">Nama Motif</th>
-                                    <th scope="col" style="text-align:center">Stock</th>
-                                    <th scope="col" style="text-align:center">Image Motif</th>
-                                    <th scope="col" style="text-align:center">Link to Image</th>
+                                    <th scope="col" style="text-align:center">Nama Ukuran</th>
                                     <th scope="col" style="text-align:center">Aksi</th>
                                     </thead>
                                 </table>
@@ -75,9 +72,7 @@
             <div class="modal-body">
                 <form id="editForm">
                     <div class="form-group">
-                        <input type="text" name="name_variant" value="" class="form-control validate txtName mb-2">
-                        <input type="text" name="stock" value="" class="form-control validate txtStock mb-2">
-                        <input type="text" name="ukuran_link" value="" class="form-control validate txtUkuranLink mb-2">
+                        <input type="text" name="name_ukuran" value="" class="form-control validate txtName mb-2">
                         <div class="invalid-feedback"></div>
                     </div>
                     <input type="hidden" name="id" value="" class="form-control hdId">
@@ -103,7 +98,7 @@
             <div class="modal-body">
                 <form id="editForm">
                     <div class="form-group">
-                        <input type="text" name="name_variant" value="" class="form-control validate txtNameadd">
+                        <input type="text" name="name_ukuran" value="" class="form-control validate txtNameadd">
                         <div class="invalid-feedback"></div>
                     </div>
                 </form>
@@ -120,21 +115,17 @@
 <script>
     $('body').on('click', '.btnedit', function () {
         var txt = $(this).attr("data-name");
-        var stock = $(this).attr("data-stock");
-        var motiflink = $(this).attr("data-motiflink");
         var id = $(this).attr("data-id");
 
         $('.txtName').val(txt);
-        $('.txtStock').val(stock);
-        $('.txtMotifLink').val(motiflink);
         $('.hdId').val(id);
     });
-    $('#tableMotif').DataTable({
+    $('#tableSize').DataTable({
         "processing": true,
         "pageLength": 1000,
         "serverSide": true,
         "order": [],
-        "ajax": {"url": "<?=base_url();?>admin/ukuran/index_json"},
+        "ajax": {"url": "<?=base_url();?>admin/size/index_json"},
         "columnDefs": [
             {
                 "targets": [0],
@@ -161,7 +152,7 @@
             confirmButtonText: 'Ya'
         }).then((result) => {
             if (result.value) {
-                $.getJSON("<?=base_url();?>admin/ukuran/delete/" + id, function (response) {
+                $.getJSON("<?=base_url();?>admin/size/delete/" + id, function (response) {
                     if (!response['status']) {
                         Swal.fire(
                             'Gagal',
@@ -169,7 +160,7 @@
                             'error'
                         );
                     } else {
-                        $('#tableMotif').DataTable().ajax.reload(null, false);
+                        $('#tableSize').DataTable().ajax.reload(null, false);
                         Swal.fire(
                             'Berhasil',
                             response['msg'],
@@ -183,19 +174,15 @@
 
     $('.btn-save').on('click', function () {
         var txt = $('.txtName').val();
-        var stock = $('.txtStock').val();
-        var motiflink = $('.txtMotifLink').val();
         var id = $('.hdId').val();
 
         $('.btn-save').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
 
         $.ajax({
-            url: "<?=base_url("admin/ukuran/edit");?>/" + id,
+            url: "<?=base_url("admin/size/edit");?>/" + id,
             method: "POST",
             data: {
-                "name_variant": txt,
-                "stock": stock,
-                "motif_link": motiflink
+                "name_ukuran": txt
             },
             dataType: "json",
             success: function (result) {
@@ -203,7 +190,7 @@
                 if (result['status']) {
                     $('.validate').removeClass("is-invalid");
                     $('#editModal').modal("toggle");
-                    $('#tableMotif').DataTable().ajax.reload(null, false);
+                    $('#tableSize').DataTable().ajax.reload(null, false);
                     Swal.fire(
                         'Berhasil',
                         'Kategori berhasil diedit',
@@ -229,19 +216,15 @@
 
     $('.btn-saveadd').on('click', function () {
         var txt = $('.txtNameadd').val();
-        var stock = $('.txtStock').val();
-        var motiflink = $('.txtMotifLink').val();
 
 
         $('.btn-saveadd').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
 
         $.ajax({
-            url: "<?=base_url("admin/ukuran/add");?>/",
+            url: "<?=base_url("admin/size/add");?>/",
             method: "POST",
             data: {
-                "name_variant": txt,
-                "stock": stock,
-                "motif_link": motiflink
+                "name_ukuran": txt
             },
             dataType: "json",
             success: function (result) {
@@ -250,15 +233,13 @@
                     $('#addModal').modal("toggle");
 
                     $('.validate').removeClass("is-invalid");
-                    $('#tableMotif').DataTable().ajax.reload(null, false);
+                    $('#tableSize').DataTable().ajax.reload(null, false);
                     Swal.fire(
                         'Berhasil',
                         'Kategori telah ditambahkan',
                         'success'
                     );
                     $('.txtNameadd').val("");
-                    $('.txtStockadd').val("");
-                    $('.txtMotifLinkadd').val("");
                 } else {
                     var count = result['error'].length;
                     var i;

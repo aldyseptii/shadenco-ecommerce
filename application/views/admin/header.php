@@ -167,6 +167,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
             </li>
             <li class="nav-item">
+                <a href="<?= base_url('admin/size'); ?>" class="nav-link">
+                    <i class="nav-icon fas fa-stream"></i>
+                    <p>
+                        Ukuran
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="<?= base_url('admin/slider'); ?>" class="nav-link">
                     <i class="nav-icon far fa-newspaper"></i>
                     <p>
@@ -176,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
             <li class="nav-item">
                 <a href="<?= base_url('admin/page'); ?>" class="nav-link">
-                <i class="nav-icon far fa-file-alt"></i>
+                    <i class="nav-icon far fa-file-alt"></i>
                 <p>
                     Halaman
                 </p>

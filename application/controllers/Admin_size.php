@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_ukuran extends CI_Controller
+class Admin_size extends CI_Controller
 {
     private $profile_info;
 
@@ -17,7 +17,7 @@ class Admin_ukuran extends CI_Controller
             $this->profile_info = $this->admin_model->profile_usn($this->session->usn)->row_array();
         }
 
-        $this->load->model('ukuran_model');
+        $this->load->model('size_model');
 
     }
 
@@ -26,7 +26,7 @@ class Admin_ukuran extends CI_Controller
         $pushdata['admin_info'] = $this->profile_info;
         $pushdata['pagetitle'] = "Kelola Ukuran";
         $this->load->view('admin/header', $pushdata);
-        $this->load->view('admin/ukuran/index', $pushdata);
+        $this->load->view('admin/size/index', $pushdata);
         $this->load->view('admin/footer', $pushdata);
     }
 
@@ -43,12 +43,12 @@ class Admin_ukuran extends CI_Controller
         $this->load->library("json_validate");
         $callback = $this->json_validate->validate($data, $rules);
 
-        if ($this->ukuran_model->get_allukuran($id)->num_rows() < 1) {
+        if ($this->size_model->get_allukuran($id)->num_rows() < 1) {
             $callback['status'] = 0;
         }
 
         if ($callback['status']) {
-            $this->ukuran_model->put_ukuran($id, $data);
+            $this->size_model->put_ukuran($id, $data);
         }
 
         echo json_encode($callback);
@@ -69,7 +69,7 @@ class Admin_ukuran extends CI_Controller
 
         if ($callback['status']) {
             $data['id_ukuran'] = "";
-            $this->ukuran_model->post_ukuran($data);
+            $this->size_model->post_ukuran($data);
         }
 
         echo json_encode($callback);
@@ -78,11 +78,11 @@ class Admin_ukuran extends CI_Controller
     function delete($id)
     {
 
-        if ($this->ukuran_model->get_allukuran($id)->num_rows() < 1) {
+        if ($this->size_model->get_ukuran($id)->num_rows() < 1) {
             $callback['status'] = 0;
             $callback['msg'] = "Ukuran gagal dihapus";
         } else {
-            $this->ukuran_model->delete_ukuran($id);
+            $this->size_model->delete_ukuran($id);
             $callback['status'] = 1;
             $callback['msg'] = "Ukuran berhasil dihapus";
         }
@@ -103,31 +103,7 @@ class Admin_ukuran extends CI_Controller
             $row[] = $no;
             $row[] = $field->id_product;
             $row[] = $field->name_ukuran;
-            $row[] = $field->stock;
-            $row[] = $field->ukuran_link;
-            $row[] = '<button type="button" class="btn" data-toggle="modal" data-target="#' . $field->name_ukuran . '">
-                      <img src="' . $field->image_url . '" width="80">
-              </button>
-            <div class="modal modal-success fade" id="' . $field->name_ukuran . '" style="display: none;">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
-              </div>
-              <div class="modal-body">
-                <img src="' . $field->image_url . '" style="width: 100%;">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-            ';
-            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '" data-stock="' . $field->stock . '" data-ukuranlink="' . $field->ukuran_link . '">
+            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '">
                         <i class="fas fa-pen"></i>
                       </button> 
                       <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '"><i class="fas fa-trash"></i>
