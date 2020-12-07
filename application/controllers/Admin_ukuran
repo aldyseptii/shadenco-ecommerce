@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_motif extends CI_Controller
+class Admin_ukuran extends CI_Controller
 {
     private $profile_info;
 
@@ -17,16 +17,16 @@ class Admin_motif extends CI_Controller
             $this->profile_info = $this->admin_model->profile_usn($this->session->usn)->row_array();
         }
 
-        $this->load->model('motif_model');
+        $this->load->model('ukuran_model');
 
     }
 
     public function index()
     {
         $pushdata['admin_info'] = $this->profile_info;
-        $pushdata['pagetitle'] = "Kelola Motif";
+        $pushdata['pagetitle'] = "Kelola Ukuran";
         $this->load->view('admin/header', $pushdata);
-        $this->load->view('admin/motif/index', $pushdata);
+        $this->load->view('admin/ukuran/index', $pushdata);
         $this->load->view('admin/footer', $pushdata);
     }
 
@@ -35,20 +35,20 @@ class Admin_motif extends CI_Controller
         $data = $this->input->post();
         $rules = [
             [
-                "field" => "name_variant",
-                "label" => "name_variant",
+                "field" => "name_ukuran",
+                "label" => "name_ukuran",
                 "rules" => "required"
             ]
         ];
         $this->load->library("json_validate");
         $callback = $this->json_validate->validate($data, $rules);
 
-        if ($this->motif_model->get_allvariant($id)->num_rows() < 1) {
+        if ($this->ukuran_model->get_allukuran($id)->num_rows() < 1) {
             $callback['status'] = 0;
         }
 
         if ($callback['status']) {
-            $this->motif_model->put_variant($id, $data);
+            $this->ukuran_model->put_ukuran($id, $data);
         }
 
         echo json_encode($callback);
@@ -59,8 +59,8 @@ class Admin_motif extends CI_Controller
         $data = $this->input->post();
         $rules = [
             [
-                "field" => "name_variant",
-                "label" => "name_variant",
+                "field" => "name_ukuran",
+                "label" => "name_ukuran",
                 "rules" => "required"
             ]
         ];
@@ -68,8 +68,8 @@ class Admin_motif extends CI_Controller
         $callback = $this->json_validate->validate($data, $rules);
 
         if ($callback['status']) {
-            $data['id_variant'] = "";
-            $this->motif_model->post_variant($data);
+            $data['id_ukuran'] = "";
+            $this->ukuran_model->post_ukuran($data);
         }
 
         echo json_encode($callback);
@@ -78,13 +78,13 @@ class Admin_motif extends CI_Controller
     function delete($id)
     {
 
-        if ($this->motif_model->get_variant($id)->num_rows() < 1) {
+        if ($this->ukuran_model->get_allukuran($id)->num_rows() < 1) {
             $callback['status'] = 0;
-            $callback['msg'] = "Motif gagal dihapus";
+            $callback['msg'] = "Ukuran gagal dihapus";
         } else {
-            $this->motif_model->delete_variant($id);
+            $this->ukuran_model->delete_ukuran($id);
             $callback['status'] = 1;
-            $callback['msg'] = "Motif berhasil dihapus";
+            $callback['msg'] = "Ukuran berhasil dihapus";
         }
         echo json_encode($callback);
     }
@@ -92,8 +92,8 @@ class Admin_motif extends CI_Controller
     function index_json()
     {
         $this->load->library("datatables");
-        $this->datatables->from("variant");
-        $this->datatables->set_column(['id_variant', 'id_product', 'name_product']);
+        $this->datatables->from("ukuran");
+        $this->datatables->set_column(['id_ukuran', 'id_product', 'name_product']);
         $list = $this->datatables->get_datatables()->result();
         $data = array();
         $no = $this->input->get('start');
@@ -102,13 +102,13 @@ class Admin_motif extends CI_Controller
             $row = array();
             $row[] = $no;
             $row[] = $field->id_product;
-            $row[] = $field->name_variant;
+            $row[] = $field->name_ukuran;
             $row[] = $field->stock;
-            $row[] = $field->motif_link;
-            $row[] = '<button type="button" class="btn" data-toggle="modal" data-target="#' . $field->name_variant . '">
+            $row[] = $field->ukuran_link;
+            $row[] = '<button type="button" class="btn" data-toggle="modal" data-target="#' . $field->name_ukuran . '">
                       <img src="' . $field->image_url . '" width="80">
               </button>
-            <div class="modal modal-success fade" id="' . $field->name_variant . '" style="display: none;">
+            <div class="modal modal-success fade" id="' . $field->name_ukuran . '" style="display: none;">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -127,10 +127,10 @@ class Admin_motif extends CI_Controller
           <!-- /.modal-dialog -->
         </div>
             ';
-            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_variant . '" data-id="' . $field->id_variant . '" data-stock="' . $field->stock . '" data-motiflink="' . $field->motif_link . '">
+            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '" data-stock="' . $field->stock . '" data-ukuranlink="' . $field->ukuran_link . '">
                         <i class="fas fa-pen"></i>
                       </button> 
-                      <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_variant . '" data-id="' . $field->id_variant . '"><i class="fas fa-trash"></i>
+                      <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '"><i class="fas fa-trash"></i>
                       </button>';
 
             $data[] = $row;

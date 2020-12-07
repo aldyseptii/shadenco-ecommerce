@@ -800,16 +800,17 @@ $this->visitor->hit();
                 <!-- Collection of nav links, forms, and other content for toggling -->
 
                 <ul class="nav navbar-nav navbar-left hidden-xs">
-                    <a href="#" class="navbar-brand logo"><img src="<?= base_url("assets"); ?>/logo.png"
-                                                               style="min-width: 124px;max-width: 73px;"
-                                                               title="<?= $this->shop_setting->sitename(); ?>"
-                                                               alt="<?= $this->shop_setting->sitename(); ?>"
-                                                               class="img-responsive"/></a>
+                    <a href="<?= base_url(); ?>" class="navbar-brand logo"><img
+                                src="<?= base_url("assets"); ?>/logo.png"
+                                style="min-width: 124px;max-width: 73px;"
+                                title="<?= $this->shop_setting->sitename(); ?>"
+                                alt="<?= $this->shop_setting->sitename(); ?>"
+                                class="img-responsive"/></a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right rightmenu mt-4 hidden-xs">
                     <li><a href="<?= base_url("cart"); ?>"><span><i
-                                    class="fa fa-shopping-cart"></i></span><span class="cart-count"
-                                                                                 id="cart_count"><?= count($cart['data']); ?></span></a>
+                                        class="fa fa-shopping-cart"></i></span><span class="cart-count"
+                                                                                     id="cart_count"><?= count($cart['data']); ?></span></a>
                     </li>
 
                     <li class="dropdown hidden">
