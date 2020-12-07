@@ -9,7 +9,8 @@ unset($rowthumb[0]);
 
 
 <div class="container">
-    <div class="row">
+
+<div class="row">
         <!--        <div class="col-md-12 mb-2 px-5">
             <span class="breadcrumb-mod">
                     <a href="<? /*= base_url(); */ ?>">Home</a>
