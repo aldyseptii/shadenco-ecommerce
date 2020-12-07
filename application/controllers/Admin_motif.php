@@ -43,7 +43,7 @@ class Admin_motif extends CI_Controller
         $this->load->library("json_validate");
         $callback = $this->json_validate->validate($data, $rules);
 
-        if ($this->motif_model->get_allvariant($id)->num_rows() < 1) {
+        if ($this->motif_model->get_variant($id)->num_rows() < 1) {
             $callback['status'] = 0;
         }
 

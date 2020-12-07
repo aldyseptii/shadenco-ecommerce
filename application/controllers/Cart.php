@@ -50,10 +50,15 @@ class Cart extends CI_Controller {
         $id = $this->input->post("id");
         $qty = $this->input->post("qty");
         $motif = $this->input->post("motif");
-        if(empty($qty)) {
+        if (empty($qty)) {
             $qty = 1;
         }
-        if(empty($this->input->post("update"))) {
+        if (empty($motif)) {
+            $callback['status'] = 0;
+            $callback['msg'] = "Silahkan pilih Motif terlebih dahulu";
+
+        }
+        if (empty($this->input->post("update"))) {
             $update = FALSE;
         } else {
             $update = TRUE;
@@ -61,7 +66,7 @@ class Cart extends CI_Controller {
 
         $query = $this->product_model->get_product($id);
 
-        if($query->num_rows() < 1 OR $qty < 1 OR !is_numeric($qty)) {
+        if ($query->num_rows() < 1 OR $qty < 1 OR !is_numeric($qty)) {
             redirect(base_url("404"));
         } else {
             $stok = $query->row_array();
