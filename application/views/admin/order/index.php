@@ -199,24 +199,24 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="3" class="text-right">Total</td>
-                            <td class="text-right detail-total"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="text-right">Ongkos Kirim</td>
-                            <td class="text-right detail-shipping"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="text-right">Grand Total</td>
-                            <td class="text-right detail-grand"></td>
-                        </tr>
+                        <td colspan="4" class="text-right">Total</td>
+                        <td class="text-right detail-total"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right">Ongkos Kirim</td>
+                        <td class="text-right detail-shipping"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="text-right">Grand Total</td>
+                        <td class="text-right detail-grand"></td>
+                    </tr>
                     </tfoot>
                 </table>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
     </div>

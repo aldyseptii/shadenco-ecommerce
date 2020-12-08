@@ -26,13 +26,13 @@ class Admin_auth extends CI_Controller {
 
         if($query->num_rows() < 1) {
             $callback['status'] = 0;
-            $callback['msg'] = "Username tidak ditemukan";
+            $callback['msg'] = "Username nya salah tuh";
         } else {
             $parse = $query->row_array();
 
             if(!password_verify($pass,$parse['pass_admin'])) {
                 $callback['status'] = 0;
-                $callback['msg'] = "Password salah";
+                $callback['msg'] = "Password salah brayyyyy";
             } else {
                 $datasession = [
                     "login_status" => 1,
@@ -42,10 +42,8 @@ class Admin_auth extends CI_Controller {
 
                 $this->session->set_userdata($datasession);
                 $callback['status'] = 1;
-                $callback['msg'] = "Login berhasil";
-                if($this->session->login_status = 1) {
-                    redirect(base_url('admin/dashboard'));
-                }
+                $callback['msg'] = "Yeyyyy Login berhasil";
+
 
             }
         }

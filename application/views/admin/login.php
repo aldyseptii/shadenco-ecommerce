@@ -43,48 +43,58 @@
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="pass">
           <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
+              <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+              </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
+          <div class="row">
+              <div class="col-8">
+              </div>
+              <!-- /.col -->
+              <div class="col-4">
+                  <btn type="submit" class="btn btn-primary btn-block btn-auth" style="cursor: pointer;">Sign In</btn>
+              </div>
+              <!-- /.col -->
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-auth">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
       </form>
     </div>
-    <!-- /.login-card-body -->
+      <!-- /.login-card-body -->
   </div>
 </div>
 <script>
-$('.btn-auth').on('click',function(){
-  $.ajax({
-        url: "<?=base_url('admin/auth/login');?>",
-        method: "POST",
-        data: new FormData($('.login-form')[0]),
-        contentType: false,
-        cache: false,
-        processData: false,
-        dataType: "json",
-        success:function(result){
-          if(result['status']) {
-            location.href = "<?=base_url('admin/dashboard');?>";
-          } else {
-            Swal.fire(
-                    'Gagal',
-                    result['msg'],
-                    'error'
-                );
-          }
-        }
-      });
-});
+    $('.btn-auth').on('click', function () {
+        $.ajax({
+            url: "<?=base_url('admin/auth/login');?>",
+            method: "POST",
+            data: new FormData($('.login-form')[0]),
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            success: function (result) {
+                if (result['status']) {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Yeyyyy Login berhasil!',
+                        text: 'Anda akan di arahkan dalam 3 Detik',
+                        timer: 3000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    })
+                        .then(function () {
+                            window.location.href = "<?php echo base_url() ?>admin/dashboard";
+                        });
+                } else {
+                    Swal.fire(
+                        'Gagal',
+                        result['msg'],
+                        'error'
+                    );
+                }
+            }
+        });
+    });
 </script>
 <!-- /.login-box -->
 
