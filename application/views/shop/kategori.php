@@ -36,11 +36,13 @@ if (!isset($max)) {
             $isurl = base_url("search?category=$category->id_category");
         }
         ?>
-        <a href="<?= $isurl; ?>" class="d-flex">
+        <a href="<?= base_url("category/$category->id_category-" . $this->toolset->tourl($category->name_category)); ?>"
+           class="d-flex">
             <div alt="Produk Baru" class="category-page-div">
                 <div class="category-page-text"><?= $category->name_category; ?>
                 </div>
-                <a href="<?= $isurl; ?>" role="button" class="category-page-btn">Tampilkan</a>
+                <a href="<?= base_url("category/$category->id_category-" . $this->toolset->tourl($category->name_category)); ?>"
+                   role="button" class="category-page-btn">Tampilkan</a>
             </div>
         </a>
         <?php

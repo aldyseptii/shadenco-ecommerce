@@ -799,8 +799,6 @@ $this->visitor->hit();
     </script>
 </head>
 <body class="index">
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-1d02e25c-dee3-4a3b-8a1b-569d0a56dea0"></div>
 <div id="wrapper" class="wrapper-content">
     <header class="header navbar-fixed-top" style="background-color: #525659;">
         <div class="container pt-5" style="display: none;">
@@ -997,5 +995,8 @@ $this->visitor->hit();
     </div>
     </header>
 
-</div><!-- end of wrapper -->
+</div>
+<!-- end of wrapper -->
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-1d02e25c-dee3-4a3b-8a1b-569d0a56dea0 hidden-xs hidden-sm"></div>
 

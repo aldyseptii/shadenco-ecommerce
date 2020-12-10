@@ -100,18 +100,19 @@ if(!isset($max)) {
       </div>
 -->
             <?php
-            if ($this->router->fetch_class() !== 'category') { ?>
-                <div class="Categories left-sidebar-widget">
+            //            if ($this->router->fetch_class() !== 'category') { ?>
+            <div class="Categories left-sidebar-widget
+                <?php
+            if ($this->router->fetch_class() == 'search') { ?>hidden-xs <?php } ?>">
+                <div class="columnblock-title">Ukuran</div>
+                <div class="category_block">
+                    <ul class="box-category treeview collapsable">
 
-                    <div class="columnblock-title">Ukuran</div>
-                    <div class="category_block">
-                        <ul class="box-category treeview collapsable">
 
-
-                            <li>
-                                <?php
-                                $x = $this->input->get("category");
-                                if ($this->router->fetch_class() == 'catalog') {
+                        <li>
+                            <?php
+                            $x = $this->input->get("category");
+                            if ($this->router->fetch_class() == 'catalog') {
 
                                     //$y = ($x == 0 && $this->uri->segment(2) == $id_cat);
                                 } else if (empty($id_cat)) {
@@ -237,14 +238,15 @@ if(!isset($max)) {
 
                                 </div>
 
-                            </li>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-            <?php } ?>
+            </div>
+            <!--            --><?php //} ?>
         </div>
-        <div class="content col-sm-9">
+        <div class="content col-sm-9 <?php
+        if ($this->router->fetch_class() == 'category') { ?> hidden-xs hidden-sm <?php } ?>">
             <!-- Begin Display Ukuran -->
             <?php
             if ($this->router->fetch_class() == 'category') {
@@ -293,7 +295,7 @@ if(!isset($max)) {
                 }
                 ?>
 
-                <div class="row hidden-sm hidden-xs">
+                <div class="row">
                     <div class="columnblock-title" style="
     font-size: 16px;
     font-family: Montserrat;
