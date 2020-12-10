@@ -113,17 +113,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="<?=base_url("admin");?>" class="brand-link text-center">
 <!--      <img src="--><?//=base_url("minilogo.png");?><!--" class="brand-image">-->
         <i class="fas fa-weight-hanging nav-icon"></i>
-      <div class="brand-text">Shade & Co <span class="font-weight-light">eCommerce</span></div>
+        <div class="brand-text">Shadenco <span class="font-weight-light">Blinds</span></div>
     </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+      <!-- Sidebar -->
+      <div class="sidebar">
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                  data-accordion="false">
+                  <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
           <li class="nav-header">UTAMA</li>
           <li class="nav-item">
               <a href="<?=base_url('admin/dashboard');?>" class="nav-link">

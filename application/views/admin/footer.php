@@ -1,12 +1,11 @@
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
+<!-- Main Footer -->
+<footer class="main-footer">
     <!-- Default to the left -->
-    &copy; 2020 <b>Shade & Co</b>
+    &copy; 2020 <b>Shadenco Blinds</b>
     <div class="float-right d-none d-sm-inline">
-      Made with <a href="#" class="fa fa-heart"></a>
+        Made with <a href="#" class="fa fa-heart"></a>
     </div>
-  </footer>
+</footer>
 </div>
 <!-- ./wrapper -->
 

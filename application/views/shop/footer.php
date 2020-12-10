@@ -10,7 +10,7 @@
             <!--          <li><a href="#">Blog</a></li>-->
             <!--          <li><a href="#">Contact</a></li>-->
             <!--      </ul>-->
-            <div class="copyright"> Copyright - <a class="yourstore" href="/"> Shade & Co &copy; 2020 </a></div>
+            <div class="copyright"> Copyright - <a class="yourstore" href="/"> Shadenco Blinds &copy; 2020 </a></div>
             <div class="footer-bottom-cms">
                 <!--        <div class="footer-payment">-->
                 <!--          <ul>-->
@@ -20,7 +20,7 @@
                 <!--            <li class="discover"><a href="#"><img alt="" src="image/payment/discover.jpg"></a></li>-->
                 <!--          </ul>-->
             </div>
-    </div>
+        </div>
   </div>
     </div>
     <a id="scrollup">Scroll</a></footer>
