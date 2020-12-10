@@ -1241,6 +1241,10 @@ h2.price {
 	display: none;
 }
 .content .product-slider .product-thumb .product-imageblock .button-group, .content .product-grid .product-thumb .product-imageblock .button-group {
+	/* Untuk tidak menampilkan Tambah ke keranjang saat ada di katalog */
+	display: none;
+	/* Untuk tidak menampilkan Tambah ke keranjang saat ada di katalog */
+
 	opacity: 0;
 	padding: 0 20px;
 	transition: all 0.3s ease;
@@ -1251,6 +1255,10 @@ h2.price {
 	position: absolute;
 }
 .content .product-thumb:hover .product-imageblock .button-group {
+	/* Untuk tidak menampilkan Tambah ke keranjang saat ada di katalog */
+	display: none;
+	/* Untuk tidak menampilkan Tambah ke keranjang saat ada di katalog */
+
 	opacity: 1;
 	transition: all 0.8s ease;
 	-webkit-transition: all 0.8s ease;
@@ -1261,6 +1269,7 @@ h2.price {
 	right: 0;
 	bottom: 10px;
 }
+
 .content .product-thumb .product-imageblock .button-group {
 	opacity: 1;
 	transition: all 0.8s ease;
@@ -2142,8 +2151,8 @@ button.btn.btn-default.btn-lg span {
 	width: 60px;
 	height: 60px;
 	position: fixed;
-	bottom: 46px;
-	right: -1px;
+	bottom: 76px;
+	right: 13px;
 	display: none;
 	text-indent: -9999px;
 	cursor: pointer;

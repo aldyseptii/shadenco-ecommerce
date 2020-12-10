@@ -20,26 +20,26 @@ unset($rowthumb[0]);
                     <? /*= $detail->name_product; */ ?>
             </span>
         </div>-->
-        <div class="content col-sm-12">
-            <div class="row">
-                <div class="col-sm-6 p-5">
-                    <div class="thumbnails">
-                        <div class="left-column" id="ProductPhoto">
-                            <a class="thumbnail fancybox" rel="lightbox"
-                               href="<?= base_url("img/original/$bigthumb"); ?>" title="<?= $detail->name_product; ?>">
-                                <img id="ProductPhotoImg" class="tampil"
-                                     src="<?= base_url("img/original/$bigthumb"); ?>"
-                                     alt="<?= $detail->name_product; ?>" title="Motif <?= $detail->name_product; ?>"/>
+    <div class="content col-sm-12">
+        <div class="row">
+            <div class="col-sm-6 p-5">
+                <div class="thumbnails">
+                    <div class="left-column" id="ProductPhoto">
+                        <a class="thumbnail fancybox" rel="lightbox"
+                           href="<?= base_url("img/original/$bigthumb"); ?>" title="<?= $detail->name_product; ?>">
+                            <img id="ProductPhotoImg" class="tampil"
+                                 src="<?= base_url("img/original/$bigthumb"); ?>"
+                                 alt="<?= $detail->name_product; ?>" title="Warna <?= $detail->name_product; ?>"/>
+                        </a>
+                        <?php foreach ($variant as $motif) {
+                            ?>
+                            <a class="mb-4 fancybox" rel="lightbox2" href="<?= $motif->image_url; ?>"
+                               title="Warna <?= $motif->name_variant; ?>">
+                                <img id="ProductPhotoImg"
+                                     src="<?= $motif->image_url; ?>" data-image="<?= $motif->name_variant; ?>"
+                                     alt="<?= $motif->name_variant; ?>" title="<?= $motif->name_variant; ?>"/>
                             </a>
-                            <?php foreach ($variant as $motif) {
-                                ?>
-                                <a class="mb-4 fancybox" rel="lightbox2" href="<?= $motif->image_url; ?>"
-                                   title="Motif <?= $motif->name_variant; ?>">
-                                    <img id="ProductPhotoImg"
-                                         src="<?= $motif->image_url; ?>" data-image="<?= $motif->name_variant; ?>"
-                                         alt="<?= $motif->name_variant; ?>" title="<?= $motif->name_variant; ?>"/>
-                                </a>
-                            <?php }
+                        <?php }
                             if (count($variant) == 0) {
                                 echo '';
                             } ?>
@@ -122,7 +122,7 @@ unset($rowthumb[0]);
                             <h1><? /*= $detail->size_product; */ ?></h1>
                         </div>-->
                             <div class="row motif mb-4">
-                                <div class="col-md-3">MOTIF</div>
+                                <div class="col-md-3">WARNA</div>
                                 <div class="col-md-8">
                                     <?php foreach ($variant as $motif) {
                                         ?>
@@ -441,10 +441,12 @@ unset($rowthumb[0]);
                         text: result['msg'],
                         icon: 'success',
                         showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
+                        showConfirmButton: true,
+                        reverseButtons: true,
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Checkout',
-                        cancelButtonText: "Lanjutkan belanja"
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonText: "Lanjutkan belanja",
+                        confirmButtonText: 'Checkout'
                     }).then((result) => {
                         if (result.value) {
                             window.location.href = "<?=base_url("transaction/checkout");?>";

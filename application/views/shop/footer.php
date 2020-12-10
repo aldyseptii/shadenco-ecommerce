@@ -42,9 +42,9 @@ $('body').on('click','.addtocart',function(){
             success:function(result){
                 $('.csrf').attr("data-csrf",result['csrf_regenerate']);
                 if(result['status']) {
-                    if($('.cartul .update').length < 1) {
+                    if ($('.cartul .update').length < 1) {
 
-                    $('.cartul').append('<li style="text-align:center;margin-bottom: 12px" class="update">Telah terjadi perubahan. Silahkan refresh page untuk memperbaharui</li>');
+                        $('.cartul').append('<li style="text-align:center;margin-bottom: 12px" class="update">Telah terjadi perubahan. Silahkan refresh page untuk memperbaharui</li>');
 
                     }
                     Swal.fire({
@@ -52,11 +52,11 @@ $('body').on('click','.addtocart',function(){
                         text: result['msg'],
                         icon: 'success',
                         showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Checkout',
-                        cancelButtonText: "Lanjutkan belanja"
-                        }).then((result) => {
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonText: "Lanjutkan belanja",
+                        confirmButtonText: 'Checkout'
+                    }).then((result) => {
                         if (result.value) {
                             window.location.href = "<?=base_url("transaction/checkout");?>";
                         }

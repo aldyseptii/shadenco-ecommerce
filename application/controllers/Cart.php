@@ -55,7 +55,7 @@ class Cart extends CI_Controller {
         }
         if (empty($motif)) {
             $callback['status'] = 0;
-            $callback['msg'] = "Silahkan pilih Motif terlebih dahulu";
+            $callback['msg'] = "Silahkan pilih Warna terlebih dahulu";
 
         }
         if (empty($this->input->post("update"))) {
