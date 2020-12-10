@@ -10,9 +10,9 @@ $this->visitor->hit();
 <html lang="en">
 <head>
 <title><?=$pagetitle;?></title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="<?=$this->shop_setting->description();?>" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<?=$this->shop_setting->description();?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="<?=base_url("assets/moonstore/ms01");?>/image/favicon.png" rel="icon" type="image/png" >
 <link href="<?=base_url("assets/moonstore/ms01");?>/css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -443,6 +443,37 @@ $this->visitor->hit();
             font-size: 36px;
             margin-left: 50px;
         }
+
+        @media (max-width: 767px) and (orientation: landscape) {
+            .container {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .col-md-12 {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .bottom-nav {
+                max-width: 462px;
+                margin: 0 auto !important;
+                padding: 5px 38px !important;
+            }
+
+            .grid-list-wrapper .product-grid {
+                min-height: 400px;
+            }
+
+            .navbar-fixed-top {
+                display: none;
+            }
+
+            .wrapper-content {
+                margin-bottom: 6% !important;
+            }
+        }
+
 
         @media screen and (max-height: 450px) {
             .sidenav {
