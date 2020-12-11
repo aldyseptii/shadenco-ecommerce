@@ -43,10 +43,10 @@ unset($rowthumb[0]);
                             if (count($variant) == 0) {
                                 echo '';
                             } ?>
-                        </div>
-                        <div id="product-thumbnail" class="mt-3 owl-carousel">
+                    </div>
+                    <div id="product-thumbnail hidden" class="mt-3 owl-carousel">
 
-                            <!--                            --><?php
+                        <!--                            --><?php
                             /*                            foreach ($rowthumb as $img) {
                                                             $img = trim($img);
                                                             */ ?>
@@ -321,12 +321,12 @@ unset($rowthumb[0]);
                     </div>
                 </div>
             </div>
-            <h3 class="productblock-title mb-4">Produk Serupa</h3>
-            <h4 class="title-subline mb-4">Produk yang mungkin Anda tertarik</h4>
-            <div class="box">
-                <div id="related-slidertab" class="row owl-carousel product-slider">
+        <h3 class="productblock-title mb-4">Produk Serupa</h3>
+        <!--            <h4 class="title-subline mb-4">Produk yang mungkin Anda tertarik</h4>-->
+        <div class="row">
+            <!--                <div id="related-slidertab" class="row owl-carousel product-slider">-->
 
-                    <?php
+            <?php
                     foreach ($related as $rlt) {
                         $tourl = $this->toolset->tourl($rlt->name_product);
                         if (empty($rlt->url_photo)) {
@@ -336,22 +336,22 @@ unset($rowthumb[0]);
                         }
                         ?>
 
-                        <div class="item">
+                        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 item">
                             <div class="product-thumb transition">
                                 <div class="image product-imageblock"><a
-                                        href="<?= base_url("product/$rlt->id_product-$tourl"); ?>">
+                                            href="<?= base_url("product/$rlt->id_product-$tourl"); ?>">
                                         <img src="<?= $url_photo; ?>" alt="<?= $rlt->name_product; ?>"
                                              title="<?= $rlt->name_product; ?>" class="img-responsive"/>
                                         <img src="<?= $url_photo; ?>" alt="<?= $rlt->name_product; ?>"
                                              title="<?= $rlt->name_product; ?>" class="img-responsive"/>
                                     </a>
-                                    <ul class="button-group">
-                                        <li>
-                                            <button title="Tambah ke Keranjang" class="addtocart-btn" type="button">
-                                                Tambah ke Keranjang
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    <!--                                    <ul class="button-group">-->
+                                    <!--                                        <li>-->
+                                    <!--                                            <button title="Tambah ke Keranjang" class="addtocart-btn" type="button">-->
+                                    <!--                                                Tambah ke Keranjang-->
+                                    <!--                                            </button>-->
+                                    <!--                                        </li>-->
+                                    <!--                                    </ul>-->
                                 </div>
                                 <div class="caption product-detail">
                                     <div class="rating hidden">
@@ -369,10 +369,10 @@ unset($rowthumb[0]);
 
                     <?php } ?>
 
-                </div>
-            </div>
+            <!--                </div>-->
         </div>
     </div>
+</div>
 </div>
 
 <script>

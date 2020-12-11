@@ -1209,6 +1209,8 @@ h2.price {
 }
 .product-thumb.transition {
 	text-align: center;
+	/*max-height: 435px;*/
+	min-height: 435px;
 }
 .product-thumb .price {
 	color: #121212;

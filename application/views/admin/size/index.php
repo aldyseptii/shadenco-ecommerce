@@ -72,7 +72,10 @@
             <div class="modal-body">
                 <form id="editForm">
                     <div class="form-group">
-                        <input type="text" name="name_ukuran" value="" class="form-control validate txtName mb-2">
+                        <input type="text" name="name_ukuran" value="" class="form-control validate txtName mb-2"
+                               placeholder="Input Ukuran; example: 60cm x 185cm">
+                        <input type="number" name="id_product" value="" class="form-control validate idProd mb-2"
+                               placeholder="Link to ID Product; Lihat ID Produk pada menu-> Produk">
                         <div class="invalid-feedback"></div>
                     </div>
                     <input type="hidden" name="id" value="" class="form-control hdId">
@@ -98,7 +101,10 @@
             <div class="modal-body">
                 <form id="editForm">
                     <div class="form-group">
-                        <input type="text" name="name_ukuran" value="" class="form-control validate txtNameadd">
+                        <input type="text" name="name_ukuran" value="" class="form-control validate txtNameadd mb-2"
+                               placeholder="Input Ukuran; example: 60cm x 185cm">
+                        <input type="number" name="id_product" value="" class="form-control validate idProdadd mb-2"
+                               placeholder="Link to ID Product; Lihat ID Produk pada menu-> Produk">
                         <div class="invalid-feedback"></div>
                     </div>
                 </form>
@@ -114,9 +120,11 @@
 
 <script>
     $('body').on('click', '.btnedit', function () {
+        var idprod = $(this).attr("id-product");
         var txt = $(this).attr("data-name");
         var id = $(this).attr("data-id");
 
+        $('.idProd').val(idprod);
         $('.txtName').val(txt);
         $('.hdId').val(id);
     });
@@ -173,6 +181,7 @@
     });
 
     $('.btn-save').on('click', function () {
+        var idprod = $('.idProd').val();
         var txt = $('.txtName').val();
         var id = $('.hdId').val();
 
@@ -182,6 +191,7 @@
             url: "<?=base_url("admin/size/edit");?>/" + id,
             method: "POST",
             data: {
+                "id_product": idprod,
                 "name_ukuran": txt
             },
             dataType: "json",
@@ -215,6 +225,7 @@
     });
 
     $('.btn-saveadd').on('click', function () {
+        var idprod = $('.idProdadd').val();
         var txt = $('.txtNameadd').val();
 
 
@@ -224,6 +235,7 @@
             url: "<?=base_url("admin/size/add");?>/",
             method: "POST",
             data: {
+                "id_product": idprod,
                 "name_ukuran": txt
             },
             dataType: "json",
@@ -240,6 +252,7 @@
                         'success'
                     );
                     $('.txtNameadd').val("");
+                    $('.idProdadd').val("");
                 } else {
                     var count = result['error'].length;
                     var i;

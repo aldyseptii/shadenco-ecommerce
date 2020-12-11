@@ -655,17 +655,24 @@ footer .ul-wrapper {
 }
 
 @media (max-width: 767px) {
-	.dVYIqU {
-		display: inline-block;
-		position: fixed;
-		bottom: 50px !important;
-		z-index: 9999999;
-		right: 0px !important;
-		left: 0px !important;
+	.product-thumb.transition {
+		text-align: center;
+		/* max-height: 435px; */
+		min-height: 290px;
 	}
 
-	/* Header */
-	.header-middle-right, .header-middle-left {
+	@media
+		.dVYIqU {
+			display: inline-block;
+			position: fixed;
+			bottom: 50px !important;
+			z-index: 9999999;
+			right: 0px !important;
+			left: 0px !important;
+		}
+
+		/* Header */
+		.header-middle-right, .header-middle-left {
 		float: none;
 		display: inline-block;
 		width: 100%;

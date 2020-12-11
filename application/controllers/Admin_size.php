@@ -38,12 +38,17 @@ class Admin_size extends CI_Controller
                 "field" => "name_ukuran",
                 "label" => "name_ukuran",
                 "rules" => "required"
+            ],
+            [
+                "field" => "id_product",
+                "label" => "id_product",
+                "rules" => "required"
             ]
         ];
         $this->load->library("json_validate");
         $callback = $this->json_validate->validate($data, $rules);
 
-        if ($this->size_model->get_allukuran($id)->num_rows() < 1) {
+        if ($this->size_model->get_ukuran($id)->num_rows() < 1) {
             $callback['status'] = 0;
         }
 
@@ -61,6 +66,11 @@ class Admin_size extends CI_Controller
             [
                 "field" => "name_ukuran",
                 "label" => "name_ukuran",
+                "rules" => "required"
+            ],
+            [
+                "field" => "id_product",
+                "label" => "id_product",
                 "rules" => "required"
             ]
         ];
@@ -103,7 +113,7 @@ class Admin_size extends CI_Controller
             $row[] = $no;
             $row[] = $field->id_product;
             $row[] = $field->name_ukuran;
-            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '">
+            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" id-product="' . $field->id_product . '" data-id="' . $field->id_ukuran . '">
                         <i class="fas fa-pen"></i>
                       </button> 
                       <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '"><i class="fas fa-trash"></i>

@@ -121,69 +121,93 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+              <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
-          <li class="nav-header">UTAMA</li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/dashboard');?>" class="nav-link">
+                  <li class="nav-header">UTAMA</li>
+                  <li class="nav-item">
+                      <a href="<?=base_url('admin/dashboard');?>" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
                     Dashboard
                 </p>
               </a>
-          </li>
-          <li class="nav-item">
-              <a href="<?=base_url();?>" target="_blank" class="nav-link">
-                <i class="nav-icon fas fa-external-link-alt"></i>
-                <p>
-                    Lihat Website
-                </p>
-              </a>
-          </li>
-          <li class="nav-header">KELOLA</li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/product')?>" class="nav-link">
-                <i class="nav-icon fas fa-th-list"></i>
-                <p>
-                    Produk
-                </p>
-              </a>
-          </li>
-            <li class="nav-item">
-                <a href="<?= base_url('admin/category'); ?>" class="nav-link">
-                    <i class="nav-icon fas fa-cubes"></i>
-                    <p>
-                        Kategori
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="<?= base_url('admin/motif'); ?>" class="nav-link">
-                    <i class="nav-icon fas fa-adjust"></i>
-                    <p>
-                        Motif
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="<?= base_url('admin/size'); ?>" class="nav-link">
-                    <i class="nav-icon fas fa-stream"></i>
-                    <p>
-                        Ukuran
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="<?= base_url('admin/slider'); ?>" class="nav-link">
-                    <i class="nav-icon far fa-newspaper"></i>
-                    <p>
-                        Slider
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
+                  </li>
+                  <li class="nav-item">
+                      <a href="<?= base_url(); ?>" target="_blank" class="nav-link">
+                          <i class="nav-icon fas fa-external-link-alt"></i>
+                          <p>
+                              Lihat Website
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-header">KELOLA</li>
+                  <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <p>
+                              Manage Produk
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="<?= base_url('admin/product') ?>"
+                                 class="nav-link <?php if ($this->uri->segment(2) == 'product') {
+                                     echo 'active';
+                                 } ?> ">
+                                  <i class="nav-icon fas fa-th-list"></i>
+                                  <p>
+                                      Produk
+                                  </p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= base_url('admin/category'); ?>"
+                                 class="nav-link <?php if ($this->uri->segment(2) == 'category') {
+                                     echo 'active';
+                                 } ?>">
+                                  <i class="nav-icon fas fa-cubes"></i>
+                                  <p>
+                                      Kategori
+                                  </p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= base_url('admin/motif'); ?>"
+                                 class="nav-link <?php if ($this->uri->segment(2) == 'motif') {
+                                     echo 'active';
+                                 } ?>">
+                                  <i class="nav-icon fas fa-adjust"></i>
+                                  <p>
+                                      Motif
+                                  </p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= base_url('admin/size'); ?>"
+                                 class="nav-link <?php if ($this->uri->segment(2) == 'size') {
+                                     echo 'active';
+                                 } ?>">
+                                  <i class="nav-icon fas fa-stream"></i>
+                                  <p>
+                                      Ukuran
+                                  </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="<?= base_url('admin/slider'); ?>" class="nav-link">
+                          <i class="nav-icon far fa-newspaper"></i>
+                          <p>
+                              Slider
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                 <a href="<?= base_url('admin/page'); ?>" class="nav-link">
                     <i class="nav-icon far fa-file-alt"></i>
                 <p>

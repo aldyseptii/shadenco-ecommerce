@@ -44,9 +44,10 @@ class Product_model extends CI_Model {
 
     function related_product($id,$except) {
         $this->getter();
-        $this->db->where("product.id_category",$id);
-        $this->db->where_not_in('product.id_product',[$except]);
-        $this->db->limit(8);
+        $this->db->where("product.id_category", $id);
+        $this->db->where_not_in('product.id_product', [$except]);
+        /*$this->db->limit(8);*/
+
 
         return $this->db->get();
     }

@@ -38,6 +38,21 @@ class Admin_motif extends CI_Controller
                 "field" => "name_variant",
                 "label" => "name_variant",
                 "rules" => "required"
+            ],
+            [
+                "field" => "stock",
+                "label" => "stock",
+                "rules" => "required"
+            ],
+            [
+                "field" => "motif_link",
+                "label" => "motif_link",
+                "rules" => "required"
+            ],
+            [
+                "field" => "image_url",
+                "label" => "image_url",
+                "rules" => "required"
             ]
         ];
         $this->load->library("json_validate");
@@ -61,6 +76,21 @@ class Admin_motif extends CI_Controller
             [
                 "field" => "name_variant",
                 "label" => "name_variant",
+                "rules" => "required"
+            ],
+            [
+                "field" => "stock",
+                "label" => "stock",
+                "rules" => "required"
+            ],
+            [
+                "field" => "motif_link",
+                "label" => "motif_link",
+                "rules" => "required"
+            ],
+            [
+                "field" => "image_url",
+                "label" => "image_url",
                 "rules" => "required"
             ]
         ];
@@ -104,7 +134,7 @@ class Admin_motif extends CI_Controller
             $row[] = $field->id_product;
             $row[] = $field->name_variant;
             $row[] = $field->stock;
-            $row[] = $field->motif_link;
+            $row[] = '<a target="_blank" href="' . base_url('/assets/motif/') . $field->motif_link . '">' . $field->motif_link . '</a>';
             $row[] = '<button type="button" class="btn" data-toggle="modal" data-target="#' . $field->name_variant . '">
                       <img src="' . $field->image_url . '" width="80">
               </button>
@@ -127,7 +157,7 @@ class Admin_motif extends CI_Controller
           <!-- /.modal-dialog -->
         </div>
             ';
-            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_variant . '" data-id="' . $field->id_variant . '" data-stock="' . $field->stock . '" data-motiflink="' . $field->motif_link . '">
+            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_variant . '" id-product="' . $field->id_product . '" data-id="' . $field->id_variant . '" data-stock="' . $field->stock . '" data-motiflink="' . $field->motif_link . '" data-imagelink="' . $field->image_url . '">
                         <i class="fas fa-pen"></i>
                       </button> 
                       <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_variant . '" data-id="' . $field->id_variant . '"><i class="fas fa-trash"></i>

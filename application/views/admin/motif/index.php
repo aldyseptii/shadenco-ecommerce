@@ -35,6 +35,8 @@
                                         class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Tambah Motif
                                 </button>
                             </div>
+                            <span>Untuk path upload <strong>Image Motif</strong> ada di -> <a target="_blank"
+                                                                                              href="<?php echo base_url() ?>assets/motif/"><?php echo base_url() ?>assets/motif/ </a> </span>
                             <hr/>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tableMotif">
@@ -76,8 +78,10 @@
                 <form id="editForm">
                     <div class="form-group">
                         <input type="text" name="name_variant" value="" class="form-control validate txtName mb-2">
+                        <input type="text" name="id_product" value="" class="form-control validate idProduct mb-2">
                         <input type="text" name="stock" value="" class="form-control validate txtStock mb-2">
                         <input type="text" name="motif_link" value="" class="form-control validate txtMotifLink mb-2">
+                        <input type="text" name="image_url" value="" class="form-control validate imgMotif mb-2">
                         <div class="invalid-feedback"></div>
                     </div>
                     <input type="hidden" name="id" value="" class="form-control hdId">
@@ -103,7 +107,16 @@
             <div class="modal-body">
                 <form id="editForm">
                     <div class="form-group">
-                        <input type="text" name="name_variant" value="" class="form-control validate txtNameadd">
+                        <input type="text" name="name_variant" value="" class="form-control validate txtNameadd mb-2"
+                               placeholder="Nama Motif">
+                        <input type="number" name="id_product" value="" class="form-control validate idProductadd mb-2"
+                               placeholder="ID Product Terkait">
+                        <input type="number" name="stock" value="" class="form-control validate txtStockadd mb-2"
+                               placeholder="Total Stock">
+                        <input type="url" name="motif_link" value="" class="form-control validate txtMotifLinkadd mb-2"
+                               placeholder="URL Thumbnail Warna/motif">
+                        <input type="url" name="image_url" value="" class="form-control validate imgMotifadd mb-2"
+                               placeholder="URL Link to Image">
                         <div class="invalid-feedback"></div>
                     </div>
                 </form>
@@ -120,13 +133,17 @@
 <script>
     $('body').on('click', '.btnedit', function () {
         var txt = $(this).attr("data-name");
+        var idproduct = $(this).attr("id-product");
         var stock = $(this).attr("data-stock");
         var motiflink = $(this).attr("data-motiflink");
+        var imagemotif = $(this).attr("data-imagelink");
         var id = $(this).attr("data-id");
 
         $('.txtName').val(txt);
+        $('.idProduct').val(idproduct);
         $('.txtStock').val(stock);
         $('.txtMotifLink').val(motiflink);
+        $('.imgMotif').val(imagemotif);
         $('.hdId').val(id);
     });
     $('#tableMotif').DataTable({
@@ -183,8 +200,10 @@
 
     $('.btn-save').on('click', function () {
         var txt = $('.txtName').val();
+        var idproduct = $('.idProduct').val();
         var stock = $('.txtStock').val();
         var motiflink = $('.txtMotifLink').val();
+        var imagemotif = $('.imgMotif').val();
         var id = $('.hdId').val();
 
         $('.btn-save').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
@@ -194,8 +213,10 @@
             method: "POST",
             data: {
                 "name_variant": txt,
+                "id_product": idproduct,
                 "stock": stock,
-                "motif_link": motiflink
+                "motif_link": motiflink,
+                "image_url": imagemotif
             },
             dataType: "json",
             success: function (result) {
@@ -229,8 +250,10 @@
 
     $('.btn-saveadd').on('click', function () {
         var txt = $('.txtNameadd').val();
-        var stock = $('.txtStock').val();
-        var motiflink = $('.txtMotifLink').val();
+        var idproduct = $('.idProductadd').val();
+        var stock = $('.txtStockadd').val();
+        var motiflink = $('.txtMotifLinkadd').val();
+        var imagemotif = $('.imgMotifadd').val();
 
 
         $('.btn-saveadd').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
@@ -240,8 +263,11 @@
             method: "POST",
             data: {
                 "name_variant": txt,
+                "id_product": idproduct,
                 "stock": stock,
-                "motif_link": motiflink
+                "motif_link": motiflink,
+                "image_url": imagemotif
+
             },
             dataType: "json",
             success: function (result) {
@@ -257,8 +283,10 @@
                         'success'
                     );
                     $('.txtNameadd').val("");
+                    $('.idProductadd').val("");
                     $('.txtStockadd').val("");
                     $('.txtMotifLinkadd').val("");
+                    $('.imgMotifadd').val("");
                 } else {
                     var count = result['error'].length;
                     var i;
