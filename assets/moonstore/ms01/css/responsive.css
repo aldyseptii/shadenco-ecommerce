@@ -658,21 +658,20 @@ footer .ul-wrapper {
 	.product-thumb.transition {
 		text-align: center;
 		/* max-height: 435px; */
-		min-height: 290px;
+		min-height: 29px;
 	}
 
-	@media
-		.dVYIqU {
-			display: inline-block;
-			position: fixed;
-			bottom: 50px !important;
-			z-index: 9999999;
-			right: 0px !important;
-			left: 0px !important;
-		}
+	.dVYIqU {
+		display: inline-block;
+		position: fixed;
+		bottom: 50px !important;
+		z-index: 9999999;
+		right: 0px !important;
+		left: 0px !important;
+	}
 
-		/* Header */
-		.header-middle-right, .header-middle-left {
+	/* Header */
+	.header-middle-right, .header-middle-left {
 		float: none;
 		display: inline-block;
 		width: 100%;
@@ -682,7 +681,8 @@ footer .ul-wrapper {
 	.header-inner .header-middle {
 		float: none;
 	}
-.header-inner .header-left {
+
+	.header-inner .header-left {
 	text-align: center;
 	float: none;
 	margin: 0;

@@ -95,7 +95,6 @@ select.form-control, textarea.form-control, input[type="text"].form-control, inp
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid #ddd;
-    font-size: 14px;
 }
 .input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
 	border: none;
@@ -1883,17 +1882,17 @@ p.list-group-item {
 	width: 50px;
 }
 .content .blog-heading h3, .productblock-title, .client-title, .contactus-title, .team-title, .about-title {
-    font-size: 24px;
-    clear: both;
-    margin: 100px 0 0px;
-    display: inline-block;
-    width: 100%;
-    padding: 0;
-    color: #000;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-align: left;
+	font-size: 24px;
+	clear: both;
+	margin: 100px 0 0;
+	display: inline-block;
+	width: 100%;
+	padding: 0;
+	color: #000;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	text-align: left;
 }
 .productblock-title:after {
     content: "";
@@ -1903,7 +1902,6 @@ p.list-group-item {
     display: block;
     /* margin: 0 auto; */
     margin-top: 10px;
-}
 }
 .title-subline {
 	font-size: 16px;
@@ -2665,7 +2663,6 @@ article, .author {
 }
 .load-more-wrapper {
 	display: inline-block;
- text-align;
 	text-align: center;
 	width: 100%;
 }

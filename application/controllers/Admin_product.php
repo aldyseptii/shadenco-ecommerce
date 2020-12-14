@@ -25,7 +25,8 @@ class Admin_product extends CI_Controller {
         $detail = $this->product_model->get_photo($id)->row_array();
         $filebefore = '././upload/product/'.$detail['url_photo'];
         if(is_readable($filebefore)) {
-            unlink($filebefore);
+            ///Delete image from Upload Product when the Product is deleted
+            // unlink($filebefore);
             $this->product_model->del_photo($id);
             $callback['status'] = 1;
         }

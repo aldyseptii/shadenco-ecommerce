@@ -113,8 +113,10 @@
                                placeholder="ID Product Terkait">
                         <input type="number" name="stock" value="" class="form-control validate txtStockadd mb-2"
                                placeholder="Total Stock">
+                        <label>Hanya nama file + format, contoh S1A-1.png</label>
                         <input type="url" name="motif_link" value="" class="form-control validate txtMotifLinkadd mb-2"
                                placeholder="URL Thumbnail Warna/motif">
+                        <label>Full URL / Link, contoh: <small>https://store.shadenco.co.id/img/original/Roller_Blinds_Solar_Screen_90cm_x_250cm_-_R-3-S-1_-A.jpg</small></label>
                         <input type="url" name="image_url" value="" class="form-control validate imgMotifadd mb-2"
                                placeholder="URL Link to Image">
                         <div class="invalid-feedback"></div>
