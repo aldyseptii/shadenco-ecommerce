@@ -997,6 +997,3 @@ $this->visitor->hit();
 
 </div>
 <!-- end of wrapper -->
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-1d02e25c-dee3-4a3b-8a1b-569d0a56dea0 hidden-xs hidden-sm"></div>
-

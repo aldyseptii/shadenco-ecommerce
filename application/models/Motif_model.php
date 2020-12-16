@@ -27,4 +27,32 @@ class Motif_model extends CI_Model
     {
         $this->db->insert("variant", $data);
     }
+
+    // Motif Upload Photo
+
+    function post_photo($data)
+    {
+        $this->db->insert("photo_motif", $data);
+    }
+
+    function get_photo($id)
+    {
+        return $this->db->get_where("photo_motif", ["id_photo" => $id]);
+    }
+
+    function put_photo($id, $data)
+    {
+        $this->db->where("id_photo", $id);
+        $this->db->update("photo_motif", $data);
+    }
+
+    function delete_photo($id)
+    {
+        $this->db->delete("photo_motif", ['id_photo' => $id]);
+    }
+
+    function all_photo()
+    {
+        return $this->db->get("photo_motif");
+    }
 }
