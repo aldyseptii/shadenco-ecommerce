@@ -134,7 +134,7 @@ unset($rowthumb[0]);
                                             <?php
                                             $image_link = base_url('assets/motif/' . $motif->motif_link);
 
-                                            if (empty($motif->image_url)) {
+                                            if (empty($motif->motif_link)) {
                                                 echo '';
                                             } else {
                                                 echo "<img src='$image_link'>";
@@ -332,7 +332,7 @@ unset($rowthumb[0]);
                         if (empty($rlt->url_photo)) {
                             $url_photo = base_url("assets/moonstore/ms01") . "/image/product/product8-8.jpg";
                         } else {
-                            $url_photo = base_url("img/622x800/$rlt->url_photo");
+                            $url_photo = base_url("img/original/$rlt->url_photo");
                         }
                         ?>
 
