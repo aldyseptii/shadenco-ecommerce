@@ -200,23 +200,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
 
                   <li class="nav-item">
-                      <a href="<?= base_url('admin/slider'); ?>" class="nav-link">
+                      <a href="<?= base_url('admin/upload_motif'); ?>" class="nav-link">
                           <i class="nav-icon far fa-newspaper"></i>
                           <p>
-                              Slider
+                              Upload Photo Motif
+                          </p>
+                      </a>
+                  </li>
+                  <!--                  <li class="nav-item">-->
+                  <!--                      <a href="--><? //= base_url('admin/slider'); ?><!--" class="nav-link">-->
+                  <!--                          <i class="nav-icon far fa-newspaper"></i>-->
+                  <!--                          <p>-->
+                  <!--                              Slider-->
+                  <!--                          </p>-->
+                  <!--                      </a>-->
+                  <!--                  </li>-->
+                  <li class="nav-item">
+                      <a href="<?= base_url('admin/page'); ?>" class="nav-link">
+                          <i class="nav-icon far fa-file-alt"></i>
+                          <p>
+                              Halaman
                           </p>
                       </a>
                   </li>
                   <li class="nav-item">
-                <a href="<?= base_url('admin/page'); ?>" class="nav-link">
-                    <i class="nav-icon far fa-file-alt"></i>
-                <p>
-                    Halaman
-                </p>
-              </a>
-          </li>
-          <li class="nav-item">
-              <a href="<?=base_url('admin/order');?>" class="nav-link">
+                      <a href="<?= base_url('admin/order'); ?>" class="nav-link">
                 <i class="nav-icon far fa-list-alt"></i>
                 <p>
                     Orderan
