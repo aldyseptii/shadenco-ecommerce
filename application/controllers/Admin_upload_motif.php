@@ -82,7 +82,7 @@ class Admin_upload_motif extends CI_Controller
             }
 
             $config['upload_path'] = '././upload/motif';
-            $config['allowed_types'] = 'jpg|png';
+            $config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG';
             $config['max_size'] = 1000;
             $config['max_width'] = 1920;
             $config['max_height'] = 1920;
