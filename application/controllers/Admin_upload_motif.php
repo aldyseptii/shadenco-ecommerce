@@ -169,8 +169,7 @@ class Admin_upload_motif extends CI_Controller
             $row[] = $field->title_photo;
             $row[] = $field->link_photo;
             $row[] = '<button type="button" class="btn btn-dark btn-sm btnedit" data-id="' . $field->id_photo . '" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen"></i></button> <button type="button" class="btn btn-danger btn-sm btndelete" data-id="' . $field->id_photo . '"><i class="fas fa-trash"></i></button>
-<input type="text" value="' . base_url("upload/motif/$field->img_photo") . '" id="myInput">
-<button class="btn btn-warning btn-sm" onclick="copyTxt()">Copy!</button>';
+<input type="text" value="' . base_url("upload/motif/$field->img_photo") . '" id="myInput">';
 
             $data[] = $row;
         }
