@@ -313,7 +313,8 @@ unset($rowthumb[0]);
                                 <li>Maksimum klaim pengembalian dan garansi 2 x 24 jam semenjak barang diterima</li>
                             </ul>
                             <br/>
-                            Klaim garansi dan komplain product dilakukan via tokopedia, semua biaya pengiriman dalam
+                            Untuk melakukan komplain, harap dilampirkan video pada saat membuka kemasan. Semua biaya
+                            pengiriman dalam
                             proses pengembalian produk menjadi tanggung jawab pembeli
 
                             </p>
