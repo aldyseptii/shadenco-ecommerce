@@ -445,6 +445,29 @@ $this->visitor->hit();
         }
 
         @media (max-width: 767px) and (orientation: landscape) {
+            .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs > li > a:hover {
+                background: #799bab00;
+                padding: 7px 0px !important;
+                padding-left: 0;
+                margin: 0;
+                font-size: 13px !important;
+                font-weight: 600;
+                border-width: 2px;
+                border-bottom-color: #000000;
+                text-transform: uppercase;
+                border-bottom: solid 2px #000 !important;
+            }
+
+            .nav-tabs > li > a {
+                padding: 8px 20px;
+                margin: 0;
+                border: 0;
+                color: #949494;
+                font-weight: 500;
+                text-transform: uppercase;
+                font-size: 13px;
+            }
+
             .container {
                 max-width: 500px;
                 margin: 0 auto;
