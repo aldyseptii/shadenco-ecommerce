@@ -55,4 +55,32 @@ class Motif_model extends CI_Model
     {
         return $this->db->get("photo_motif");
     }
+
+    // Thumbnail Upload
+
+    function post_thumbnail($data)
+    {
+        $this->db->insert("thumbnail_motif", $data);
+    }
+
+    function get_thumbnail($id)
+    {
+        return $this->db->get_where("thumbnail_motif", ["id_thumbnail" => $id]);
+    }
+
+    function put_thumbnail($id, $data)
+    {
+        $this->db->where("id_thumbnail", $id);
+        $this->db->update("thumbnail_motif", $data);
+    }
+
+    function delete_thumbnail($id)
+    {
+        $this->db->delete("thumbnail_motif", ['id_thumbnail' => $id]);
+    }
+
+    function all_thumbnail()
+    {
+        return $this->db->get("thumbnail_motif");
+    }
 }
