@@ -207,6 +207,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           </p>
                       </a>
                   </li>
+
+                  <li class="nav-item">
+                      <a href="<?= base_url('admin/upload_thumbnail'); ?>" class="nav-link">
+                          <i class="nav-icon far fa-window-restore"></i>
+                          <p>
+                              Upload Thumbnail Motif
+                          </p>
+                      </a>
+                  </li>
+
                   <!--                  <li class="nav-item">-->
                   <!--                      <a href="--><? //= base_url('admin/slider'); ?><!--" class="nav-link">-->
                   <!--                          <i class="nav-icon far fa-newspaper"></i>-->
