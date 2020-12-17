@@ -35,8 +35,6 @@
                                         class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Tambah Motif
                                 </button>
                             </div>
-                            <span>Untuk path upload <strong>Image Motif</strong> ada di -> <a target="_blank"
-                                                                                              href="<?php echo base_url() ?>assets/motif/"><?php echo base_url() ?>assets/motif/ </a> </span>
                             <hr/>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tableMotif">
@@ -45,7 +43,7 @@
                                     <th scope="col" style="text-align:center">Link to ID</th>
                                     <th scope="col" style="text-align:center">Nama Motif</th>
                                     <th scope="col" style="text-align:center">Stock</th>
-                                    <th scope="col" style="text-align:center">Image Motif</th>
+                                    <th scope="col" style="text-align:center">Thumbnail Motif</th>
                                     <th scope="col" style="text-align:center">Link to Image</th>
                                     <th scope="col" style="text-align:center">Aksi</th>
                                     </thead>
