@@ -134,7 +134,7 @@ class Admin_motif extends CI_Controller
             $row[] = $field->id_product;
             $row[] = $field->name_variant;
             $row[] = $field->stock;
-            $row[] = '<a target="_blank" href="' . base_url('/assets/motif/') . $field->motif_link . '">' . $field->motif_link . '</a>';
+            $row[] = '<a target="_blank" href="' . base_url('/assets/motif/') . $field->motif_link . '">' . $field->motif_link . '</a> <img src="' . base_url('/assets/motif/') . $field->motif_link . '" width="80">';
             $row[] = '<button type="button" class="btn" data-toggle="modal" data-target="#' . $field->name_variant . '">
                       <img src="' . $field->image_url . '" width="80">
               </button>
