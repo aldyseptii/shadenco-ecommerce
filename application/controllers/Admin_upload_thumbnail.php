@@ -168,7 +168,10 @@ class Admin_upload_thumbnail extends CI_Controller
             $row[] = '<img style="max-width:150px" src="' . base_url("assets/motif/$field->img_thumbnail") . '"/>';
             $row[] = $field->title_thumbnail;
             $row[] = $field->link_thumbnail;
-            $row[] = '<button type="button" class="btn btn-dark btn-sm btnedit" data-id="' . $field->id_thumbnail . '" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen"></i></button> <button type="button" class="btn btn-danger btn-sm btndelete" data-id="' . $field->id_thumbnail . '"><i class="fas fa-trash"></i></button>';
+            $row[] = '
+<button type="button" class="btn btn-dark btn-sm btnedit" data-id="' . $field->id_thumbnail . '" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen"></i></button> 
+<button type="button" class="btn btn-danger btn-sm btndelete" data-id="' . $field->id_thumbnail . '"><i class="fas fa-trash"></i></button> 
+<button type="button" class="btn btn-warning btn-sm btncopy" title="Copy Link!" id-copy="' . $field->img_thumbnail . '"><i class="fas fa-trash"></i></button>';
 
             $data[] = $row;
         }

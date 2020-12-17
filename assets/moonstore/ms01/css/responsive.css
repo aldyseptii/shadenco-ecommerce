@@ -57,23 +57,43 @@ div#banner1, div#banner2 {
 #center {
 	padding-top: 0;
 }
-.blog_img {
-	width: 700px;
+
+	.blog_img {
+		width: 700px;
+	}
+
+	.product-list .product-thumb .caption {
+		width: 55%;
+	}
 }
-.product-list .product-thumb .caption {
-	width: 55%;
-}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
+
+	.product-thumb.transition {
+		text-align: center;
+		/* max-height: 435px; */
+		min-height: 293px !important;
+	}
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 979px) {
 
 
 	.home-slider .owl-buttons {
-	bottom: 100px;
-}
-/* Column */
-.column-left .product-grid .product-imageblock, .column-right .product-grid .product-imageblock {
-	min-height: inherit;
+		bottom: 100px;
+	}
+
+	/* Column */
+	.column-left .product-grid .product-imageblock, .column-right .product-grid .product-imageblock {
+		min-height: inherit;
 	margin: 0 15px 5px 0;
 }
 .column-left .product-grid .caption.product-detail, .column-right .product-grid .caption.product-detail {
