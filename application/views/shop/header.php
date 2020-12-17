@@ -483,6 +483,12 @@ $this->visitor->hit();
             .wrapper-content {
                 margin-bottom: 6% !important;
             }
+
+            .product-thumb.transition {
+                text-align: center;
+                /* max-height: 435px; */
+                min-height: 340px;
+            }
         }
 
 
