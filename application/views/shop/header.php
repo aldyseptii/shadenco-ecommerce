@@ -470,7 +470,14 @@ $this->visitor->hit();
             }
 
             .navbar-header {
-                display: none;
+                display: block;
+            }
+
+            #wrapper .logo {
+                max-width: 104px;
+                padding: 8px 10px;
+                height: auto;
+                border-radius: 5px;
             }
 
             .wrapper-content {
