@@ -171,7 +171,8 @@ class Admin_upload_thumbnail extends CI_Controller
             $row[] = '
 <button type="button" class="btn btn-dark btn-sm btnedit" data-id="' . $field->id_thumbnail . '" data-toggle="modal" data-target="#editModal"><i class="fas fa-pen"></i></button> 
 <button type="button" class="btn btn-danger btn-sm btndelete" data-id="' . $field->id_thumbnail . '"><i class="fas fa-trash"></i></button> 
-<button type="button" class="btn btn-warning btn-sm btncopy" title="Copy Link!" id-copy="' . $field->img_thumbnail . '"><i class="fas fa-trash"></i></button>';
+<input type="text" value="' . $field->img_thumbnail . '" id="myInput">
+<button class="btn btn-warning btn-sm" onclick="copyTxt()">Copy!</button>';
 
             $data[] = $row;
         }
