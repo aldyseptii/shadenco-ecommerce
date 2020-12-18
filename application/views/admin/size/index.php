@@ -42,6 +42,7 @@
                                     <th scope="col" style="text-align:center">#</th>
                                     <th scope="col" style="text-align:center">Link to ID</th>
                                     <th scope="col" style="text-align:center">Nama Ukuran</th>
+                                    <th scope="col" style="text-align:center">Url Ukuran</th>
                                     <th scope="col" style="text-align:center">Aksi</th>
                                     </thead>
                                 </table>
@@ -76,6 +77,8 @@
                                placeholder="Input Ukuran; example: 60cm x 185cm">
                         <input type="number" name="id_product" value="" class="form-control validate idProd mb-2"
                                placeholder="Link to ID Product; Lihat ID Produk pada menu-> Produk">
+                        <input type="text" name="url_ukuran" value="" class="form-control validate urlUkuran mb-2"
+                               placeholder="url dimulai dari product/">
                         <div class="invalid-feedback"></div>
                     </div>
                     <input type="hidden" name="id" value="" class="form-control hdId">
@@ -105,6 +108,8 @@
                                placeholder="Input Ukuran; example: 60cm x 185cm">
                         <input type="number" name="id_product" value="" class="form-control validate idProdadd mb-2"
                                placeholder="Link to ID Product; Lihat ID Produk pada menu-> Produk">
+                        <input type="text" name="url_ukuran" value="" class="form-control validate urlUkuranadd mb-2"
+                               placeholder="url dimulai dari product/">
                         <div class="invalid-feedback"></div>
                     </div>
                 </form>
@@ -122,10 +127,12 @@
     $('body').on('click', '.btnedit', function () {
         var idprod = $(this).attr("id-product");
         var txt = $(this).attr("data-name");
+        var urlukuran = $(this).attr("data-ukuran");
         var id = $(this).attr("data-id");
 
         $('.idProd').val(idprod);
         $('.txtName').val(txt);
+        $('.urlUkuran').val(urlukuran);
         $('.hdId').val(id);
     });
     $('#tableSize').DataTable({
@@ -183,6 +190,7 @@
     $('.btn-save').on('click', function () {
         var idprod = $('.idProd').val();
         var txt = $('.txtName').val();
+        var urlukuran = $('.urlUkuran').val();
         var id = $('.hdId').val();
 
         $('.btn-save').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
@@ -192,7 +200,8 @@
             method: "POST",
             data: {
                 "id_product": idprod,
-                "name_ukuran": txt
+                "name_ukuran": txt,
+                "url_ukuran": urlukuran
             },
             dataType: "json",
             success: function (result) {
@@ -227,6 +236,7 @@
     $('.btn-saveadd').on('click', function () {
         var idprod = $('.idProdadd').val();
         var txt = $('.txtNameadd').val();
+        var urlukuran = $('.urlUkuranadd').val();
 
 
         $('.btn-saveadd').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> menyimpan').prop('disabled', true);
@@ -236,7 +246,8 @@
             method: "POST",
             data: {
                 "id_product": idprod,
-                "name_ukuran": txt
+                "name_ukuran": txt,
+                "url_ukuran": urlukuran
             },
             dataType: "json",
             success: function (result) {
@@ -253,6 +264,7 @@
                     );
                     $('.txtNameadd').val("");
                     $('.idProdadd').val("");
+                    $('.urlUkuran').val("");
                 } else {
                     var count = result['error'].length;
                     var i;

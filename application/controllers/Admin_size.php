@@ -113,7 +113,8 @@ class Admin_size extends CI_Controller
             $row[] = $no;
             $row[] = $field->id_product;
             $row[] = $field->name_ukuran;
-            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" id-product="' . $field->id_product . '" data-id="' . $field->id_ukuran . '">
+            $row[] = $field->url_ukuran;
+            $row[] = '<button type="button" class="btn btn-sm btn-dark btnedit" data-toggle="modal" data-target="#editModal" data-name="' . $field->name_ukuran . '" id-product="' . $field->id_product . '" data-id="' . $field->id_ukuran . '" data-ukuran="' . $field->url_ukuran . '">
                         <i class="fas fa-pen"></i>
                       </button> 
                       <button type="button" class="btn btn-sm btn-danger btn-delete" data-name="' . $field->name_ukuran . '" data-id="' . $field->id_ukuran . '"><i class="fas fa-trash"></i>

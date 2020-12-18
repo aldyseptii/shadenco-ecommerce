@@ -200,7 +200,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
 
                   <li class="nav-item">
-                      <a href="<?= base_url('admin/upload_motif'); ?>" class="nav-link">
+                      <a href="<?= base_url('admin/upload_motif'); ?>"
+                         class="nav-link <?php if ($this->uri->segment(2) == 'upload_motif') {
+                             echo 'active';
+                         } ?>">
                           <i class="nav-icon far fa-newspaper"></i>
                           <p>
                               Upload Photo Motif
@@ -209,7 +212,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
 
                   <li class="nav-item">
-                      <a href="<?= base_url('admin/upload_thumbnail'); ?>" class="nav-link">
+                      <a href="<?= base_url('admin/upload_thumbnail'); ?>"
+                         class="nav-link <?php if ($this->uri->segment(2) == 'upload_thumbnail') {
+                             echo 'active';
+                         } ?>">
                           <i class="nav-icon far fa-window-restore"></i>
                           <p>
                               Upload Thumbnail Motif
