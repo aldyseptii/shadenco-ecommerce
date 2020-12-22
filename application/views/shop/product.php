@@ -297,7 +297,7 @@ unset($rowthumb[0]);
                             <h2>Kebijakan Garansi dan komplain Produk</h2>
                             <br/>
                             Produk yang dikirimkan sesuai dengan pemesanan sudah di lakukan pengecekan sebelum dilakukan
-                            pengiriman, jika ada ketidak sesuaian atau kecacatan produk (bukan karena salah pilih warna
+                            pengiriman, jika ada ketidaksesuaian atau kecacatan produk (bukan karena salah pilih warna
                             atau ukuran) dapat dilakukan retur/pengembalian maksimal 2hari setelah barang diterima oleh
                             customer. Dan dengan hanya mengganti biaya kirim saja (Kita tukar barang baru).
                             <br/><br/>
@@ -315,7 +315,7 @@ unset($rowthumb[0]);
                             <br/>
                             Untuk melakukan komplain, harap dilampirkan video pada saat membuka kemasan. Semua biaya
                             pengiriman dalam
-                            proses pengembalian produk menjadi tanggung jawab pembeli
+                            proses pengembalian produk menjadi tanggung jawab pembeli.
 
                             </p>
                         </div>
